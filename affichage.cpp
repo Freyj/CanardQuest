@@ -25,3 +25,14 @@ bool Affichage::relancer()
 	std::cin >> a;
 	return a==1;
 }
+//renvoie la vue du canard
+void Affichage::vue(int i)
+{
+	int* vue = new int[9];
+	vue = this->carte_->getVue(vue, i);
+	std::cout << "/ " << vue[0] << " " << vue[1] << " "<< vue[2] << " \\"<< std::endl;
+	std::cout << "| " << vue[3] << " C " << vue[5] << " |"<< std::endl;
+	std::cout << "\\ "<< vue[6] << " " << vue[7] << " " << vue[8] << " /" << std::endl;
+	delete[] vue;
+
+} 

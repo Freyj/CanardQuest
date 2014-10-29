@@ -12,6 +12,8 @@ class Canard: public Creature
 protected:
 	/** Représente le nom du canard*/
 	std::string nom_; 
+	/**donne la position du canard sur la carte */
+	int pos_;
 
 public:
 	/**
@@ -23,6 +25,8 @@ public:
 	*/
 	std::string getNom();
 	void setNom(std::string nom);
+	int getPos();
+	void setPos(int p);
 	
 	void deplacement(int a) override;
 	std::string presentation() override;

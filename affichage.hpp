@@ -16,6 +16,7 @@ class Affichage
 		//méthodes
 		void debut(); //blabla de départ
 		bool relancer(); //détermine si le joueur veut recommencer
+		void vue(int i);
 
 };
 #endif

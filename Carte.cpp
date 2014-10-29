@@ -58,3 +58,23 @@ int Carte::getTab(int i)
 	}
 	return -1;
 }
+
+//renvoit ce que le canard voit
+// -17 -16 -15
+//  -1  X  +1
+// +15 +16 +17
+// ou vue est un pointeur vers un tableau de 9 cases créées avant
+int* Carte::getVue(int* vue, int i)
+{
+	//ça mettra des -1 dans les cases "hors tableau"
+	vue[0] = getTab(i-17);
+	vue[1] = getTab(i-16);
+	vue[2] = getTab(i-15);
+	vue[3] = getTab(i-1);
+	vue[4] = getTab(i);
+	vue[5] = getTab(i+1);
+	vue[6] = getTab(i+15);
+	vue[7] = getTab(i+16);
+	vue[8] = getTab(i+17);
+	return vue;
+}

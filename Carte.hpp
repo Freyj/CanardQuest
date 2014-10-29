@@ -28,5 +28,8 @@ public:
 	//permet d'accéder à l'entier dans une case voulue
 	int getTab(int i);
 
+	//fonction qui renvoit les cases que le canard voit (+1/-1)
+	int* getVue(int* vue, int i);
+
 };
 #endif

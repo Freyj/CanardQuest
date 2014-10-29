@@ -4,6 +4,8 @@
 Canard::Canard(std::string nom)
 {
 	this->nom_ = nom;
+	this->pos_ = 28;
+	//this->pos_ = 0;
 }
 
 Canard::~Canard()
@@ -37,4 +39,12 @@ void Canard::setNom(std::string nom)
 void Canard::cancaner()
 {
 	std::cout << "Coin. Coin." << std::endl;
+}
+int Canard::getPos()
+{
+	return this->pos_;
+}
+void Canard::setPos(int p)
+{
+	this->pos_ = p;
 }
