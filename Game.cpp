@@ -10,8 +10,8 @@ int main(void)
 	bool reprendre = true;
 	std::string nomCanard =""; 	
 	//on fait la carte une fois pour toutes (et on lance l'aff)
-	Carte cart();
-	Affichage aff(&cart);
+	Carte* cart = new Carte();
+	Affichage aff(cart);
 
 	while (reprendre)
 	{
