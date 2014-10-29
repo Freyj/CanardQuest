@@ -12,7 +12,6 @@ int main(void)
 	//on fait la carte une fois pour toutes (et on lance l'aff)
 	Carte* cart = new Carte();
 	Affichage aff(cart);
-
 	while (reprendre)
 	{
 			//début du jeu, on initialise la variable de relance à faux

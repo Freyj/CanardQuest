@@ -5,6 +5,7 @@
 Carte::Carte()
 {
 	this->tab_ = new int[256];
+	creerCarte();
 }
 
 Carte::~Carte()
@@ -29,8 +30,7 @@ void Carte::creerCarte()
 		//tant qu'il y a à lire & qu'on a pas atteint le bout de la carte
 		while(!f.eof() && (cpt <256))
 		{
-			f.get(a);
-			//comme get récupère un char, 0 = 48 en ascii
+			f >> a;
 			this->setTab(cpt, (a-48));
 			++cpt;
 		}
