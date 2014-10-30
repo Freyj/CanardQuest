@@ -27,8 +27,7 @@ int main(void)
 			//on l'accueille poliment quand même
 			std::cout << "Bienvenue, " << joueur.getNom() << "." << std::endl;
 			std::cout << joueur.presentation() << std::endl;
-
-			std::cout << "On devrait voir autour de toi des jolis chiffres" << std::endl;
+			//std::cout << "On devrait voir autour de toi des jolis chiffres" << std::endl;
 			aff.vue(joueur.getPos());		
 
 		//à la fin du "jeu", on lui demande si il veut relancer une partie

@@ -3,19 +3,35 @@
 Caneton::Caneton(std::string nom) : Canard(nom)
 {
 }
-
 Caneton::~Caneton()
 {
-
 }
-
 void Caneton::deplacement(int a) 
 {
+	//^ 0
+	//> 1
+	//v 2
+	//< 3
+	if (a == 0)
+	{
+		this->pos_ -=16;
+	}
+	else if (a == 1)
+	{
+		this->pos_ +=1;
+	}
+	else if (a == 2)
+	{
+		this->pos_ +=16;
+	}
+	else if (a == 3)
+	{
+		this->pos_ -=1;
+	}
 }
 
 void Caneton::manger()
 {
-
 }
 
 std::string Caneton::presentation() 

@@ -17,6 +17,7 @@ class Affichage
 		void debut(); //blabla de départ
 		bool relancer(); //détermine si le joueur veut recommencer
 		void vue(int i);
+		char affichTerr(int i);
 
 };
 #endif
