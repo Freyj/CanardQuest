@@ -3,6 +3,7 @@
 
 #include "Creature.hpp"
 #include "Canard.hpp"
+#include "CompCaneton.hpp"
 
 //le caneton est la version de départ 
 class Caneton: public Canard
@@ -15,5 +16,7 @@ class Caneton: public Canard
 		void manger();		
 		std::string presentation();// ...
 		void cancaner();
+		void nager();
+		void voler();
 };
 #endif

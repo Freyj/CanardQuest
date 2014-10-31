@@ -2,9 +2,11 @@
 #include <iostream>
 Caneton::Caneton(std::string nom) : Canard(nom)
 {
+	this->comp = new CompCaneton();
 }
 Caneton::~Caneton()
 {
+	delete this->comp;
 }
 void Caneton::deplacement(int a) 
 {
@@ -42,4 +44,14 @@ std::string Caneton::presentation()
 void Caneton::cancaner()
 {
 	std::cout << ".... *ton cancannement ne s'entend même pas" << std::endl;
+}
+
+void Caneton::nager()
+{
+	this->comp->nager();
+}
+
+void Caneton::voler()
+{
+	this->comp->voler();
 }

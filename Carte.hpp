@@ -13,7 +13,6 @@ protected:
 public:
 	Carte();
 	~Carte();
-
 	/** 
 	méthode qui va créer la carte à partir d'un fichier
 	*/

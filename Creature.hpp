@@ -2,6 +2,7 @@
 #define CREATURE_HPP
 
 #include <string>
+#include "Comportement.hpp"
 
 class Creature
 {

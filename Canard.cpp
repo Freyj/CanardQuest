@@ -4,13 +4,11 @@
 Canard::Canard(std::string nom)
 {
 	this->nom_ = nom;
-	this->pos_ = 28;
-	//this->pos_ = 0;
+	this->pos_ = 101; //à peu près le milieu de la carte
 }
 
 Canard::~Canard()
 {
-
 }
 
 void Canard::deplacement(int a) 
@@ -19,7 +17,6 @@ void Canard::deplacement(int a)
 
 void Canard::manger()
 {
-
 }
 
 std::string Canard::presentation() 

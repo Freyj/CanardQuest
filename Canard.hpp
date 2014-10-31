@@ -2,9 +2,10 @@
 #define CANARD_HPP
 
 #include "Creature.hpp"
-
+#include "Comportement.hpp"
 /**
-Le canard est la classe abstraite dont vont hériter toutes les étapes
+Le canard est la classe abstraite  (pas encore très abstraite)
+dont vont hériter toutes les étapes
 de la vie d'un canard dans le jeu.
 */
 class Canard: public Creature
@@ -14,6 +15,9 @@ protected:
 	std::string nom_; 
 	/**donne la position du canard sur la carte */
 	int pos_;
+	/**définit le vol et la nage du canard*/
+	Comportement* comp;
+
 
 public:
 	/**

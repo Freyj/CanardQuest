@@ -2,11 +2,15 @@
 #include "affichage.hpp"
 #include "Caneton.hpp"
 
+/**
+Main contenant la boucle de jeu et tout.
+*/
 
 int main(void)
 {
 	//variables du jeu
 	bool reprendre = true;
+	bool canardVivant = true;
 	std::string nomCanard =""; 	
 	//on fait la carte une fois pour toutes (et on lance l'aff)
 	Carte* cart = new Carte();
@@ -27,8 +31,17 @@ int main(void)
 			//on l'accueille poliment quand même
 			std::cout << "Bienvenue, " << joueur.getNom() << "." << std::endl;
 			std::cout << joueur.presentation() << std::endl;
-			//std::cout << "On devrait voir autour de toi des jolis chiffres" << std::endl;
-			aff.vue(joueur.getPos());		
+			
+			while(canardVivant)
+			{				
+				aff.vue(joueur.getPos());	
+
+				joueur.voler();
+				joueur.nager();
+				
+				//pour le moment, check moisi pour sortir
+				canardVivant = false;
+			}
 
 		//à la fin du "jeu", on lui demande si il veut relancer une partie
 	 	if(aff.relancer())
