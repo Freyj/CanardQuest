@@ -84,6 +84,6 @@ Fonction permettant l'affichage d'une explication des symboles
 void Affichage::legende()
 {
 	std::cout << " \nC : ton canard    . : un peu d'herbe  ! : un arbre" << std::endl;
-	std::cout << "~ : de l'eau    # : un rocher       - : du sable" << std::endl;
+	std::cout << "~ : de l'eau      # : un rocher       - : du sable" << std::endl;
 	std::cout << "@ : inaccessible\n"	<< std::endl;
 }
