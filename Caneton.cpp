@@ -30,6 +30,10 @@ void Caneton::deplacement(int a)
 	{
 		this->pos_ -=1;
 	}
+	else 
+	{
+		std::cout << "Déplacement dans cette direction impossible.";
+	}
 }
 
 void Caneton::manger()

@@ -4,13 +4,13 @@
 
 Carte::Carte()
 {
-	this->tab_ = new int[256];
+	this->tabl_ = new Terrain[256];
 	creerCarte();
 }
 
 Carte::~Carte()
 {
-	delete[] this->tab_;
+	delete[] this->tabl_;
 }
 
 void Carte::creerCarte()
@@ -43,7 +43,7 @@ void Carte::setTab(int a, int b)
 {
 	if ((0 <= a) && (a < 256))
 	{
-		this->tab_[a] = b;
+		this->tabl_[a].type = b;
 	}
 
 
@@ -54,7 +54,7 @@ int Carte::getTab(int i)
 {
 	if ((0 <= i) && (i < 256))
 	{
-		return this->tab_[i];
+		return this->tabl_[i].type;
 	}
 	return -1;
 }

@@ -38,7 +38,6 @@ void Affichage::vue(int i)
 	delete[] vue;
 
 } 
-
 //renvoie le char à afficher à partir d'un type de terrain
 // 
 // hors map @ 0

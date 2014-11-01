@@ -18,11 +18,12 @@ int main(void)
 	//tests pour voir si la carte recevait bien les bons chiffres
 	//std::cout << cart->getTab(0) << std::endl;
 	//std::cout << cart->getTab(17) << std::endl;
+	//tant qu'on veut pas finir de jouer
 	while (reprendre)
 	{
 			//début du jeu, on initialise la variable de relance à faux
 			reprendre = false;
-			//on blablate pour intéresser le joueur
+			//on blablate pour alpaguer le joueur
 			aff.debut();
 			//on récupère son nom
 			std::cin >> nomCanard;
@@ -34,10 +35,10 @@ int main(void)
 			
 			while(canardVivant)
 			{				
-				aff.vue(joueur.getPos());	
+				aff.vue(joueur.getPos());
+				joueur.deplacement(2);
 
-				joueur.voler();
-				joueur.nager();
+				aff.vue(joueur.getPos());
 				
 				//pour le moment, check moisi pour sortir
 				canardVivant = false;
