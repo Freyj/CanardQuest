@@ -18,6 +18,7 @@ int main(void)
 	//tests pour voir si la carte recevait bien les bons chiffres
 	//std::cout << cart->getTab(0) << std::endl;
 	//std::cout << cart->getTab(17) << std::endl;
+	//std::cout << cart->getOccupation(10) << std::endl;
 	//tant qu'on veut pas finir de jouer
 	while (reprendre)
 	{

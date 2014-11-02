@@ -2,6 +2,9 @@
 #include <iostream>
 #include "Carte.hpp"
 
+/**
+Constructeur qui donne la carte à l'affichage 
+*/
 Affichage::Affichage(Carte *c)
 {
 	this->carte_ = c;
@@ -11,13 +14,18 @@ Affichage::~Affichage()
 {
 	delete this->carte_;
 }
-//le blabla du départ
+/**
+Permet de simplifier l'affichage initial en une fonction
+*/
 void Affichage::debut()
 {
 	std::cout << "Bienvenue sur CanardQuest. Un jeu d'un suspense insoutenable !" << std::endl;
 	std::cout << "\nQuel sera le nom de votre canard ?" << std::endl;
 }
-//renvoie 1 si on tape 1, et 0 autrement. Ca évite les "accidents"
+/**
+Fonction permettant de savoir si le joueur décide de relancer une 
+partie. Renvoie vrai si il tape 1, faux dans tous les autres cas.
+*/
 bool Affichage::relancer()
 {
 	int a;
@@ -25,7 +33,9 @@ bool Affichage::relancer()
 	std::cin >> a;
 	return a==1;
 }
-//renvoie la vue du canard
+/**
+Affiche la vue autour de la position i
+*/
 void Affichage::vue(int i)
 {
 	std::cout << "\nVoici ce que tu vois autour de toi :" << std::endl;
@@ -38,15 +48,15 @@ void Affichage::vue(int i)
 	delete[] vue;
 
 } 
-//renvoie le char à afficher à partir d'un type de terrain
-// 
-// hors map @ 0
-// eau ~  1
-// arbre ! 2
-// herbe . 3
-// sable - 4
-// nid * 5
-// rocher # 6
+/** renvoie le char à afficher en fonction du type de terrain
+hors map @ 0
+eau ~  1
+arbre ! 2
+herbe . 3
+sable - 4
+nid * 5
+rocher # 6
+*/
 char Affichage::affichTerr(int i)
 {
 	switch(i)

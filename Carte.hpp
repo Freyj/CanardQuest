@@ -13,35 +13,52 @@ structure définie juste pour ça, qui ne sert QUE dans cette classe
 */
 class Carte
 {
-protected:
-	struct Terrain
+private:
+	/**
+	Structure de deux entiers permettant de définir une case 
+	comme un type de terrain et une occupation (possibilité d'ajouter
+	d'autres infos plus tard)
+	*/
+	struct Case
 	{
+		/**représente le type de terrain*/
 		int type;
+		/**représente l'occupation du terrain*/
 		int occupation;
 	};
-	Terrain* tabl_;
+	/**Pointeur vers un tableau de Terraint représentant la carte*/
+	Case* tabl_;
 public:
 	Carte();
 	~Carte();
 	/** 
-	méthode qui va créer la carte à partir d'un fichier
+	Méthode qui va créer la carte à partir d'un fichier
 	*/
 	void creerCarte();
 	/**
-	méthode qui renvoit un string pour savoir quoi afficher ?
+	Méthode qui renvoit un string pour savoir quoi afficher ?
 	*/
 	std::string sendAff();
 
-	//permet de mettre un entier donné (b)sur la case voulue(a)
+	/**
+	Méthode permettant de mettre un entier donné (b)sur la case voulue(a)
+	*/
 	void setTab(int a, int b);
-	//permet d'accéder à l'entier dans une case voulue
+	/**
+	Méthode renvoyant l'entier d'une casede la carte
+	*/
 	int getTab(int i);
-
-	//fonction qui renvoit les cases que le canard voit (+1/-1)
+	/**
+	Fonction qui renvoit les cases que le canard voit (+1/-1)
+	*/
 	int* getVue(int* vue, int i);
-	//Change l'occupation d'une case
+	/**
+	Méthode permettant de changer l'occupation d'une case
+	*/
 	void setOccupation(int a, int b);
-	//Affiche l'occupation d'une case
+	/**
+	Méthode renvoyant un entier représentant l'occupation d'une case
+	*/
 	int getOccupation(int a);
 
 };

@@ -4,7 +4,7 @@
 
 Carte::Carte()
 {
-	this->tabl_ = new Terrain[256];
+	this->tabl_ = new Case[256];
 	creerCarte();
 }
 
@@ -32,6 +32,9 @@ void Carte::creerCarte()
 		{
 			f >> a;
 			this->setTab(cpt, (a-48));
+			//à la création de la carte, il n'y a rien dessus mais
+			//on initialise l'occupation tout de même
+			this->setOccupation(cpt, 0);
 			++cpt;
 		}
 
@@ -78,4 +81,17 @@ int* Carte::getVue(int* vue, int i)
 	vue[7] = getTab(i+16);
 	vue[8] = getTab(i+17);
 	return vue;
+}
+
+void Carte::setOccupation(int a, int b)
+{
+	if ((0 <= a) && (a < 256))
+	{
+		this->tabl_[a].occupation = b;
+	}
+}
+
+int Carte::getOccupation(int a)
+{
+	return this->tabl_[a].occupation;
 }

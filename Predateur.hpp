@@ -10,6 +10,7 @@ class Predateur: public Creature
 
 	public:
 		Predateur(std::string nom);
+		Predateur(std::string nom, int p);
 		~Predateur();
 		void deplacement(int a) override;
 		std::string presentation() override;

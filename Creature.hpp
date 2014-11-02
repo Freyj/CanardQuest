@@ -18,8 +18,10 @@ class Creature
 		~Creature(){};
 
 		//Méthodes relatives à toutes les créatures du jeu
-		virtual void deplacement(int a) = 0;  //Gestion du déplacement
-		virtual std::string presentation() = 0; //fonction pour tester
+		/**Méthode  virtuelle gérant le déplacement des créatures*/
+		virtual void deplacement(int a) = 0;
+		/**Méthode permettant de sortir un string pour tester les objets*/ 
+		virtual std::string presentation() = 0;
 		//méthodes qui changent pas
 		std::string getNom();
 		void setNom(std::string nom);
