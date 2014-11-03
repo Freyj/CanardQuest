@@ -24,7 +24,7 @@ public:
 	*/
 	void deplacement(int a) override;
 	std::string presentation() override;
-	void manger();		
+	void manger();
 	void cancaner();
 	/**Méthode permettant de définir le vol*/
 	virtual void voler() = 0;
