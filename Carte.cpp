@@ -71,7 +71,6 @@ TODO : Gérer les bords de la carte
 */
 int* Carte::getVue(int* vue, int i)
 {
-	//ça mettra des -1 dans les cases "hors tableau"
 	vue[0] = getTab(i-17);
 	vue[1] = getTab(i-16);
 	vue[2] = getTab(i-15);
@@ -81,6 +80,31 @@ int* Carte::getVue(int* vue, int i)
 	vue[6] = getTab(i+15);
 	vue[7] = getTab(i+16);
 	vue[8] = getTab(i+17);
+
+	if (i%16 == 0)
+	{
+		vue[0] = 0;
+		vue[3] = 0;
+		vue[6] = 0;
+	}
+	if (i%16 == 15)
+	{
+		vue[2] = 0;
+		vue[5] = 0;
+		vue[8] = 0;
+	}
+	if (i < 15)
+	{
+		vue[0] = 0;
+		vue[1] = 0;
+		vue[2] = 0;
+	}
+	if (i > 239)
+	{
+		vue[6] = 0;
+		vue[7] = 0;
+		vue[8] = 0;
+	}
 	return vue;
 }
 
