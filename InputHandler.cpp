@@ -7,6 +7,7 @@
 InputHandler::InputHandler(Canard* can)
 {
 	this->canard = can;
+	arret = false;
 }
 
 InputHandler::~InputHandler()
@@ -49,26 +50,29 @@ void InputHandler::userInput()
 		break;
 
 		case 's':
+		setArret(true);
 		break;
 
 		default:
 		break;
 	}
 }
-
-/**
-Fonction utilisée pour arrêter le jeu
-*/
-bool InputHandler::terminate()
-{
-	if (somethinglater)
-	{
-		return true;
-	}
-	return false;
-}
-
 Canard* InputHandler::getCanard()
 {
 	return this->canard;
+}
+
+void InputHandler::setCanard(Canard* can)
+{
+	this->canard = can;
+}
+
+bool InputHandler::getArret()
+{
+	return this->arret;
+}
+
+void InputHandler::setArret(bool ar)
+{
+	this->arret = ar;
 }

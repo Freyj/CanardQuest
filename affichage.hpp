@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Carte.hpp"
+
 /**
 Classe gérant l'affichage (en sortie console) de pas mal de choses [whouhou la description à changer]
 */

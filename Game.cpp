@@ -36,18 +36,17 @@ int main(void)
 			std::cout << joueur.presentation() << std::endl;
 			aff.vue(joueur.getPos());
 			commandes->userInput();
-			while(commandes->terminate()== false)
+			while(!commandes->getArret())
 			{				
 				aff.vue(joueur.getPos());
 				commandes->userInput();
 				//pour test
-				commandes->canard->presentation();
-				reprendre = true;
+				commandes->getCanard()->presentation();
 			}
 
 
-			joueur.deplacement(2);
-			aff.vue(joueur.getPos());
+			//joueur.deplacement(2);
+			//aff.vue(joueur.getPos());
 		//à la fin du "jeu", on lui demande si il veut relancer une partie
 	 	if(aff.relancer())
 	 	{

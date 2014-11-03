@@ -5,8 +5,9 @@
 
 class InputHandler
 {
-	protected:
+	private:
 		Canard* canard;
+		bool arret;
 
 	public:
 		InputHandler(Canard* can);
@@ -16,7 +17,10 @@ class InputHandler
 		bool terminate();
 
 		Canard* getCanard();
+		void setCanard(Canard* can);
 
+		bool getArret();
+		void setArret(bool ar);
 
 
 
