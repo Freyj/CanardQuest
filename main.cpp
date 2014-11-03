@@ -42,6 +42,14 @@ int main(void)
 				commandes->userInput();
 				//pour test
 				commandes->getCanard()->presentation();
+
+
+				//!\ je me doute que ca ne fonctionne pas, mais c'est l'idée.
+				if(joueur.faim == 0){
+                    commandes.getArret();
+				}
+				joueur.faim -= 1;
+
 			}
 
 

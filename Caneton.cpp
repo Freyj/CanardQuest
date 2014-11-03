@@ -3,6 +3,7 @@
 Caneton::Caneton(std::string nom) : Canard(nom)
 {
 	this->comp = new CompCaneton();
+	faim = 5;
 }
 Caneton::~Caneton()
 {
@@ -17,7 +18,7 @@ void Caneton::manger()
 /**
 Fonction renvoyant un string représentant l'objet, pour tests.
 */
-std::string Caneton::presentation() 
+std::string Caneton::presentation()
 {
 	return "Tu es un caneton qui tremblotte.";
 }

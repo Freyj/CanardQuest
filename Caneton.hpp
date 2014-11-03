@@ -5,14 +5,16 @@
 #include "Canard.hpp"
 #include "CompCaneton.hpp"
 
-//le caneton est la version de départ 
-class Caneton: public Canard 
+//le caneton est la version de départ
+class Caneton: public Canard
 {
+    private:
+        int faim;
 
 	public:
 		Caneton(std::string nom);
 		~Caneton();
-		void manger();		
+		void manger();
 		std::string presentation();// ...
 		void cancaner();
 		void nager();
