@@ -13,53 +13,33 @@ structure définie juste pour ça, qui ne sert QUE dans cette classe
 */
 class Carte
 {
-private:
-	/**
-	Structure de deux entiers permettant de définir une case 
-	comme un type de terrain et une occupation (possibilité d'ajouter
-	d'autres infos plus tard)
-	*/
-	struct Case
-	{
-		/**représente le type de terrain*/
+	private:
+		/** Structure de deux entiers permettant de définir une case comme un type de terrain et une occupation (possibilité d'ajouterd'autres infos plus tard) */
+		struct Case
+		{
+		/** représente le type de terrain */
 		int type;
-		/**représente l'occupation du terrain*/
+		/** représente l'occupation du terrain */
 		int occupation;
-	};
-	/**Pointeur vers un tableau de Terraint représentant la carte*/
-	Case* tabl_;
-public:
-	Carte();
-	~Carte();
-	/** 
-	Méthode qui va créer la carte à partir d'un fichier
-	*/
-	void creerCarte();
-	/**
-	Méthode qui renvoit un string pour savoir quoi afficher ?
-	*/
-	std::string sendAff();
-
-	/**
-	Méthode permettant de mettre un entier donné (b)sur la case voulue(a)
-	*/
-	void setTab(int a, int b);
-	/**
-	Méthode renvoyant l'entier d'une casede la carte
-	*/
-	int getTab(int i);
-	/**
-	Fonction qui renvoit les cases que le canard voit (+1/-1)
-	*/
-	int* getVue(int* vue, int i);
-	/**
-	Méthode permettant de changer l'occupation d'une case
-	*/
-	void setOccupation(int a, int b);
-	/**
-	Méthode renvoyant un entier représentant l'occupation d'une case
-	*/
-	int getOccupation(int a);
-
+		};
+		/** Pointeur vers un tableau de Terraint représentant la carte */
+		Case* tabl_;
+	public:
+		Carte();
+		~Carte();
+		/** Méthode qui va créer la carte à partir d'un fichier*/
+		void creerCarte();
+		/**	Méthode qui renvoit un string pour savoir quoi afficher ? */
+		std::string sendAff();
+		/**	Méthode permettant de mettre un entier donné (b)sur la case voulue(a) */
+		void setTab(int a, int b);
+		/** Méthode renvoyant l'entier d'une casede la carte */
+		int getTab(int i);
+		/**	Fonction qui renvoit les cases que le canard voit (+1/-1) */
+		int* getVue(int* vue, int i);
+		/** Méthode permettant de changer l'occupation d'une case */
+		void setOccupation(int a, int b);
+		/** Méthode renvoyant un entier représentant l'occupation d'une case */
+		int getOccupation(int a);
 };
 #endif

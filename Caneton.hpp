@@ -6,7 +6,7 @@
 #include "CompCaneton.hpp"
 
 //le caneton est la version de départ 
-class Caneton: public Canard
+class Caneton: public Canard 
 {
 
 	public:

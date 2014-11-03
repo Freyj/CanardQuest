@@ -2,7 +2,6 @@
 #include <iostream>
 
 //(╯°□°）╯︵ ┻━┻
-//(╯°□°）╯︵ ┻━┻
 
 InputHandler::InputHandler(Canard* can)
 {
@@ -11,14 +10,13 @@ InputHandler::InputHandler(Canard* can)
 }
 
 InputHandler::~InputHandler()
-{
-	
+{	
 }
 
 void InputHandler::userInput()
 {
 	char rec;
-	std::cout << "Quelle action voulez-vous effectuer ?\n h : pour aller vers le haut, b : pour aller vers le bas\ng : pour aller à gauche, d : pour aller à droite\nv pour voler, m pour manger, s pour arrêter" << std::endl;
+	std::cout << "Quelle action voulez-vous effectuer ?\n h : pour aller vers le haut, b : pour aller vers le bas\ng : pour aller à gauche, d : pour aller à droite\nv pour voler, m pour manger, s pour arrêter le jeu\n c pour cancaner"<< std::endl;
 	std::cin >> rec;
 	//std::cout << rec << std::endl;
 	switch (rec)
@@ -52,6 +50,9 @@ void InputHandler::userInput()
 		case 's':
 		setArret(true);
 		break;
+
+		case 'c':
+		this->canard->cancaner();
 
 		default:
 		break;
