@@ -8,7 +8,7 @@ Classe abstraite définissant les comportements communs à tous les canards
 class Comportement
 {
 	public:
-		Comportement(){};
+		 Comportement(){};
 		virtual ~Comportement(){};
 		/**Méthode permettant de définir le vol*/
 		virtual void voler() = 0;

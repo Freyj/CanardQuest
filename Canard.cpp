@@ -4,7 +4,7 @@
 Canard::Canard(std::string nom)
 {
 	this->nom_ = nom;
-	this->pos_ = 101; //à peu près le milieu de la carte
+	this->setPos(101); //à peu près le milieu de la carte
 }
 
 Canard::~Canard()
@@ -19,24 +19,53 @@ void Canard::deplacement(int a)
 	//< 3
 	if (a == 0)
 	{
-		this->pos_ -=16;
+		if (this->getPos() < 16)
+		{
+			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
+		}
+		else 
+		{
+			this->setPos(this->getPos()-16);
+		}
+		
 	}
 	else if (a == 1)
 	{
-		this->pos_ +=1;
+		if (this->getPos() == 255)
+		{
+			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
+		}
+		else
+		{
+			this->setPos(this->getPos()+1);
+		}
 	}
 	else if (a == 2)
 	{
-		this->pos_ +=16;
-		//std::cout << "TESTING FOR ERRORS" << std::endl;
+		if (this->getPos() > 239)
+		{
+			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
+		}
+		else 
+		{
+			this->setPos(this->getPos()+16);
+		}
+		
 	}
 	else if (a == 3)
 	{
-		this->pos_ -=1;
+		if (this->getPos() <1)
+		{
+			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
+		}
+		else 
+		{
+			this->setPos(this->getPos()-1);
+		}
 	}
 	else 
 	{
-		std::cout << "Déplacement dans cette direction impossible.";
+		std::cout << "Erreur d'entrée, déplacement impossible.";
 	}
 }
 
