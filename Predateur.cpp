@@ -5,16 +5,15 @@
 Constructeur de prédateur qui prend un string pour modifier le nom
 de la créature
 */
-Predateur::Predateur(std::string nom)
+Predateur::Predateur(std::string nom): Creature(nom)
 {
-	this->nom_ = nom;
+	
 }
 /**
 Constructeur alternatif donnant un nom et une position à la créature
 */
-Predateur::Predateur(std::string nom, int p)
+Predateur::Predateur(std::string nom, int p): Creature(nom)
 {
-	this->nom_ = nom;
 	this->pos_ = p;
 }
 

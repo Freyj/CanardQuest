@@ -67,6 +67,7 @@ int Carte::getTab(int i)
 //  -1  X  +1
 // +15 +16 +17
 // ou vue est un pointeur vers un tableau de 9 cases créées avant
+TODO : Gérer les bords de la carte
 */
 int* Carte::getVue(int* vue, int i)
 {

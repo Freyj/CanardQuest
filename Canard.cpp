@@ -1,9 +1,8 @@
 #include "Canard.hpp"
 #include <iostream>
 
-Canard::Canard(std::string nom)
+Canard::Canard(std::string nom):Creature(nom)
 {
-	this->nom_ = nom;
 	this->setPos(101); //à peu près le milieu de la carte
 }
 
@@ -31,7 +30,7 @@ void Canard::deplacement(int a)
 	}
 	else if (a == 1)
 	{
-		if (this->getPos() == 255)
+		if ((this->getPos() == 255) || (this->getPos()%16 == 15))
 		{
 			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
 		}
@@ -54,7 +53,7 @@ void Canard::deplacement(int a)
 	}
 	else if (a == 3)
 	{
-		if (this->getPos() <1)
+		if ((this->getPos() <1) || (this->getPos()%16 == 0))
 		{
 			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
 		}
