@@ -9,36 +9,6 @@ Caneton::~Caneton()
 	delete this->comp;
 }
 /**
-Fonction de déplacement du canard
-*/
-void Caneton::deplacement(int a) 
-{
-	//^ 0
-	//> 1
-	//v 2
-	//< 3
-	if (a == 0)
-	{
-		this->pos_ -=16;
-	}
-	else if (a == 1)
-	{
-		this->pos_ +=1;
-	}
-	else if (a == 2)
-	{
-		this->pos_ +=16;
-	}
-	else if (a == 3)
-	{
-		this->pos_ -=1;
-	}
-	else 
-	{
-		std::cout << "Déplacement dans cette direction impossible.";
-	}
-}
-/**
 Fonction qui fait "manger" le canard
 */
 void Caneton::manger()

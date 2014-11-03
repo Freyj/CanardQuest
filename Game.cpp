@@ -1,6 +1,7 @@
 #include <iostream>
 #include "affichage.hpp"
 #include "Caneton.hpp"
+#include "InputHandler.hpp"
 
 /**
 Main contenant la boucle de jeu et tout.
@@ -10,10 +11,9 @@ int main(void)
 {
 	//variables du jeu
 	bool reprendre = true;
-	bool canardVivant = true;
 	std::string nomCanard =""; 	
 	//on fait la carte une fois pour toutes (et on lance l'aff)
-	Carte* cart = new Carte();
+	Carte* cart =  new Carte();
 	Affichage aff(cart);
 	//tests pour voir si la carte recevait bien les bons chiffres
 	//std::cout << cart->getTab(0) << std::endl;
@@ -30,30 +30,34 @@ int main(void)
 			std::cin >> nomCanard;
 			//on crée son canard
 			Caneton joueur(nomCanard);
+			InputHandler* commandes = new InputHandler(&joueur);
 			//on l'accueille poliment quand même
 			std::cout << "Bienvenue, " << joueur.getNom() << "." << std::endl;
 			std::cout << joueur.presentation() << std::endl;
-			
-			while(canardVivant)
+			aff.vue(joueur.getPos());
+			commandes->userInput();
+			while(commandes->terminate()== false)
 			{				
 				aff.vue(joueur.getPos());
-				joueur.deplacement(2);
-
-				aff.vue(joueur.getPos());
-				
-				//pour le moment, check moisi pour sortir
-				canardVivant = false;
+				commandes->userInput();
+				//pour test
+				commandes->canard->presentation();
+				reprendre = true;
 			}
 
+
+			joueur.deplacement(2);
+			aff.vue(joueur.getPos());
 		//à la fin du "jeu", on lui demande si il veut relancer une partie
 	 	if(aff.relancer())
 	 	{
 	 		reprendre = true;
 	 	}
+	 	else 
+	 	{
+	 		reprendre = false;
+	 	}
 	}
-
-
-
 	
 	return 0;
 

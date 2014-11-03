@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -Wextra -std=c++11 
 LDFLAGS=
-SOURCES=Game.cpp Canard.cpp affichage.cpp Caneton.cpp Carte.cpp CompCaneton.cpp Predateur.cpp Creature.cpp Input.cpp
+SOURCES=Game.cpp Canard.cpp affichage.cpp Caneton.cpp Carte.cpp CompCaneton.cpp Predateur.cpp Creature.cpp InputHandler.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=canard
 
@@ -14,4 +14,4 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -rf *.o canard
+	rm *.o

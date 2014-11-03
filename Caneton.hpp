@@ -12,7 +12,6 @@ class Caneton: public Canard
 	public:
 		Caneton(std::string nom);
 		~Caneton();
-		void deplacement(int a);	//méthode de la classe abstraite
 		void manger();		
 		std::string presentation();// ...
 		void cancaner();

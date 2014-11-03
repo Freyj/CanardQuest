@@ -26,6 +26,10 @@ public:
 	std::string presentation() override;
 	void manger();		
 	void cancaner();
+	/**Méthode permettant de définir le vol*/
+	virtual void voler() = 0;
+	/**Méthode permettant de définir la nage*/
+	virtual void nager() = 0;
 
 };
 
