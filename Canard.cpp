@@ -11,7 +11,7 @@ Canard::~Canard()
 {
 }
 
-void Canard::deplacement(int a) 
+void Canard::deplacement(int a)
 {
 	//^ 0
 	//> 1
@@ -63,7 +63,7 @@ void Canard::deplacement(int a)
 			this->setPos(this->getPos()-1);
 		}
 	}
-	else 
+	else
 	{
 		std::cout << "Erreur d'entrée, déplacement impossible.";
 	}
@@ -73,7 +73,7 @@ void Canard::manger()
 {
 }
 
-std::string Canard::presentation() 
+std::string Canard::presentation()
 {
 	return "Tu es un canard qui cancanne.";
 }
