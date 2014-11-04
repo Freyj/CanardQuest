@@ -14,6 +14,7 @@ Fonction qui fait "manger" le canard
 */
 void Caneton::manger()
 {
+    faim = 5;
 }
 /**
 Fonction renvoyant un string représentant l'objet, pour tests.
@@ -44,4 +45,12 @@ pour déterminer le vol
 void Caneton::voler()
 {
 	this->comp->voler();
+}
+int getFaim()
+{
+    return faim;
+}
+void setFaim(int n)
+{
+    faim = n;
 }

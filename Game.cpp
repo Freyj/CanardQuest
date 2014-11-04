@@ -11,7 +11,7 @@ int main(void)
 {
 	//variables du jeu
 	bool reprendre = true;
-	std::string nomCanard =""; 	
+	std::string nomCanard ="";
 	//on fait la carte une fois pour toutes (et on lance l'aff)
 	Carte* cart =  new Carte();
 	Affichage aff(cart);
@@ -35,12 +35,16 @@ int main(void)
 			std::cout << "Bienvenue, " << joueur.getNom() << "." << std::endl;
 			std::cout << joueur.presentation() << std::endl;
 			while(!commandes->getArret())
-			{				
+			{
 				aff.vue(joueur.getPos());
 				commandes->userInput();
-				
+
 				//pour test
 				commandes->getCanard()->presentation();
+				if(joueur->getFaim() == 0){
+                    commandes->setArret(true);
+				}
+				joueur->setFaim(joueur->getFaim()-1);
 			}
 
 
@@ -51,12 +55,12 @@ int main(void)
 	 	{
 	 		reprendre = true;
 	 	}
-	 	else 
+	 	else
 	 	{
 	 		reprendre = false;
 	 	}
 	}
-	
+
 	return 0;
 
 }

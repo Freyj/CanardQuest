@@ -19,5 +19,8 @@ class Caneton: public Canard
 		void cancaner();
 		void nager();
 		void voler();
+
+		int getFaim();
+		void setFaim(int n);
 };
 #endif
