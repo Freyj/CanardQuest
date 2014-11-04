@@ -120,3 +120,23 @@ int Carte::getOccupation(int a)
 {
 	return this->tabl_[a].occupation;
 }
+
+bool Carte::getObstacle(int a)
+{
+	//1 / 2 / 6 = obstacles (eau, arbre, rocher)
+	if ((this->getType(a) == 1) || (this->getType(a) == 2) || (this->getType(a) == 6)) 
+	{
+		return true;
+	}
+	return false;
+}
+
+int Carte::getType(int i)
+{
+	return this->tabl_[i].type;
+}
+
+void Carte::setType(int i, int a)
+{
+	this->tabl_[i].type = a;
+}

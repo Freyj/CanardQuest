@@ -22,6 +22,7 @@ class Affichage
 		char affichTerr(int i);
 		void legende();
 		void gameOver();
+		void victoire();
 
 };
 #endif

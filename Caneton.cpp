@@ -9,13 +9,7 @@ Caneton::~Caneton()
 {
 	delete this->comp;
 }
-/**
-Fonction qui fait "manger" le canard
-*/
-void Caneton::manger()
-{
-    faim = 5;
-}
+
 /**
 Fonction renvoyant un string représentant l'objet, pour tests.
 */

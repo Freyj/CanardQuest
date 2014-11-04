@@ -31,7 +31,11 @@ class Carte
 		void creerCarte();
 		/**	Méthode qui renvoit un string pour savoir quoi afficher ? */
 		std::string sendAff();
+		/** Méthode renvoyant la case demandée*/
+		int getType(int i);
 		/**	Méthode permettant de mettre un entier donné (b)sur la case voulue(a) */
+		void setType(int i, int a);
+		/** Méthode changeant le type d'une case i en a.*/
 		void setTab(int a, int b);
 		/** Méthode renvoyant l'entier d'une casede la carte */
 		int getTab(int i);
@@ -41,5 +45,7 @@ class Carte
 		void setOccupation(int a, int b);
 		/** Méthode renvoyant un entier représentant l'occupation d'une case */
 		int getOccupation(int a);
+		/** Méthode renvoyant un booléen pour déterminer si on peut passer sur la case ou pas*/
+		bool getObstacle(int a);
 };
 #endif

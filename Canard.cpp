@@ -4,6 +4,7 @@
 Canard::Canard(std::string nom):Creature(nom)
 {
 	this->setPos(101); //à peu près le milieu de la carte
+	this->setFaim(5);
 }
 
 Canard::~Canard()
@@ -71,6 +72,7 @@ void Canard::deplacement(int a)
 void Canard::manger()
 {
 	faim = 5;
+	std::cout << "Tu manges des graines." << std::endl;
 }
 
 std::string Canard::presentation()

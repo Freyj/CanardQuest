@@ -100,5 +100,10 @@ void Affichage::legende()
 
 void Affichage::gameOver()
 {
-	std::cout << "Malgré tous tes efforts, ton petit canard est mort." << std::endl;
+	std::cout << "Malgré tous tes fiers efforts, ton canard est mort." << std::endl;
+}
+
+void Affichage::victoire()
+{
+	std::cout << "Bravo, ton canard a réussi à évoluer correctement, tu as gagné ! " << std::endl;
 }

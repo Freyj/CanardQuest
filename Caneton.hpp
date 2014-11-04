@@ -11,7 +11,6 @@ class Caneton: public Canard
 	public:
 		Caneton(std::string nom);
 		~Caneton();
-		void manger();
 		std::string presentation();// ...
 		void cancaner();
 		void nager();
