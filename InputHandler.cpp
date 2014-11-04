@@ -23,22 +23,22 @@ void InputHandler::userInput()
 	{
 		case 'h':
 		this->canard->deplacement(0);
-		std::cout << "Tu avance." << std::endl;
+		std::cout << "Tu avances." << std::endl;
 		break;
 
 		case 'b':
 		this->canard->deplacement(2);
-		std::cout << "Tu recule." << std::endl;
+		std::cout << "Tu recules." << std::endl;
 		break;
 
 		case 'g':
 		this->canard->deplacement(3);
-		std::cout << "Tu va a gauche." << std::endl;
+		std::cout << "Tu vas à gauche." << std::endl;
 		break;
 
 		case 'd':
 		this->canard->deplacement(1);
-		std::cout << "Tu va a droite." << std::endl;
+		std::cout << "Tu vas à droite." << std::endl;
 		break;
 
 		case 'v':
@@ -59,7 +59,7 @@ void InputHandler::userInput()
 
 		default:
         std::cout << "\n---------------------------------------------------\n" << std::endl;
-        std::cout << "Cette touche n'est assignee a aucune action. Tu as perdu un tour XD." << std::endl;
+        std::cout << "Cette touche n'est assignée à aucune action. Tu as perdu un tour." << std::endl;
 		break;
 	}
 }
