@@ -80,3 +80,12 @@ void Canard::cancaner()
 {
 	std::cout << "Coin. Coin." << std::endl;
 }
+
+int Canard::getFaim()
+{
+    return this->faim;
+}
+void Canard::setFaim(int n)
+{
+    this->faim = n;
+}

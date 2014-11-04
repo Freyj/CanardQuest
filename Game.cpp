@@ -41,10 +41,10 @@ int main(void)
 
 				//pour test
 				commandes->getCanard()->presentation();
-				if(joueur->getFaim() == 0){
+				if(joueur.getFaim() == 0){
                     commandes->setArret(true);
 				}
-				joueur->setFaim(joueur->getFaim()-1);
+				joueur.setFaim(joueur.getFaim()-1);
 			}
 
 

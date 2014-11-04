@@ -13,6 +13,8 @@ class Canard: public Creature
 protected:
 	/**définit le vol et la nage du canard*/
 	Comportement* comp;
+	int faim;
+
 
 public:
 	/**
@@ -24,6 +26,9 @@ public:
 	*/
 	void deplacement(int a) override;
 	std::string presentation() override;
+
+	int getFaim();
+	void setFaim(int n);
 	void manger();
 	void cancaner();
 	/**Méthode permettant de définir le vol*/

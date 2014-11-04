@@ -9,8 +9,6 @@
 class Caneton: public Canard
 {
     private:
-        int faim;
-
 	public:
 		Caneton(std::string nom);
 		~Caneton();
@@ -20,7 +18,5 @@ class Caneton: public Canard
 		void nager();
 		void voler();
 
-		int getFaim();
-		void setFaim(int n);
 };
 #endif

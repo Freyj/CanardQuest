@@ -46,11 +46,3 @@ void Caneton::voler()
 {
 	this->comp->voler();
 }
-int getFaim()
-{
-    return faim;
-}
-void setFaim(int n)
-{
-    faim = n;
-}
