@@ -8,7 +8,6 @@
 //le caneton est la version de départ
 class Caneton: public Canard
 {
-    private:
 	public:
 		Caneton(std::string nom);
 		~Caneton();

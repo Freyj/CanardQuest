@@ -21,6 +21,7 @@ class Affichage
 		void vue(int i);
 		char affichTerr(int i);
 		void legende();
+		void gameOver();
 
 };
 #endif

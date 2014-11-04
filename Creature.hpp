@@ -29,5 +29,8 @@ class Creature
 		void setNom(std::string nom);
 		int getPos();
 		void setPos(int p);
+		int getEtatCourant();
+		void setEtatCourant(int i);
+
 };
 #endif

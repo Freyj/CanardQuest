@@ -42,6 +42,7 @@ int main(void)
 				//pour test
 				commandes->getCanard()->presentation();
 				if(joueur.getFaim() == 0){
+					aff.gameOver();
                     commandes->setArret(true);
 				}
 				joueur.setFaim(joueur.getFaim()-1);

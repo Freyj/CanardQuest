@@ -96,3 +96,9 @@ void Affichage::legende()
 	std::cout << "~ : de l'eau      # : un rocher       - : du sable" << std::endl;
 	std::cout << "@ : inaccessible\n"	<< std::endl;
 }
+
+
+void Affichage::gameOver()
+{
+	std::cout << "Malgré tous tes efforts, ton petit canard est mort." << std::endl;
+}

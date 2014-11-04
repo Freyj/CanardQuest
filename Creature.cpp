@@ -30,3 +30,13 @@ void Creature::setPos(int p)
 {
 	this->pos_ = p;
 }
+
+void Creature::setEtatCourant(int i)
+{
+	etatCourant = i;
+}
+
+int Creature::getEtatCourant()
+{
+	return this->etatCourant;
+}
