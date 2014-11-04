@@ -70,6 +70,7 @@ void Canard::deplacement(int a)
 
 void Canard::manger()
 {
+	faim = 5;
 }
 
 std::string Canard::presentation()
