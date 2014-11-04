@@ -10,33 +10,35 @@ InputHandler::InputHandler(Canard* can)
 }
 
 InputHandler::~InputHandler()
-{	
+{
 }
 
 void InputHandler::userInput()
 {
 	char rec;
-	std::cout << "Quelle action voulez-vous effectuer ?\n h : pour aller vers le haut, b : pour aller vers le bas\ng : pour aller à gauche, d : pour aller à droite\nv pour voler, m pour manger, s pour arrêter la partie\n c pour cancaner"<< std::endl;
+	std::cout << "Quelle action voulez-vous effectuer ?\nh : pour aller vers le haut\nb : pour aller vers le bas\ng : pour aller à gauche\nd : pour aller à droite\nv : pour voler\nm : pour manger\nc : pour cancaner\ns : pour arrêter la partie"<< std::endl;
 	std::cin >> rec;
 	//std::cout << rec << std::endl;
 	switch (rec)
 	{
 		case 'h':
 		this->canard->deplacement(0);
-		//std::cout << 'h' << std::endl;
+		std::cout << "Tu avance." << std::endl;
 		break;
 
 		case 'b':
 		this->canard->deplacement(2);
-		std::cout << "BOUH" << std::endl;
+		std::cout << "Tu recule." << std::endl;
 		break;
 
 		case 'g':
 		this->canard->deplacement(3);
+		std::cout << "Tu va a gauche." << std::endl;
 		break;
 
 		case 'd':
 		this->canard->deplacement(1);
+		std::cout << "Tu va a droite." << std::endl;
 		break;
 
 		case 'v':
@@ -53,8 +55,11 @@ void InputHandler::userInput()
 
 		case 'c':
 		this->canard->cancaner();
+        break;
 
 		default:
+        std::cout << "\n---------------------------------------------------\n" << std::endl;
+        std::cout << "Cette touche n'est assignee a aucune action. Tu as perdu un tour XD." << std::endl;
 		break;
 	}
 }

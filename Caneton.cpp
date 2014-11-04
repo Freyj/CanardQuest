@@ -22,6 +22,7 @@ Méthode qui fait cancaner le canard
 */
 void Caneton::cancaner()
 {
+    std::cout << "\n---------------------------------------------------\n" << std::endl;
 	std::cout << ".... *ton cancannement ne s'entend même pas" << std::endl;
 }
 /**

@@ -17,17 +17,18 @@ void Canard::deplacement(int a)
 	//> 1
 	//v 2
 	//< 3
+	std::cout << "\n---------------------------------------------------\n" << std::endl;
 	if (a == 0)
 	{
 		if (this->getPos() < 16)
 		{
 			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
 		}
-		else 
+		else
 		{
 			this->setPos(this->getPos()-16);
 		}
-		
+
 	}
 	else if (a == 1)
 	{
@@ -46,11 +47,11 @@ void Canard::deplacement(int a)
 		{
 			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
 		}
-		else 
+		else
 		{
 			this->setPos(this->getPos()+16);
 		}
-		
+
 	}
 	else if (a == 3)
 	{
@@ -58,7 +59,7 @@ void Canard::deplacement(int a)
 		{
 			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
 		}
-		else 
+		else
 		{
 			this->setPos(this->getPos()-1);
 		}
@@ -72,6 +73,7 @@ void Canard::deplacement(int a)
 void Canard::manger()
 {
 	faim = 5;
+	std::cout << "\n---------------------------------------------------\n" << std::endl;
 	std::cout << "Tu manges des graines." << std::endl;
 }
 
@@ -81,6 +83,7 @@ std::string Canard::presentation()
 }
 void Canard::cancaner()
 {
+    std::cout << "\n---------------------------------------------------\n" << std::endl;
 	std::cout << "Coin. Coin." << std::endl;
 }
 

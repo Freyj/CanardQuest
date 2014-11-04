@@ -3,7 +3,7 @@
 #include "Carte.hpp"
 
 /**
-Constructeur qui donne la carte à l'affichage 
+Constructeur qui donne la carte à l'affichage
 */
 Affichage::Affichage(Carte *c)
 {
@@ -19,16 +19,18 @@ Permet de simplifier l'affichage initial en une fonction
 */
 void Affichage::debut()
 {
+    std::cout << "\n***************************************************\n" << std::endl;
 	std::cout << "Bienvenue sur CanardQuest. Un jeu d'un suspense insoutenable !" << std::endl;
 	std::cout << "\nQuel sera le nom de votre canard ?" << std::endl;
 }
 /**
-Fonction permettant de savoir si le joueur décide de relancer une 
+Fonction permettant de savoir si le joueur décide de relancer une
 partie. Renvoie vrai si il tape 1, faux dans tous les autres cas.
 */
 bool Affichage::relancer()
 {
 	int a;
+	std::cout << "\n****************************************************\n" << std::endl;
 	std::cout << "Voulez-vous relancer une partie ?\nTapez 1 pour recommencer, toute autre touche arrêtera le programme." << std::endl;
 	std::cin >> a;
 	return a==1;
@@ -38,6 +40,7 @@ Affiche la vue autour de la position i
 */
 void Affichage::vue(int i)
 {
+    std::cout << "\n---------------------------------------------------\n" << std::endl;
 	std::cout << "\nVoici ce que tu vois autour de toi :" << std::endl;
 	legende();
 	int* vue = new int[9];
@@ -47,7 +50,7 @@ void Affichage::vue(int i)
 	std::cout << "  " << affichTerr(vue[6]) << " " << affichTerr(vue[7]) << " " << affichTerr(vue[8]) << "\n" << std::endl;
 	delete[] vue;
 
-} 
+}
 /** renvoie le char à afficher en fonction du type de terrain
 hors map @ 0
 eau ~  1
@@ -69,11 +72,11 @@ char Affichage::affichTerr(int i)
 
 		case 2:
 			return '!';
-		
+
 		case 3:
 			return '.';
 
-		case 4: 
+		case 4:
 			return '-';
 
 		case 5:
@@ -87,7 +90,7 @@ char Affichage::affichTerr(int i)
 
 	}
 }
-/** 
+/**
 Fonction permettant l'affichage d'une explication des symboles
 */
 void Affichage::legende()
@@ -100,10 +103,13 @@ void Affichage::legende()
 
 void Affichage::gameOver()
 {
+    std::cout << "\n---------------------------------------------------\n" << std::endl;
 	std::cout << "Malgré tous tes fiers efforts, ton canard est mort." << std::endl;
 }
 
 void Affichage::victoire()
 {
-	std::cout << "Bravo, ton canard a réussi à évoluer correctement, tu as gagné ! " << std::endl;
+    std::cout << "\n********************************************************************" << std::endl;
+	std::cout << "* Bravo, ton canard a réussi à évoluer correctement, tu as gagné ! *" << std::endl;
+	std::cout << "********************************************************************" << std::endl;
 }
