@@ -10,6 +10,7 @@ class CompCaneton: public Comportement
 		~CompCaneton();
 		void voler() override;
 		void nager() override;
+		void cancaner() override;
 };
 
 

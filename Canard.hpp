@@ -31,12 +31,14 @@ public:
 	int getFaim();
 	void setFaim(int n);
 	void manger();
-	void cancaner();
+	//void cancaner();
 	void statut();
 	/**Méthode permettant de définir le vol*/
 	virtual void voler() = 0;
 	/**Méthode permettant de définir la nage*/
 	virtual void nager() = 0;
+	/**Méthode permettant de définir le cancannement*/
+	virtual void cancaner() = 0;
 
 	bool estVivant();
 

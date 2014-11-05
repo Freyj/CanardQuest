@@ -25,3 +25,9 @@ void CompCaneton::nager()
     std::cout << "\n---------------------------------------------------\n" << std::endl;
 	std::cout << "Il ne serait pas prudent de nager, tu vas te noyer.\n" << std::endl;
 }
+
+void CompCaneton::cancaner()
+{
+    std::cout << "\n---------------------------------------------------\n" << std::endl;
+	std::cout << "Coin. Coin." << std::endl;
+}

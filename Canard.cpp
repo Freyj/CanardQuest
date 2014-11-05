@@ -72,7 +72,7 @@ void Canard::deplacement(int a)
 
 void Canard::manger()
 {
-	faim = 5;
+	faim += 5;
 	std::cout << "\n---------------------------------------------------\n" << std::endl;
 	std::cout << "Tu manges des graines." << std::endl;
 }
@@ -83,8 +83,12 @@ std::string Canard::presentation()
 }
 void Canard::cancaner()
 {
-    std::cout << "\n---------------------------------------------------\n" << std::endl;
-	std::cout << "Coin. Coin." << std::endl;
+	this->comp->cancaner();
+}
+
+void Canard::voler()
+{
+	this->comp->voler();
 }
 
 int Canard::getFaim()
@@ -105,5 +109,13 @@ bool Canard::estVivant()
 void Canard::statut()
 {
     std::cout << "\n---------------------------------------------------\n" << std::endl;
-    std::cout << "Tu as encore " << getFaim() << " tours avant de mourir de faim.\n" << std::endl;
+    if (getFaim()>0)
+    {
+    	std::cout << "Tu as encore " << getFaim() << " tours avant de mourir de faim.\n" << std::endl;
+    }
+    else
+    {
+    	std::cout << "C'est ton dernier tour avant de mourir de faim !\n" << std::endl;
+    }
 }
+
