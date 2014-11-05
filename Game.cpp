@@ -38,6 +38,7 @@ int main(void)
 			while(!commandes->getArret())
 			{
 				aff.vue(joueur.getPos());
+				joueur.statut();
 				commandes->userInput();
 
 				//pour test

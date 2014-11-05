@@ -32,6 +32,7 @@ public:
 	void setFaim(int n);
 	void manger();
 	void cancaner();
+	void statut();
 	/**Méthode permettant de définir le vol*/
 	virtual void voler() = 0;
 	/**Méthode permettant de définir la nage*/

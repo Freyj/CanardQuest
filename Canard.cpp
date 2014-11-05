@@ -101,3 +101,9 @@ bool Canard::estVivant()
 {
 	return (!((this->getFaim() == 0) && this->getEtatCourant()== 0));
 }
+
+void Canard::statut()
+{
+    std::cout << "\n---------------------------------------------------\n" << std::endl;
+    std::cout << "Tu as encore " << getFaim() << " tours avant de mourir de faim.\n" << std::endl;
+}
