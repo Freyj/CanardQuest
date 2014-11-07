@@ -45,7 +45,7 @@ class Carte
 		void setOccupation(int a, int b);
 		/** Méthode renvoyant un entier représentant l'occupation d'une case */
 		int getOccupation(int a);
-		/** Méthode renvoyant un booléen pour déterminer si on peut passer sur la case ou pas*/
+		/** Méthode renvoyant vrai s'il y a un obstacle sur la case a*/
 		bool getObstacle(int a);
 };
 #endif

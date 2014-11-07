@@ -30,7 +30,7 @@ int main(void)
 			std::cin >> nomCanard;
 			//on crée son canard
 			Caneton joueur(nomCanard);
-			InputHandler* commandes = new InputHandler(&joueur);
+			InputHandler* commandes = new InputHandler(&joueur, cart);
 			//on l'accueille poliment quand même
 			std::cout << "\n---------------------------------------------------\n" << std::endl;
 			std::cout << "Bienvenue, " << joueur.getNom() << ".\n" << std::endl;
@@ -38,8 +38,9 @@ int main(void)
 			while(!commandes->getArret())
 			{
 				aff.vue(joueur.getPos());
-				joueur.statut();
 				commandes->userInput();
+				joueur.statut();
+				
 
 				//pour test
 				//commandes->getCanard()->presentation();

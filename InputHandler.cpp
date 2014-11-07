@@ -3,10 +3,11 @@
 
 //(╯°□°）╯︵ ┻━┻
 
-InputHandler::InputHandler(Canard* can)
+InputHandler::InputHandler(Canard* can, Carte* cart)
 {
-	this->canard = can;
-	arret = false;
+	this->canard_ = can;
+	this->carte_ = cart;
+	arret_ = false;
 }
 
 InputHandler::~InputHandler()
@@ -22,31 +23,27 @@ void InputHandler::userInput()
 	switch (rec)
 	{
 		case 'h':
-		this->canard->deplacement(0);
-		std::cout << "Tu avances." << std::endl;
+		deplacement(this->canard_->getPos(), 0);
 		break;
 
 		case 'b':
-		this->canard->deplacement(2);
-		std::cout << "Tu recules." << std::endl;
+		deplacement(this->canard_->getPos(),2);
 		break;
 
 		case 'g':
-		this->canard->deplacement(3);
-		std::cout << "Tu vas à gauche." << std::endl;
+		deplacement(this->canard_->getPos(),3);
 		break;
 
 		case 'd':
-		this->canard->deplacement(1);
-		std::cout << "Tu vas à droite." << std::endl;
+		deplacement(this->canard_->getPos(),1);
 		break;
 
 		case 'v':
-		this->canard->voler();
+		this->canard_->voler();
 		break;
 
 		case 'm':
-		this->canard->manger();
+		this->canard_->manger();
 		break;
 
 		case 's':
@@ -54,7 +51,7 @@ void InputHandler::userInput()
 		break;
 
 		case 'c':
-		this->canard->cancaner();
+		this->canard_->cancaner();
         break;
 
 		default:
@@ -65,20 +62,116 @@ void InputHandler::userInput()
 }
 Canard* InputHandler::getCanard()
 {
-	return this->canard;
+	return this->canard_;
 }
 
 void InputHandler::setCanard(Canard* can)
 {
-	this->canard = can;
+	this->canard_ = can;
 }
 
 bool InputHandler::getArret()
 {
-	return this->arret;
+	return this->arret_;
 }
 
 void InputHandler::setArret(bool ar)
 {
-	this->arret = ar;
+	this->arret_ = ar;
+}
+
+/** 
+Fonction vérifiant que le déplacement est possible, et dans le cas positif donnant à Canard l'ordre d'effectuer le déplacement
+*/
+void InputHandler::deplacement(int place, int sens)
+{
+	//^ 0
+	//> 1
+	//v 2
+	//< 3
+
+	switch (sens)
+	{
+		case 0:
+		if (place < 16)
+		{
+			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
+		}
+		else
+		{
+			if (this->carte_->getObstacle(place-16))
+			{
+				//voler plus tard
+				std::cout << "Tu ne peux pas passer par dessus cet obstacle." << std::endl;
+			}
+			else 
+			{
+				this->canard_->setPos(place-16);
+				std::cout << "Tu avances." << std::endl;
+			}
+		}
+		break;
+
+		case 1:
+		if ((place == 255) || (place%16 == 15))
+		{
+			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
+		}
+		else 
+		{
+			if (this->carte_->getObstacle(place+1))
+			{
+				std::cout << "Tu ne peux pas passer par dessus cet obstacle." << std::endl;
+			}
+			else
+			{
+				this->canard_->setPos(place+1);
+				std::cout << "Tu vas à droite." << std::endl;
+			}
+		}
+		break;
+
+		case 2:
+		if (place > 239)
+		{
+			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
+		}
+		else
+		{
+			if (this->carte_->getObstacle(place+16))
+			{
+				std::cout << "Tu ne peux pas passer par dessus cet obstacle." << std::endl;
+			}
+			else
+			{
+				this->canard_->setPos(place+16);
+				std::cout << "Tu vas en bas." << std::endl;
+			}
+
+		}
+		break;
+
+		case 3:
+		if((place <1) || (place%16 == 0))
+		{
+			std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
+		}
+		else
+		{
+			if (this->carte_->getObstacle(place-1))
+			{
+				std::cout << "Tu ne peux pas passer par dessus cet obstacle." << std::endl;
+			}
+			else
+			{
+				this->canard_->setPos(place-1);
+				std::cout << "Tu vas à gauche." << std::endl;
+			}
+		}
+		break;
+
+		default:
+		std::cout << "Erreur d'entrée, déplacement impossible.0" << std::endl;
+		break;
+	}
 }

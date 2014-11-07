@@ -49,6 +49,7 @@ void Affichage::vue(int i)
 	std::cout << "  " << affichTerr(vue[3]) << " C " << affichTerr(vue[5]) << std::endl;
 	std::cout << "  " << affichTerr(vue[6]) << " " << affichTerr(vue[7]) << " " << affichTerr(vue[8]) << "\n" << std::endl;
 	delete[] vue;
+	affichOcc(i);
 
 }
 /** renvoie le char à afficher en fonction du type de terrain
@@ -89,6 +90,45 @@ char Affichage::affichTerr(int i)
 			return '@';
 
 	}
+}
+/**
+Fonction permettant l'affichage d'une ligne décrivant la case à l'int a
+*/
+void Affichage::affichOcc(int o)
+{
+	 int occ = this->carte_->getOccupation(o);
+	 switch(occ)
+	 {
+	 	case 0:
+	 	std::cout << "Il n'y a rien ici." << std::endl;
+	 	break;
+
+	 	case 1:
+	 	std::cout << "Il y a un prédateur ici." << std::endl;
+	 	break;
+
+	 	case 2:
+	 	std::cout << "Il y a des brindilles au sol." << std::endl;
+	 	break;
+
+	 	case 3:
+	 	std::cout << "Il y a de la nourriture au sol." << std::endl;
+	 	break;
+
+	 	case 4:
+	 	std::cout << "Il y a un prédateur et des brindilles." << std::endl;
+	 	break;
+
+	 	case 5:
+	 	std::cout << "Il y a un prédateur et de la nourriture." << std::endl;
+	 	break;
+
+	 	default:
+	 	std::cout << "Erreur d'occupation" << std::endl;
+	 	break;
+	 }
+
+
 }
 /**
 Fonction permettant l'affichage d'une explication des symboles

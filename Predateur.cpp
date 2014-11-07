@@ -31,8 +31,9 @@ std::string Predateur::presentation()
 
 /**
 Fonction gérant le déplacement du prédateur
-*/
+
 void Predateur::deplacement(int a)
 {
 	
 }
+*/

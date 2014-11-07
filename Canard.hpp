@@ -25,7 +25,6 @@ public:
 	~Canard();
 	/**
 	*/
-	void deplacement(int a) override;
 	std::string presentation() override;
 
 	int getFaim();
