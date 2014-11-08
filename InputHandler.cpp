@@ -17,7 +17,7 @@ InputHandler::~InputHandler()
 void InputHandler::userInput()
 {
 	char rec;
-	std::cout << "Quelle action voulez-vous effectuer ?\nh : pour aller vers le haut\nb : pour aller vers le bas\ng : pour aller à gauche\nd : pour aller à droite\nv : pour voler\nm : pour manger\nc : pour cancaner\ns : pour arrêter la partie"<< std::endl;
+	std::cout << "Quelle action voulez-vous effectuer ?\nh : pour aller vers le haut\nb : pour aller vers le bas\ng : pour aller à gauche\nd : pour aller à droite\nv : pour voler(mais pas)\nm : pour manger\nc : pour cancaner\ns : pour arrêter la partie"<< std::endl;
 	std::cin >> rec;
 	//std::cout << rec << std::endl;
 	switch (rec)
@@ -38,12 +38,12 @@ void InputHandler::userInput()
 		deplacement(this->canard_->getPos(),1);
 		break;
 
-		case 'v':
-		this->canard_->voler();
-		break;
+//		case 'v':
+//		this->canard_->voler();
+//		break;
 
 		case 'm':
-		this->canard_->manger();
+		manger();
 		break;
 
 		case 's':
@@ -173,5 +173,18 @@ void InputHandler::deplacement(int place, int sens)
 		default:
 		std::cout << "Erreur d'entrée, déplacement impossible.0" << std::endl;
 		break;
+	}
+}
+
+void InputHandler::manger()
+{
+
+	if (this->carte_->getOccupation(this->canard_->getPos())==3)
+	{
+		this->canard_->manger();
+	}
+	else 
+	{
+		std::cout << "Il n'y a rien à manger ici.\n" << std::endl;
 	}
 }

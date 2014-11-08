@@ -24,6 +24,7 @@ class InputHandler
 
 		bool getArret();
 		void setArret(bool ar);
+		void manger();
 
 
 

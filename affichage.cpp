@@ -100,31 +100,31 @@ void Affichage::affichOcc(int o)
 	 switch(occ)
 	 {
 	 	case 0:
-	 	std::cout << "Il n'y a rien ici." << std::endl;
+	 	std::cout << "Il n'y a rien ici.\n" << std::endl;
 	 	break;
 
 	 	case 1:
-	 	std::cout << "Il y a un prédateur ici." << std::endl;
+	 	std::cout << "Il y a un prédateur ici.\n" << std::endl;
 	 	break;
 
 	 	case 2:
-	 	std::cout << "Il y a des brindilles au sol." << std::endl;
+	 	std::cout << "Il y a des brindilles au sol.\n" << std::endl;
 	 	break;
 
 	 	case 3:
-	 	std::cout << "Il y a de la nourriture au sol." << std::endl;
+	 	std::cout << "Il y a de la nourriture au sol.\n" << std::endl;
 	 	break;
 
 	 	case 4:
-	 	std::cout << "Il y a un prédateur et des brindilles." << std::endl;
+	 	std::cout << "Il y a un prédateur et des brindilles.\n" << std::endl;
 	 	break;
 
 	 	case 5:
-	 	std::cout << "Il y a un prédateur et de la nourriture." << std::endl;
+	 	std::cout << "Il y a un prédateur et de la nourriture.\n" << std::endl;
 	 	break;
 
 	 	default:
-	 	std::cout << "Erreur d'occupation" << std::endl;
+	 	std::cout << "Erreur d'occupation.\n" << std::endl;
 	 	break;
 	 }
 
