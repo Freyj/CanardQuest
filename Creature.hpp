@@ -16,7 +16,7 @@ class Creature
 
 	public:
 		//Constructeur/Destructeur
-		Creature(std::string nom): nom_(nom), etatCourant(etatVivant){};
+		Creature(std::string nom, int pos): nom_(nom), pos_(pos), etatCourant(etatVivant){};
 		~Creature(){};
 
 		//Méthodes relatives à toutes les créatures du jeu

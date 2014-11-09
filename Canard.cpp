@@ -1,11 +1,11 @@
 #include "Canard.hpp"
 #include <iostream>
 
-Canard::Canard(std::string nom):Creature(nom)
-{
-	this->setPos(101); //Ã  peu prÃ¨s le milieu de la carte
-	this->setFaim(5);
-}
+//Canard::Canard(std::string nom):Creature(nom), Creature::pos_(101), faim(5)
+//{
+//	//this->setPos(101); //à peu près le milieu de la carte
+//	//this->setFaim(5);
+//}
 
 Canard::~Canard()
 {
@@ -23,6 +23,12 @@ std::string Canard::presentation()
 {
 	return "Tu es un canard qui cancanne.";
 }
+
+void Canard::nager()
+{
+
+}
+
 void Canard::cancaner()
 {
 	this->comp->cancaner();
@@ -51,9 +57,9 @@ bool Canard::estMort()
 void Canard::statut()
 {
     std::cout << "\n---------------------------------------------------\n" << std::endl;
-    if (getFaim()>0)
+    if (getFaim()>1)
     {
-    	std::cout << "Tu as encore " << getFaim() << " tours avant de mourir de faim.\n" << std::endl;
+    	std::cout << "Tu as encore " << getFaim()-1 << " tours avant de mourir de faim.\n" << std::endl;
     }
     else
     {
