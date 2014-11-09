@@ -107,7 +107,7 @@ void Affichage::affichOcc(int o)
 
 	 	case 1:
 	 	etoiles();
-	 	std::cout << "Il y a de la nourriture au sol.\n" << std::endl;
+	 	std::cout << "Il y a des graines au sol.\n" << std::endl;
 	 	etoiles();
 	 	break;
 
@@ -151,7 +151,7 @@ void Affichage::legende()
 {
 	std::cout << " \nC : ton canard    . : un peu d'herbe  ! : un arbre" << std::endl;
 	std::cout << "~ : de l'eau      # : un rocher       - : du sable" << std::endl;
-	std::cout << "@ : inaccessible\n"	<< std::endl;
+	std::cout << "@ : inaccessible  * : un nid\n"	<< std::endl;
 }
 
 
