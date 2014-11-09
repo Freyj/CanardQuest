@@ -1,11 +1,12 @@
 #include "Canard.hpp"
 #include <iostream>
 
-//Canard::Canard(std::string nom):Creature(nom), Creature::pos_(101), faim(5)
-//{
-//	//this->setPos(101); //à peu près le milieu de la carte
-//	//this->setFaim(5);
-//}
+/*Canard::Canard(std::string nom):Creature(nom), Creature::pos_(101), faim(5)
+{
+	//this->setPos(101); //à peu près le milieu de la carte
+	//this->setFaim(5);
+}
+*/
 
 Canard::~Canard()
 {

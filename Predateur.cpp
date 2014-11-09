@@ -1,6 +1,12 @@
 #include "Predateur.hpp"
 #include <iostream>
 #include <string>
+
+Predateur::Predateur(std::string nom) : Creature(nom, 0)
+{
+
+}
+
 /**
 Constructeur de prédateur qui prend un string pour modifier le nom
 de la créature et un int pour initialiser sa position.
