@@ -43,9 +43,9 @@ void Canard::setFaim(int n)
     this->faim = n;
 }
 
-bool Canard::estVivant()
+bool Canard::estMort()
 {
-	return (!((this->getFaim() == 0) && this->getEtatCourant()== 0));
+	return ((this->getFaim() == 0) && this->getEtatCourant()== 0);
 }
 
 void Canard::statut()

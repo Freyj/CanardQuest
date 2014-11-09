@@ -1,6 +1,7 @@
 #include "Carte.hpp"
 #include <iostream>
 #include <fstream>
+#include <random>
 
 Carte::Carte()
 {
@@ -40,6 +41,7 @@ void Carte::creerCarte()
 
 		f.close();
 	}	
+	remplirCarte();
 }
 
 void Carte::setTab(int a, int b)
@@ -139,4 +141,23 @@ int Carte::getType(int i)
 void Carte::setType(int i, int a)
 {
 	this->tabl_[i].type = a;
+}
+
+void Carte::remplirCarte()
+{
+	/*
+	On crée l'aléatoire (cf cplusplus.com/reference/random)
+	*/
+	std::default_random_engine generator;
+	std::uniform_int_distribution<int> distribution(0,2);
+
+	/*
+	D'abord on remplit la carte	sans prédateur [ de 0  à 2]
+	*/
+
+	for (int i = 0 ; i < 256 ; ++i)
+	{
+		this->tabl_[i].occupation = distribution(generator);
+	}
+
 }

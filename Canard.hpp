@@ -39,7 +39,7 @@ public:
 	/**Méthode permettant de définir le cancannement*/
 	virtual void cancaner() = 0;
 
-	bool estVivant();
+	bool estMort();
 
 };
 

@@ -179,9 +179,10 @@ void InputHandler::deplacement(int place, int sens)
 void InputHandler::manger()
 {
 
-	if (this->carte_->getOccupation(this->canard_->getPos())==3)
+	if (this->carte_->getOccupation(this->canard_->getPos())==1)
 	{
 		this->canard_->manger();
+		this->carte_->setOccupation(this->canard_->getPos(), 0);
 	}
 	else 
 	{

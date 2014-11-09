@@ -19,7 +19,7 @@ Permet de simplifier l'affichage initial en une fonction
 */
 void Affichage::debut()
 {
-    std::cout << "\n***************************************************\n" << std::endl;
+   etoiles();
 	std::cout << "Bienvenue sur CanardQuest. Un jeu d'un suspense insoutenable !" << std::endl;
 	std::cout << "\nQuel sera le nom de votre canard ?" << std::endl;
 }
@@ -30,7 +30,7 @@ partie. Renvoie vrai si il tape 1, faux dans tous les autres cas.
 bool Affichage::relancer()
 {
 	int a;
-	std::cout << "\n****************************************************\n" << std::endl;
+	etoiles();
 	std::cout << "Voulez-vous relancer une partie ?\nTapez 1 pour recommencer, toute autre touche arrêtera le programme." << std::endl;
 	std::cin >> a;
 	return a==1;
@@ -40,7 +40,7 @@ Affiche la vue autour de la position i
 */
 void Affichage::vue(int i)
 {
-    std::cout << "\n---------------------------------------------------\n" << std::endl;
+    etoiles();
 	std::cout << "\nVoici ce que tu vois autour de toi :" << std::endl;
 	legende();
 	int* vue = new int[9];
@@ -100,31 +100,45 @@ void Affichage::affichOcc(int o)
 	 switch(occ)
 	 {
 	 	case 0:
+	 	etoiles();
 	 	std::cout << "Il n'y a rien ici.\n" << std::endl;
+	 	etoiles();
 	 	break;
 
 	 	case 1:
-	 	std::cout << "Il y a un prédateur ici.\n" << std::endl;
+	 	etoiles();
+	 	std::cout << "Il y a de la nourriture au sol.\n" << std::endl;
+	 	etoiles();
 	 	break;
 
 	 	case 2:
+	 	etoiles();
 	 	std::cout << "Il y a des brindilles au sol.\n" << std::endl;
+	 	etoiles();
 	 	break;
 
 	 	case 3:
-	 	std::cout << "Il y a de la nourriture au sol.\n" << std::endl;
+	 	etoiles();
+	 	std::cout <<"Il y a un prédateur ici.\n" << std::endl;
+	 	etoiles();
 	 	break;
 
 	 	case 4:
+	 	etoiles();
 	 	std::cout << "Il y a un prédateur et des brindilles.\n" << std::endl;
+	 	etoiles();
 	 	break;
 
 	 	case 5:
+	 	etoiles();
 	 	std::cout << "Il y a un prédateur et de la nourriture.\n" << std::endl;
+	 	etoiles();
 	 	break;
 
 	 	default:
+	 	etoiles();
 	 	std::cout << "Erreur d'occupation.\n" << std::endl;
+	 	etoiles();
 	 	break;
 	 }
 
@@ -143,13 +157,18 @@ void Affichage::legende()
 
 void Affichage::gameOver()
 {
-    std::cout << "\n---------------------------------------------------\n" << std::endl;
+    etoiles();
 	std::cout << "Malgré tous tes fiers efforts, ton canard est mort." << std::endl;
 }
 
 void Affichage::victoire()
 {
-    std::cout << "\n********************************************************************" << std::endl;
+    etoiles();
 	std::cout << "* Bravo, ton canard a réussi à évoluer correctement, tu as gagné ! *" << std::endl;
-	std::cout << "********************************************************************" << std::endl;
+	etoiles();
+}
+
+void Affichage::etoiles()
+{
+	std::cout << "\n***************************************************\n" << std::endl;
 }

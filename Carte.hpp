@@ -6,7 +6,7 @@
 Classe qui gère la carte du jeu représentée par un tableau 
 d'entiers pour le moment (un entier représente un type de terrain)
 (deux tableaux d'entiers ? un pour les terrains, un pour l'occupation
-avec genre 0 rien, 1 : prédateur, 2 : brindilles, 3 : nourriture
+avec genre 0 rien, 1 : nourriture , 2 : brindilles, 3 : prédateur
 4 : predateur et brindilles, 5 predateur et nourriture 
 jamais brindilles et nourriture.) 
 structure définie juste pour ça, qui ne sert QUE dans cette classe
@@ -47,5 +47,7 @@ class Carte
 		int getOccupation(int a);
 		/** Méthode renvoyant vrai s'il y a un obstacle sur la case a*/
 		bool getObstacle(int a);
+		/** Méthode qui remplit la carte d'objets */
+		void remplirCarte();
 };
 #endif

@@ -24,6 +24,7 @@ class Affichage
 		void legende();
 		void gameOver();
 		void victoire();
+		void etoiles();
 
 
 };

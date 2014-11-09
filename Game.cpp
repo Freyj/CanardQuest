@@ -32,7 +32,7 @@ int main(void)
 			Caneton joueur(nomCanard);
 			InputHandler* commandes = new InputHandler(&joueur, cart);
 			//on l'accueille poliment quand même
-			std::cout << "\n---------------------------------------------------\n" << std::endl;
+			aff.etoiles();
 			std::cout << "Bienvenue, " << joueur.getNom() << ".\n" << std::endl;
 			std::cout << joueur.presentation() << std::endl;
 			while(!commandes->getArret())
@@ -44,7 +44,7 @@ int main(void)
 
 				//pour test
 				//commandes->getCanard()->presentation();
-				if(joueur.getFaim() == 0){
+				if(joueur.getFaim() == 0 || joueur.estMort()){
 					aff.gameOver();
                     commandes->setArret(true);
 				}
