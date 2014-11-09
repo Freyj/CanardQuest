@@ -21,7 +21,7 @@ public:
 	/**
 	Constructeur du canard, qui prend un string pour le nom_
 	*/
-	Canard(std::string nom);
+	Canard(std::string nom):Creature(nom, 101),faim(5){};
 	~Canard();
 	/**
 	*/
@@ -33,7 +33,7 @@ public:
 	//void cancaner();
 	void statut();
 	/**Méthode permettant de définir le vol*/
-	virtual void voler() = 0;
+	virtual void voler() =0;
 	/**Méthode permettant de définir la nage*/
 	virtual void nager() = 0;
 	/**Méthode permettant de définir le cancannement*/
