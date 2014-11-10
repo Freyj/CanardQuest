@@ -17,7 +17,7 @@ InputHandler::~InputHandler()
 void InputHandler::userInput()
 {
 	char rec;
-	std::cout << "Quelle action voulez-vous effectuer ?\nh : pour aller vers le haut\nb : pour aller vers le bas\ng : pour aller à gauche\nd : pour aller à droite\nv : pour voler(mais pas)\nm : pour manger\nc : pour cancaner\ns : pour arrêter la partie\n n : pour faire un nid\n"<< std::endl;
+	std::cout << "Quelle action voulez-vous effectuer ?\nh : pour aller vers le haut\nb : pour aller vers le bas\ng : pour aller à gauche\nd : pour aller à droite\nv : pour voler(mais pas)\nm : pour manger\nc : pour cancaner\ns : pour arrêter la partie\nn : pour faire un nid\n"<< std::endl;
 	std::cin >> rec;
 	//std::cout << rec << std::endl;
 	switch (rec)
