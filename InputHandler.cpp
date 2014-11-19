@@ -105,8 +105,11 @@ void InputHandler::deplacement(int place, int sens)
 		{
 			if (this->carte_->getObstacle(place-16))
 			{
-				//voler plus tard
-				std::cout << "Tu ne peux pas passer par dessus cet obstacle." << std::endl;
+				//si voler vrai, on vole
+				if (this->canard_->voler())
+				{
+					this->canard_->setPos(place-16);
+				}
 			}
 			else 
 			{
@@ -125,7 +128,11 @@ void InputHandler::deplacement(int place, int sens)
 		{
 			if (this->carte_->getObstacle(place+1))
 			{
-				std::cout << "Tu ne peux pas passer par dessus cet obstacle." << std::endl;
+				//si voler vrai, on vole
+				if (this->canard_->voler())
+				{
+					this->canard_->setPos(place+1);
+				}
 			}
 			else
 			{
@@ -144,7 +151,11 @@ void InputHandler::deplacement(int place, int sens)
 		{
 			if (this->carte_->getObstacle(place+16))
 			{
-				std::cout << "Tu ne peux pas passer par dessus cet obstacle." << std::endl;
+				//si voler vrai, on vole
+				if (this->canard_->voler())
+				{
+					this->canard_->setPos(place+16);
+				}
 			}
 			else
 			{
@@ -164,7 +175,11 @@ void InputHandler::deplacement(int place, int sens)
 		{
 			if (this->carte_->getObstacle(place-1))
 			{
-				std::cout << "Tu ne peux pas passer par dessus cet obstacle." << std::endl;
+				//si voler vrai, on vole
+				if (this->canard_->voler())
+				{
+					this->canard_->setPos(place-1);
+				}
 			}
 			else
 			{

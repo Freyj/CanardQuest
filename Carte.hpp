@@ -3,12 +3,12 @@
 
 #include <string>
 /**
-Classe qui gère la carte du jeu représentée par un tableau 
+Classe qui gère la carte du jeu représentée par un tableau
 d'entiers pour le moment (un entier représente un type de terrain)
 (deux tableaux d'entiers ? un pour les terrains, un pour l'occupation
 avec genre 0 rien, 1 : nourriture , 2 : brindilles, 3 : prédateur
-4 : predateur et brindilles, 5 predateur et nourriture 
-jamais brindilles et nourriture.) 
+4 : predateur et brindilles, 5 predateur et nourriture
+jamais brindilles et nourriture.)
 structure définie juste pour ça, qui ne sert QUE dans cette classe
 */
 class Carte

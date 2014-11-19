@@ -26,7 +26,7 @@ void Carte::creerCarte()
 	  	}
 	//sinon, on lit
 	else
-	{	
+	{
 		int cpt = 0;
 		//tant qu'il y a à lire & qu'on a pas atteint le bout de la carte
 		while(!f.eof() && (cpt <256))
@@ -40,7 +40,7 @@ void Carte::creerCarte()
 		}
 
 		f.close();
-	}	
+	}
 	remplirCarte();
 }
 
@@ -53,7 +53,7 @@ void Carte::setTab(int a, int b)
 
 
 }
-//avec une petite vérification, si le chiffre n'est pas compris 
+//avec une petite vérification, si le chiffre n'est pas compris
 //dans les bonnes valeurs, -1
 int Carte::getTab(int i)
 {
@@ -126,7 +126,7 @@ int Carte::getOccupation(int a)
 bool Carte::getObstacle(int a)
 {
 	//1 / 2 / 6 = obstacles (eau, arbre, rocher)
-	if ((this->getType(a) == 1) || (this->getType(a) == 2) || (this->getType(a) == 6)) 
+	if ((this->getType(a) == 1) || (this->getType(a) == 2) || (this->getType(a) == 6))
 	{
 		return true;
 	}
@@ -157,7 +157,7 @@ void Carte::remplirCarte()
 
 	for (int i = 0 ; i < 256 ; ++i)
 	{
-		this->tabl_[i].occupation = distribution(generator);
+        this->tabl_[i].occupation = distribution(generator);
 	}
 
 }

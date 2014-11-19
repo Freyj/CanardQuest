@@ -19,12 +19,13 @@ class Affichage
 		void debut();
 		bool relancer();
 		void vue(int i);
-		char affichTerr(int i);		
+		char affichTerr(int i);
 		void affichOcc(int i);
 		void legende();
 		void gameOver();
 		void victoire();
 		void etoiles();
+		void victoireEvolution();
 
 
 };

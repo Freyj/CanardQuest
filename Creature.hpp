@@ -2,7 +2,6 @@
 #define CREATURE_HPP
 
 #include <string>
-#include "Comportement.hpp"
 
 class Creature
 {
@@ -17,13 +16,15 @@ class Creature
 	public:
 		//Constructeur/Destructeur
 		Creature(std::string nom, int pos): nom_(nom), pos_(pos), etatCourant(etatVivant){};
-		~Creature(){};
+		virtual ~Creature(){};
 
 		//Méthodes relatives à toutes les créatures du jeu
 		/**Méthode  virtuelle gérant le déplacement des créatures*/
 	    //	virtual void deplacement(int a) = 0;
 		/**Méthode permettant de sortir un string pour tester les objets*/
+
 		virtual std::string presentation() = 0;
+
 		//méthodes qui changent pas
 		std::string getNom();
 		void setNom(std::string nom);

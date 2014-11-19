@@ -1,4 +1,4 @@
-#ifndef INPUTHANDLER_HPP	
+#ifndef INPUTHANDLER_HPP
 #define INPUTHANDLER_HPP
 
 #include "Canard.hpp"

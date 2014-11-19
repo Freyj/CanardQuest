@@ -1,12 +1,9 @@
 #include "Canard.hpp"
 #include <iostream>
 
-/*Canard::Canard(std::string nom):Creature(nom), Creature::pos_(101), faim(5)
+Canard::Canard(std::string nom):Creature(nom, 101),faim(5)
 {
-	//this->setPos(101); //à peu près le milieu de la carte
-	//this->setFaim(5);
 }
-*/
 
 Canard::~Canard()
 {
@@ -15,44 +12,17 @@ Canard::~Canard()
 
 void Canard::manger()
 {
-	faim += 5;
-	std::cout << "\n---------------------------------------------------\n" << std::endl;
-	std::cout << "Tu manges des graines." << std::endl;
-}
-
-std::string Canard::presentation()
-{
-	return "Tu es un canard qui cancanne.";
-}
-
-void Canard::nager()
-{
-
-}
-
-void Canard::cancaner()
-{
-	this->comp->cancaner();
-}
-
-void Canard::voler()
-{
-	this->comp->voler();
+    faim += 5;
 }
 
 int Canard::getFaim()
 {
-    return this->faim;
+	return faim;
 }
 
 void Canard::setFaim(int n)
 {
-    this->faim = n;
-}
-
-bool Canard::estMort()
-{
-	return ((this->getFaim() == 0) && this->getEtatCourant()== 0);
+	faim = n;
 }
 
 void Canard::statut()
@@ -68,3 +38,71 @@ void Canard::statut()
     }
 }
 
+std::string Canard::presentation()
+{
+    return "Juste un mot, PRESENTATION .";
+}
+
+/**
+Méthode qui fait cancaner le canard [pas encore définie]
+*/
+bool Canard::cancaner()
+{
+    return compCan->cancaner();
+}
+
+/**
+Méthode qui va chercher dans le comportement du Canard [elle est mal placée]
+pour déterminer la nage
+*/
+bool Canard::nager()
+{
+	return compNage->nager();
+}
+
+/**
+Méthode qui va chercher dans le comportement du Canard [elle est mal placée]
+pour déterminer le vol
+*/
+bool Canard::voler()
+{
+	return compVol->voler();
+}
+
+CompetenceVol* Canard::getCompVol()
+{
+	return compVol;
+}
+
+void Canard::setCompVol(CompetenceVol* c)
+{
+    delete compVol;
+	compVol = c;
+}
+
+CompetenceCancan* Canard::getCompCan()
+{
+	return compCan;
+}
+
+void Canard::setCompCan(CompetenceCancan* c)
+{
+    delete compCan;
+	compCan = c;
+}
+
+CompetenceNage* Canard::getCompNage()
+{
+	return compNage;
+}
+
+void Canard::setCompNage(CompetenceNage* c)
+{
+    delete compNage;
+	compNage = c;
+}
+
+bool Canard::estVivant()
+{
+	return (etatCourant != 1 || faim == 0)? true:false;
+}

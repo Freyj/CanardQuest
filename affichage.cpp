@@ -161,12 +161,19 @@ void Affichage::gameOver()
 	std::cout << "Malgré tous tes fiers efforts, ton canard est mort." << std::endl;
 }
 
-void Affichage::victoire()
+void Affichage::victoireEvolution()
 {
     etoiles();
 	std::cout << "* Bravo, ton canard a réussi à évoluer correctement, tu as gagné ! *" << std::endl;
 	etoiles();
 }
+
+void Affichage::victoire()
+ {
+ 	etoiles();
+	std::cout << "* Bravo, ton canard a réussi à survivre 2 tours." << std::endl;
+ 	etoiles();
+ }
 
 void Affichage::etoiles()
 {
