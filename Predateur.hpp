@@ -2,6 +2,7 @@
 #define PREDATEUR_HPP
 
 #include "Creature.hpp"
+#include "Canard.hpp"
 #include <string>
 
 class Predateur: public Creature
@@ -14,6 +15,7 @@ class Predateur: public Creature
 		virtual ~Predateur();
 		//void deplacement(int a) override;
 		std::string presentation() override;
+		virtual void tuer(Canard) = 0;
 };
 
 
