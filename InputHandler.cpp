@@ -213,7 +213,7 @@ void InputHandler::nid()
 {
 	if (this->carte_->getOccupation(this->canard_->getPos())==2)
 	{
-		this->carte_->setType(this->canard_->getPos(), 5);
+		this->carte_->setType(this->canard_->getPos(), 6);
 		this->carte_->setOccupation(this->canard_->getPos(), 0);
 		std::cout << "Tu fais ton nid avec des brindilles." << std::endl;
 		//evolution

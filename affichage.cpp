@@ -58,8 +58,8 @@ eau ~  1
 arbre ! 2
 herbe . 3
 sable - 4
-nid * 5
-rocher # 6
+rocher # 5
+nid * 6
 */
 char Affichage::affichTerr(int i)
 {
@@ -81,10 +81,10 @@ char Affichage::affichTerr(int i)
 			return '-';
 
 		case 5:
-			return '*';
+			return '#';
 
 		case 6:
-			return '#';
+			return '*';
 
 		default:
 			return '@';

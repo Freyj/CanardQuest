@@ -3,6 +3,7 @@
 #include <fstream>
 #include <random>
 
+
 Carte::Carte()
 {
 	this->tabl_ = new Case[256];
@@ -41,6 +42,23 @@ void Carte::creerCarte()
 
 		f.close();
 	}
+	remplirCarte();
+}
+
+void Carte::creerCarteAlea()
+{
+	/*
+	On crée l'aléatoire (cf cplusplus.com/reference/random)
+	(de 1 à 5 pour tous les types de terrains, sauf le nid, et l'hors carte)
+	*/
+	std::default_random_engine generator;
+	std::uniform_int_distribution<int> distribution(1,5);
+
+	for (int i = 0; i < 256 ; ++i)
+	{
+		this->tabl_[i].type = distribution(generator);
+	}
+	//on remplit l'occupation des cases
 	remplirCarte();
 }
 
@@ -125,8 +143,8 @@ int Carte::getOccupation(int a)
 
 bool Carte::getObstacle(int a)
 {
-	//1 / 2 / 6 = obstacles (eau, arbre, rocher)
-	if ((this->getType(a) == 1) || (this->getType(a) == 2) || (this->getType(a) == 6))
+	//1 / 2 / 5 = obstacles (eau, arbre, rocher)
+	if ((this->getType(a) == 1) || (this->getType(a) == 2) || (this->getType(a) == 5))
 	{
 		return true;
 	}
