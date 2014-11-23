@@ -12,6 +12,7 @@ class Creature
 		int pos_;
         int etatCourant;
         int etatVivant = 1;
+        //int etatMort = 0;
 
 	public:
 		//Constructeur/Destructeur

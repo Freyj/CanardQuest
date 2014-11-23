@@ -44,7 +44,7 @@ std::string Canard::presentation()
 }
 
 /**
-Méthode qui fait cancaner le canard [pas encore définie]
+Méthode qui fait cancaner le canard
 */
 bool Canard::cancaner()
 {
@@ -52,7 +52,7 @@ bool Canard::cancaner()
 }
 
 /**
-Méthode qui va chercher dans le comportement du Canard [elle est mal placée]
+Méthode qui va chercher dans le comportement du Canard
 pour déterminer la nage
 */
 bool Canard::nager()
@@ -61,7 +61,7 @@ bool Canard::nager()
 }
 
 /**
-Méthode qui va chercher dans le comportement du Canard [elle est mal placée]
+Méthode qui va chercher dans le comportement du Canard
 pour déterminer le vol
 */
 bool Canard::voler()
@@ -104,5 +104,5 @@ void Canard::setCompNage(CompetenceNage* c)
 
 bool Canard::estVivant()
 {
-	return (etatCourant != 1 || faim == 0)? true:false;
+	return (etatCourant != 1 || faim == 0)? false:true;
 }
