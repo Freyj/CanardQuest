@@ -1,4 +1,4 @@
-#include "affichage.hpp"
+#include "Affichage.hpp"
 #include <iostream>
 #include "Carte.hpp"
 
@@ -92,7 +92,7 @@ char Affichage::affichTerr(int i)
 	}
 }
 /**
-Fonction permettant l'affichage d'une ligne décrivant la case à l'int a
+Fonction permettant l'affichage d'une ligne décrivant la case à la position a
 */
 void Affichage::affichOcc(int o)
 {
@@ -107,13 +107,27 @@ void Affichage::affichOcc(int o)
 
 	 	case 1:
 	 	etoiles();
-	 	std::cout << "Il y a des graines au sol.\n" << std::endl;
+	 	if (this->carte_->getType(o) != 1)
+	 	{
+	 		std::cout << "Il y a des graines au sol.\n" << std::endl;
+	 	}
+	 	else
+	 	{
+	 		std::cout << "Il y a des poissons ici.\n" << std::endl;
+	 	}
 	 	etoiles();
 	 	break;
 
 	 	case 2:
 	 	etoiles();
-	 	std::cout << "Il y a des brindilles au sol.\n" << std::endl;
+	 	if (this->carte_->getType(o) != 1)
+	 	{
+	 		std::cout << "Il y a des brindilles au sol.\n" << std::endl;
+	 	}
+	 	else
+	 	{
+	 		std::cout << "Il y a des brindilles qui flottent sur l'eau\n" << std::endl;
+	 	}
 	 	etoiles();
 	 	break;
 
@@ -151,7 +165,7 @@ void Affichage::legende()
 {
 	std::cout << " \nC : ton canard    . : un peu d'herbe  ! : un arbre" << std::endl;
 	std::cout << "~ : de l'eau      # : un rocher       - : du sable" << std::endl;
-	std::cout << "@ : inaccessible  * : un nid\n"	<< std::endl;
+	std::cout << "@ : inaccessible  * : un nidher       P : un prédateur\n"	<< std::endl;
 }
 
 

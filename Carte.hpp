@@ -10,6 +10,13 @@ avec genre 0 rien, 1 : nourriture , 2 : brindilles, 3 : prédateur
 4 : predateur et brindilles, 5 predateur et nourriture
 jamais brindilles et nourriture.)
 structure définie juste pour ça, qui ne sert QUE dans cette classe
+Types de terrain :
+eau ~  1
+arbre ! 2
+herbe . 3
+sable - 4
+rocher # 5
+nid * 6
 */
 class Carte
 {
@@ -47,9 +54,9 @@ class Carte
 		int getOccupation(int a);
 		/** Méthode renvoyant vrai s'il y a un obstacle sur la case a. trois type d'obstacle possible en fonction de l'etat du canard*/
 		bool getObstacleSol(int a);
-		bool getObstacleVol(int a);
+		bool getObstacleVol();
 		bool getObstacleEau(int a);
-		/** Méthode qui remplit la carte d'objets */
+		/** Méthode qui remplit la carte de nourriture et de brindilles */
 		void remplirCarte();
 };
 #endif

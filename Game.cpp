@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "Colvert.hpp"
-#include "affichage.hpp"
+#include "Affichage.hpp"
 #include "InputHandler.hpp"
 #include "Aigle.hpp"
 

@@ -133,9 +133,9 @@ bool Carte::getObstacleSol(int a)
 	return false;
 }
 
-bool Carte::getObstacleVol(int a)
+bool Carte::getObstacleVol()
 {
-	//aucun obstacle
+	//il n'y a pas d'obstacles pour le vol
 	return false;
 }
 
