@@ -10,7 +10,7 @@ Colvert::Colvert(std::string nom) : Canard(nom)
 	this->etatAuSol_ = new EtatAuSol(this);
 	this->etatEnVol_ = new EtatEnVol(this);
     this->etatSrEau_ = new EtatSurEau(this);
-	this->etat_ = new EtatAuSol(this);
+	this->etat_ = etatAuSol_;
 }
 
 Colvert::~Colvert()
