@@ -6,6 +6,7 @@
 class CompetenceCancan
 {
 	public:
+		virtual ~CompetenceCancan() {}
 		virtual bool cancaner() =0;
 };
 

@@ -40,3 +40,13 @@ int Creature::getEtatCourant()
 {
 	return this->etatCourant;
 }
+
+int Creature::getEtatVivant()
+{
+	return etatVivant;
+}
+
+int Creature::getEtatMort()
+{
+	return etatMort;
+}

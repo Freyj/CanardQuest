@@ -1,7 +1,4 @@
 #include <iostream>
-#include "CompetenceVolDisable.hpp"
-#include "CompetenceCancanDisable.hpp"
-#include "CompetenceNageDisable.hpp"
 #include "Colvert.hpp"
 
 
@@ -10,6 +7,10 @@ Colvert::Colvert(std::string nom) : Canard(nom)
     this->compVol = new CompetenceVolDisable();
     this->compCan = new CompetenceCancanDisable();
 	this->compNage = new CompetenceNageDisable();
+	this->etatAuSol_ = new EtatAuSol(this);
+	this->etatEnVol_ = new EtatEnVol(this);
+    this->etatSrEau_ = new EtatSurEau(this);
+	this->etat_ = new EtatAuSol(this);
 }
 
 Colvert::~Colvert()
@@ -17,6 +18,10 @@ Colvert::~Colvert()
 	delete compNage;
     delete compCan;
     delete compVol;
+    delete etatAuSol_;
+    delete etatEnVol_;
+    delete etatSrEau_;
+    delete etat_;
 }
 
 /**

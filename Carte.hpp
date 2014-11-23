@@ -22,20 +22,20 @@ class Carte
 		/** représente l'occupation du terrain */
 		int occupation;
 		};
-		/** Pointeur vers un tableau de Terraint représentant la carte */
+		/** Pointeur vers un tableau de Terrain représentant la carte */
 		Case* tabl_;
 	public:
 		Carte();
 		~Carte();
 		/** Méthode qui va créer la carte à partir d'un fichier*/
 		void creerCarte();
-		/** Méthode qui crée une carte aléatoire [possibilité d'être coincé, car pas de contrôles d'aléatoire]*/
-		void creerCarteAlea();
+		/**	Méthode qui renvoit un string pour savoir quoi afficher ? */
+		std::string sendAff();
 		/** Méthode renvoyant la case demandée*/
 		int getType(int i);
-		/**	Méthode permettant de mettre un entier donné (b)sur la case voulue(a) */
-		void setType(int i, int a);
 		/** Méthode changeant le type d'une case i en a.*/
+		void setType(int i, int a);
+		/**	Méthode permettant de mettre un entier donné (b)sur la case voulue(a) */
 		void setTab(int a, int b);
 		/** Méthode renvoyant l'entier d'une casede la carte */
 		int getTab(int i);
@@ -45,8 +45,10 @@ class Carte
 		void setOccupation(int a, int b);
 		/** Méthode renvoyant un entier représentant l'occupation d'une case */
 		int getOccupation(int a);
-		/** Méthode renvoyant vrai s'il y a un obstacle sur la case a*/
-		bool getObstacle(int a);
+		/** Méthode renvoyant vrai s'il y a un obstacle sur la case a. trois type d'obstacle possible en fonction de l'etat du canard*/
+		bool getObstacleSol(int a);
+		bool getObstacleVol(int a);
+		bool getObstacleEau(int a);
 		/** Méthode qui remplit la carte d'objets */
 		void remplirCarte();
 };

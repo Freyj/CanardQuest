@@ -31,7 +31,7 @@ bool Affichage::relancer()
 {
 	int a;
 	etoiles();
-	std::cout << "Voulez-vous relancer une partie ?\nTapez 1 pour recommencer, toute autre touche arrêtera le programme." << std::endl;
+	std::cout << "Voulez-vous relancer une partie ?\nTapez 1 pour recommencer, toute autre caractere arrêtera le programme." << std::endl;
 	std::cin >> a;
 	return a==1;
 }
@@ -81,10 +81,10 @@ char Affichage::affichTerr(int i)
 			return '-';
 
 		case 5:
-			return '#';
+			return '*';
 
 		case 6:
-			return '*';
+			return '#';
 
 		default:
 			return '@';
@@ -171,7 +171,7 @@ void Affichage::victoireEvolution()
 void Affichage::victoire()
  {
  	etoiles();
-	std::cout << "* Bravo, ton canard a réussi à survivre 2 tours." << std::endl;
+	std::cout << "* Bravo, ton canard a réussi à survivre 50 tours." << std::endl;
  	etoiles();
  }
 

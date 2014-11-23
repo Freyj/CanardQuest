@@ -6,6 +6,7 @@
 class CompetenceVol
 {
 	public:
+		virtual ~CompetenceVol(){}
 		virtual bool voler() =0;
 };
 

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <random>
 
-Aigle::Aigle() : Predateur("aigle", 101)/*placement totalement hasardeux !*/
+Aigle::Aigle() : Predateur("aigle", 102)/*placement totalement hasardeux !*/
 {
 	
 }
@@ -18,11 +18,15 @@ std::string Aigle::presentation()
 	return("Je suis un aigle !");
 }
 
+//créer une mathode adjacent pour que l'aigle puisse attaquer le canard si il est sur la case à coter.
+//c'est quand meme le prédateur ultime quoi ...
+
 void Aigle::tuer(Canard can)
 {
 	if(this->getPos() == can.getPos())
 	{
-		can.setEtatCourant(0);
+		can.setEtatCourant(can.getEtatMort());
+		std::cout << "Un aigle fond sur sa proie, et il se trouve que cette proie c'est toi !" << std::endl;
 	}
 	else
 	{

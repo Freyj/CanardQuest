@@ -10,13 +10,13 @@ class Creature
 		std::string nom_;
 		/**donne la position de la créature sur la carte */
 		int pos_;
+        int etatVivant;
+        int etatMort;
         int etatCourant;
-        int etatVivant = 1;
-        //int etatMort = 0;
 
 	public:
 		//Constructeur/Destructeur
-		Creature(std::string nom, int pos): nom_(nom), pos_(pos), etatCourant(etatVivant){};
+		Creature(std::string nom, int pos): nom_(nom), pos_(pos), etatVivant(1), etatMort(0), etatCourant(etatVivant){};
 		virtual ~Creature(){};
 
 		//Méthodes relatives à toutes les créatures du jeu
@@ -33,6 +33,8 @@ class Creature
 		void setPos(int p);
 		int getEtatCourant();
 		void setEtatCourant(int i);
+		int getEtatVivant();
+		int getEtatMort();
 
 };
 #endif

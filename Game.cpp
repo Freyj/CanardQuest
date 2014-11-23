@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include "Colvert.hpp"
 #include "affichage.hpp"
 #include "InputHandler.hpp"
@@ -10,9 +11,12 @@ Main contenant la boucle de jeu et tout.
 
 int main(void)
 {
-	//variables du jeu
+
+//    std::system("clear");
+
+    //variables du jeu
 	bool reprendre = true;
-	int cpt = 0;
+	int cpt;
 	std::string nomCanard ="";
 	//on fait la carte une fois pour toutes (et on lance l'aff)
 	Carte* cart =  new Carte();
@@ -37,60 +41,65 @@ int main(void)
         std::cout << joueur.presentation() << std::endl;
         while(!commandes->getArret())
         {
+
+//            std::system("clear");
+
+/* tour du canard:*/
+
+            ++cpt;                                  //nouveau tour, incréme,tation du compteur
+            aff.vue(joueur.getPos());               //on affiche la position du canard
+            commandes->choix();                     //on demande au joueurs d'entrer ses instructions
+            joueur.setFaim(joueur.getFaim()-1);     //à la fin de son tour, le canard consomme un point de faim
+
+/*fin du tour du canard*/
+
+/* tour des prédateurs:*/
+
+            //va tuer le canard si le prédateur est sur la meme case que lui
+            aigle.tuer(joueur);
+
+/*fin du tour des prédateurs*/
+
+/* le joueur est il mort ? */
+
             //Si le joueur à perdu inutile de reafficher la carte les commandes etc
             if(joueur.estVivant() == false)//si faim == 0 alors estVivant passe à false
             {
                 aff.gameOver();
                 commandes->setArret(true);
-            }
+            }/* a faire dès qu'une modification peut entrainer la mort du canard */
             else
             {
-                ++cpt;                                  //nouveau tour, incréme,tation du compteur
-                aff.vue(joueur.getPos());               //on affiche la position du canard
-                commandes->userInput();                 //on demande au joueurs d'entrer ses instructions
-                joueur.statut();                        //on affiche le statut du joueur
-                joueur.setFaim(joueur.getFaim()-1);     //à la fin de son tour, le canard consomme un point de faim
+                joueur.statut();    //on affiche le statut du joueur
+            }
 
-                //Condition déevolution:
+/* Condition d'évolution: */
 
-                //va tuer le canard :p
-                aigle.tuer(joueur);
 
-                if(cpt == 10)
-                {
-                    CompetenceVol* compVol = new CompetenceVolEnable;
-                    CompetenceNage* compNage = new CompetenceNageEnable; //ne sertà rien pour le moment
-                    joueur.setCompVol(compVol);
-                    joueur.setCompNage(compNage);
-                    std::cout << "Mais ! Tu as des ailes ! Tu pouvais voler depuis tout ce temps ?" << std::endl;
-                    std::cout << "Et tes pattes ! Elles sont palmés, tu sais donc nager !" << std::endl;
-                    std::cout << "Pourquoi ne pas l'avoir dit plus tot ?" << std::endl;
-                }
-                if(cpt == 25)
-                {
-                    CompetenceCancan* cancan = new CompetenceCancanEnable;
-                    joueur.setCompCan(cancan);
-                    std::cout << "Cancanne un peu pour voir ? Ah, c'est très bien, si tu le fais régulièrement" << std::endl;
-                    std::cout <<"peut etre qu'un autre canard te rejoindras et que tu finiras ta vie heureux."<< std::endl;
-                }
-                //Par défaut, si on survit 50 tours, on gagne [vu qu'il n'y a pas encore de "vraie" victoire]
-                if (cpt > 50)
-                {
-                    aff.victoire();
-                    commandes->setArret(true);
-                }
+            if(cpt == 10)
+            {
+                CompetenceVol* compVol = new CompetenceVolEnable;
+                CompetenceNage* compNage = new CompetenceNageEnable;
+                joueur.setCompVol(compVol);
+                joueur.setCompNage(compNage);
+            }
+            if(cpt == 25)
+            {
+                CompetenceCancan* cancan = new CompetenceCancanEnable;
+                joueur.setCompCan(cancan);
+                std::cout << "Cancanne un peu pour voir ? Ah, c'est très bien, si tu le fais régulièrement" << std::endl;
+                std::cout <<"peut etre qu'un autre canard te rejoindras et que tu finiras ta vie heureux."<< std::endl;
+            }
+            //Par défaut, si on survit 50 tours, on gagne [vu qu'il n'y a pas encore de "vraie" victoire]
+            if (cpt > 50)
+            {
+                aff.victoire();
+                commandes->setArret(true);
             }
         }
 
 		//à la fin du "jeu", on lui demande si il veut relancer une partie
-	 	if(aff.relancer())
-	 	{
-	 		reprendre = true;
-	 	}
-	 	else
-	 	{
-	 		reprendre = false;
-	 	}
+ 		reprendre = aff.relancer();
 	}
 
 	return 0;

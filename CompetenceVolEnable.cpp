@@ -6,7 +6,7 @@ CompetenceVolEnable::~CompetenceVolEnable() {}
 
 bool CompetenceVolEnable::voler()
 {
-    std::cout << "\n---------------------------------------------------\n" << std::endl;
-	std::cout << "Tu voles !" << std::endl;
+//    std::cout << "\n---------------------------------------------------\n" << std::endl;
+//	std::cout << "Tu voles !" << std::endl;
 	return true;
 }

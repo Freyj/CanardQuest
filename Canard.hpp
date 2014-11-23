@@ -2,9 +2,12 @@
 #define CANARD_HPP
 
 #include "Creature.hpp"
+#include "Etat.hpp"
 #include "CompetenceVol.hpp"
 #include "CompetenceCancan.hpp"
 #include "CompetenceNage.hpp"
+
+
 /**
 Le canard est la classe abstraite
 dont vont hériter tout les canard dans le jeu
@@ -21,7 +24,11 @@ protected:
 	CompetenceCancan* compCan;
 	/**définit la nage du canard*/
 	CompetenceNage* compNage;
-
+	/**définit les états possible du canard*/
+	Etat* etatAuSol_;
+	Etat* etatEnVol_;
+    Etat* etatSrEau_;
+	Etat* etat_;
 
 public:
 	/**
@@ -32,13 +39,12 @@ public:
 	/**
 	*/
 	std::string presentation() override;
-    void manger();
 
+    //ASSESSEURS
 	int getFaim();
 	void setFaim(int n);
 	void statut();
 
-    //ASSESSEURS
 	CompetenceVol* getCompVol();
 	void setCompVol(CompetenceVol* c);
 
@@ -48,11 +54,23 @@ public:
 	CompetenceNage* getCompNage();
 	void setCompNage(CompetenceNage* c);
 
+	Etat* getEtatAuSol();
+	Etat* getEtatEnVol();
+    Etat* getEtatSrEau();
+	Etat* getEtat();
+    void setEtat(Etat* e);
 
-
+    //ACTIONS
+    void manger();
     bool cancaner();
     bool nager();
     bool voler();
+    void vol_Sol();
+    void vol_Eau();
+    void eau_Vol();
+    void eau_Sol();
+    void sol_Eau();
+    void sol_Vol();
 
 	bool estVivant();
 

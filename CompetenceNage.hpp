@@ -6,6 +6,7 @@
 class CompetenceNage
 {
 	public:
+		virtual ~CompetenceNage(){}
 		virtual bool nager() =0;
 };
 
