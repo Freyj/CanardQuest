@@ -43,8 +43,9 @@ int main(void)
         aff.etoiles();
         std::cout << "Bienvenue, " << joueur.getNom() << ".\n" << std::endl;
         std::cout << joueur.presentation() << std::endl;
-        while(!commandes->getArret())
+        while(!commandes->getArret())/**on reinitialise que dalle si on recommence ! A modifier avant de déposer sur madoc !!*/
         {
+
 
 //            std::system("clear");
 
@@ -60,7 +61,8 @@ int main(void)
 /* tour des prédateurs:*/
 
             //va tuer le canard si le prédateur est sur la meme case que lui
-            aigle.tuer(joueur);
+            //aigle.tuer(joueur);
+            /**fais planter */
 
 /*fin du tour des prédateurs*/
 
@@ -74,6 +76,7 @@ int main(void)
             }/* a faire dès qu'une modification peut entrainer la mort du canard */
             else
             {
+                joueur.afficherEtat();
                 joueur.statut();    //on affiche le statut du joueur
             }
 

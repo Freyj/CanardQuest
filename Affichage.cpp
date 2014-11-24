@@ -12,7 +12,8 @@ Affichage::Affichage(Carte *c)
 
 Affichage::~Affichage()
 {
-	delete this->carte_;
+    carte_ = NULL;
+	delete carte_;
 }
 /**
 Permet de simplifier l'affichage initial en une fonction
@@ -33,6 +34,7 @@ bool Affichage::relancer()
 	etoiles();
 	std::cout << "Voulez-vous relancer une partie ?\nTapez 1 pour recommencer, toute autre caractere arrêtera le programme." << std::endl;
 	std::cin >> a;
+	std::cout << "je passe là" << std::endl;
 	return a==1;
 }
 /**

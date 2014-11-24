@@ -11,7 +11,7 @@ Carte::Carte()
 
 Carte::~Carte()
 {
-	delete[] this->tabl_;
+	delete[] tabl_;
 }
 
 void Carte::creerCarte()

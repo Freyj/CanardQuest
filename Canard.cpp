@@ -1,7 +1,7 @@
 #include "Canard.hpp"
 #include <iostream>
 
-Canard::Canard(std::string nom):Creature(nom, 101),faim(5)
+Canard::Canard(std::string nom):Creature(nom, 101),faim(5)//milieu de la carte == 128
 {
     this->compVol = new CompetenceVolDisable();
     this->compCan = new CompetenceCancanDisable();
@@ -13,7 +13,13 @@ Canard::Canard(std::string nom):Creature(nom, 101),faim(5)
 }
 
 Canard::~Canard()
-{    
+{
+    compNage = NULL;
+    compCan = NULL;
+    compVol = NULL;
+    etatAuSol_ = NULL;
+    etatEnVol_ = NULL;
+    etatSrEau_ = NULL;
     delete compNage;
     delete compCan;
     delete compVol;
@@ -145,13 +151,48 @@ Etat* Canard::getEtat()
 
 void Canard::setEtat(Etat* e)
 {
+    etat_ = NULL;
     delete etat_;
     etat_ = e;
+}
+
+void Canard::afficherEtat()
+{
+    std::cout<<"Je suis dans l'état: ";
+    etat_->aff();
 }
 
 bool Canard::estVivant()
 {
 	return (etatCourant != this->getEtatVivant() || faim == 0)? false:true;
+}
+
+
+//ACTIONS DES ETATS
+void Canard::choix()
+{
+    etat_->choix();
+}
+
+bool Canard::autorisation(int x)
+{
+    return etat_->autorisation(x);
+}
+
+void Canard::sol_Eau()
+{
+    if(this->nager())
+    {
+        etat_->onWater();
+    }
+}
+
+void Canard::sol_Vol()
+{
+    if(this->voler())
+    {
+        etat_->decollageSol();
+    }
 }
 
 void Canard::vol_Sol()
@@ -173,20 +214,3 @@ void Canard::eau_Sol()
 {
     etat_->offWater();
 }
-
-void Canard::sol_Eau()
-{
-    if(this->nager())
-    {
-        etat_->onWater();
-    }
-}
-
-void Canard::sol_Vol()
-{
-    if(this->voler())
-    {
-        etat_->decollageSol();
-    }
-}
-

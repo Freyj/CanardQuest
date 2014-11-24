@@ -3,15 +3,7 @@
 
 #include "Creature.hpp"
 #include "Etat.hpp"
-#include "CompetenceVol.hpp"
-#include "CompetenceCancan.hpp"
-#include "CompetenceNage.hpp"
-#include "CompetenceNageDisable.hpp"
-#include "CompetenceNageEnable.hpp"
-#include "CompetenceVolDisable.hpp"
-#include "CompetenceVolEnable.hpp"
-#include "CompetenceCancanDisable.hpp"
-#include "CompetenceCancanEnable.hpp"
+#include "Competences.hpp"
 #include "EtatAuSol.hpp"
 #include "EtatEnVol.hpp"
 #include "EtatSurEau.hpp"
@@ -74,6 +66,9 @@ public:
     bool cancaner();
     bool nager();
     bool voler();
+    	//ACTIONS DES ETATS
+    void choix();
+    bool autorisation(int x);
     void vol_Sol();
     void vol_Eau();
     void eau_Vol();
@@ -81,7 +76,10 @@ public:
     void sol_Eau();
     void sol_Vol();
 
+    void transition();
 	bool estVivant();
+
+	void afficherEtat();
 
 };
 

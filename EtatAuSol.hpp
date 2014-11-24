@@ -14,11 +14,13 @@ class EtatAuSol : public Etat
         Canard* getCanard_() { return canard_; }
         void setCanard_(Canard* val) { canard_ = val; }
         void onWater();         //modifie l'état au sol en état sur l'eau
-        void offWater();        //aucune modification
         void decollageSol();    //modifie létat au sol en état en vol
-        void decollageEau();    //aucune modification
-        void atterrissageSol(); //aucune modification
-        void atterrissageEau(); //aucune modification
+
+        void choix();
+        bool autorisation(int x);
+
+        virtual void aff(){std::cout<<"au Sol"<<std::endl;}
+
     protected:
 };
 

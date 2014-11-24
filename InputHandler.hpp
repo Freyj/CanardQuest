@@ -15,19 +15,12 @@ class InputHandler
 		InputHandler(Canard* can, Carte* cart);
 		~InputHandler();
 
+		//affiche les différents choix du canard en fonction de son état.
         void choix();
 		//demande au joueur ce qu'il souhaite faire et lui décrit une liste d'action possible.
-		void userInputBasique(char rec);
-		void userInputSol(char rec);
-		void userInputVol(char rec);
-		void userInputEau(char rec);
-		//une fonction qui n'existe pas ???
-		bool terminate();
+		void userInput(char rec);
 		//déplace le canard si c'est possible dans le sens demandé.
-		//déplacement en fonction de l'etat !
-		void deplacementSol(int place, int sens);
-		void deplacementEau(int place, int sens);
-		void deplacementVol(int place, int sens);
+		void deplacement(int place);
 
 		Canard* getCanard();
 		void setCanard(Canard* can);
@@ -38,9 +31,12 @@ class InputHandler
 		void manger();
 		//fais faire un nid au canard si des brindilles se trouve sur la case
 		void nid();
-
-
-
+		void transitionAtt();
+		void transitionDec();
+		void deplacementHau(int place);
+		void deplacementBas(int place);
+		void deplacementGau(int place);
+		void deplacementDro(int place);
 };
 
 #endif

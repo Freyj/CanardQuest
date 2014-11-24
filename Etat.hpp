@@ -1,6 +1,7 @@
 #ifndef ETAT_HPP
 #define ETAT_HPP
 
+#include <iostream>
 
 class Canard;
 class Etat
@@ -8,12 +9,15 @@ class Etat
     public:
         Etat() {}
         virtual ~Etat() {}
-        virtual void onWater()=0;
-        virtual void offWater()=0;
-        virtual void decollageSol()=0;
-        virtual void decollageEau()=0;
-        virtual void atterrissageSol()=0;
-        virtual void atterrissageEau()=0;
+        virtual void onWater(){std::cout << "Action impossible." << std::endl;}
+        virtual void offWater(){std::cout << "Action impossible." << std::endl;}
+        virtual void decollageSol(){std::cout << "Action impossible." << std::endl;}
+        virtual void decollageEau(){std::cout << "Action impossible." << std::endl;}
+        virtual void atterrissageSol(){std::cout << "Action impossible." << std::endl;}
+        virtual void atterrissageEau(){std::cout << "Action impossible." << std::endl;}
+        virtual void choix(){}
+        virtual bool autorisation(int x){return true;}
+        virtual void aff(){std::cout<<"par défaut"<<std::endl;}
 };
 
 #endif // ETAT_HPP

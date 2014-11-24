@@ -4,7 +4,7 @@
 
 EtatAuSol::EtatAuSol(Canard* can): Etat(), canard_(can)
 {
-    std::cout << "Jesuis le constructeru de l'etat au sol\n";
+
 }
 
 EtatAuSol::~EtatAuSol()
@@ -18,28 +18,31 @@ void EtatAuSol::onWater()
     canard_->setEtat(canard_->getEtatSrEau());
 }//modifie l'état au sol en état sur l'eau
 
-void EtatAuSol::offWater()
-{
-    std::cout << "Action impossible." << std::endl;
-
-}//aucune modification
 void EtatAuSol::decollageSol()
 {
     std::cout << "Tu t'envole !" << std::endl;
     canard_->setEtat(canard_->getEtatEnVol());
 }//modifie létat au sol en état en vol
 
-void EtatAuSol::decollageEau()
+void EtatAuSol::choix()
 {
-    std::cout << "Action impossible." << std::endl;
-}//aucune modification
+    std::cout << "v : pour voler\n";
+}
 
-void EtatAuSol::atterrissageSol()
+bool EtatAuSol::autorisation(int x)
 {
-    std::cout << "Action impossible." << std::endl;
-}//aucune modification
-
-void EtatAuSol::atterrissageEau()
-{
-    std::cout << "Action impossible." << std::endl;
-}//aucune modification
+    std::cout<< x << std::endl;
+    if(x==2 || x==5)
+    {
+        return false;
+    }
+    else if (x==1)
+    {
+        onWater();
+        return true;
+    }
+    else
+    {
+        return true;
+    }
+}

@@ -13,4 +13,6 @@ class Renard:public Predateur
 		~Renard();
 		std::string presentation() override;
 		void tuer(Canard can) override;
-}
+};
+
+#endif

@@ -13,12 +13,14 @@ class EtatEnVol : public Etat
         virtual ~EtatEnVol();
         Canard* getCanard() { return canard_; }
         void setCanard(Canard* val) { canard_ = val; }
-        void onWater();         //ne modifie pas l'état
-        void offWater();        //ne modifie pas l'état
-        void decollageSol();    //ne modifie pas l'état
-        void decollageEau();    //ne modifie pas l'état
         void atterrissageSol(); //change l'état en vol à etat au sol
         void atterrissageEau(); //change l'état en vol à etat sur l'eau
+
+        void choix();
+        bool autorisation(int x);
+
+        virtual void aff(){std::cout<<"en Vol"<<std::endl;}
+
     protected:
 };
 

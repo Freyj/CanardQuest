@@ -13,12 +13,14 @@ class EtatSurEau : public Etat
         virtual ~EtatSurEau();
         Canard* getCanard_() { return canard_; }
         void setCanard_(Canard* val) { canard_ = val; }
-        void onWater();         //aucune modification
         void offWater();        //modifie l'état sur l'eau en état au sol
-        void decollageSol();    //aucune modification
         void decollageEau();    //modifie létat sur l'eau en état en vol
-        void atterrissageSol(); //aucune modification
-        void atterrissageEau(); //aucune modification
+
+        void choix();
+        bool autorisation(int x);
+
+        virtual void aff(){std::cout<<"sur Eau"<<std::endl;}
+
     protected:
 };
 

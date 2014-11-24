@@ -3,7 +3,7 @@
 #include <iostream>
 #include <random>
 
-Renard::Renard(int a) : Predateur("renard", a) 
+Renard::Renard(int a) : Predateur("renard", a)
 {
 
 }
@@ -21,9 +21,9 @@ std::string Renard::presentation()
 
 void Renard::tuer(Canard can)
 {
-	if (this->getPos() == can.getPost())
+	if (this->getPos() == can.getPos())
 	{
 		can.setEtatCourant(can.getEtatMort());
-		std::cout << "Un renard t'a attrapé, tu es son nouveau goûter." << std::endl
+		std::cout << "Un renard t'a attrapé, tu es son nouveau goûter." << std::endl;
 	}
 }
