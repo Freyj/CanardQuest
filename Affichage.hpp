@@ -25,7 +25,6 @@ class Affichage
 		void gameOver();
 		void victoire();
 		void etoiles();
-		void victoireEvolution();
 
 
 };

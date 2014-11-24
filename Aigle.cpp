@@ -36,7 +36,7 @@ void Aigle::tuer(Canard can)
 		std::default_random_engine generator;
 		std::uniform_int_distribution<int> distribution(0,255);
 		/*
-		choisi une nouvelle position où faire pop l'aigle
+		choisi une nouvelle position où faire apparaitre l'aigle (comme il vole, on considère qu'il peut arriver n'importe où)
 		*/
 		this->setPos(distribution(generator));
 	}
