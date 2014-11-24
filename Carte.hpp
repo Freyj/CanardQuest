@@ -36,8 +36,8 @@ class Carte
 		~Carte();
 		/** Méthode qui va créer la carte à partir d'un fichier*/
 		void creerCarte();
-		/**	Méthode qui renvoit un string pour savoir quoi afficher ? */
-		std::string sendAff();
+		/** Méthode qui crée une carte aléatoire [possibilité d'être coincé, car pas de contrôles d'aléatoire]*/
+		void creerCarteAlea();
 		/** Méthode renvoyant la case demandée*/
 		int getType(int i);
 		/** Méthode changeant le type d'une case i en a.*/

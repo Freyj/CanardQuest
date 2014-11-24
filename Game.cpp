@@ -20,6 +20,10 @@ int main(void)
 	std::string nomCanard ="";
 	//on fait la carte une fois pour toutes (et on lance l'aff)
 	Carte* cart =  new Carte();
+    //pointeurs pour réparer le cassage
+    CompetenceVol* compVol = new CompetenceVolEnable();
+    CompetenceNage* compNage = new CompetenceNageEnable();
+    CompetenceCancan* cancan = new CompetenceCancanEnable();
 	Affichage aff(cart);
 	while (reprendre)
 	{
@@ -73,19 +77,16 @@ int main(void)
                 joueur.statut();    //on affiche le statut du joueur
             }
 
-/* Condition d'évolution: */
+/* Conditions d'évolution: */
 
 
             if(cpt == 10)
             {
-                CompetenceVol* compVol = new CompetenceVolEnable;
-                CompetenceNage* compNage = new CompetenceNageEnable;
                 joueur.setCompVol(compVol);
                 joueur.setCompNage(compNage);
             }
             if(cpt == 25)
             {
-                CompetenceCancan* cancan = new CompetenceCancanEnable;
                 joueur.setCompCan(cancan);
                 std::cout << "Cancanne un peu pour voir ? Ah, c'est très bien, si tu le fais régulièrement" << std::endl;
                 std::cout <<"peut etre qu'un autre canard te rejoindras et que tu finiras ta vie heureux."<< std::endl;
@@ -101,7 +102,9 @@ int main(void)
 		//à la fin du "jeu", on lui demande si il veut relancer une partie
  		reprendre = aff.relancer();
 	}
-
+    delete compVol;
+    delete compNage;
+    delete cancan;
 	return 0;
 
 }

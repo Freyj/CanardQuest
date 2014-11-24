@@ -6,6 +6,15 @@
 #include "CompetenceVol.hpp"
 #include "CompetenceCancan.hpp"
 #include "CompetenceNage.hpp"
+#include "CompetenceNageDisable.hpp"
+#include "CompetenceNageEnable.hpp"
+#include "CompetenceVolDisable.hpp"
+#include "CompetenceVolEnable.hpp"
+#include "CompetenceCancanDisable.hpp"
+#include "CompetenceCancanEnable.hpp"
+#include "EtatAuSol.hpp"
+#include "EtatEnVol.hpp"
+#include "EtatSurEau.hpp"
 
 
 /**

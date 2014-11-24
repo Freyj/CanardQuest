@@ -4,6 +4,7 @@
 #include "Creature.hpp"
 #include <string>
 #include "Predateur.hpp"
+#include "Canard.hpp"
 
 class Aigle:public Predateur
 {

@@ -2,6 +2,7 @@
 #define ETAT_HPP
 
 
+class Canard;
 class Etat
 {
     public:
@@ -13,8 +14,6 @@ class Etat
         virtual void decollageEau()=0;
         virtual void atterrissageSol()=0;
         virtual void atterrissageEau()=0;
-    protected:
-    private:
 };
 
 #endif // ETAT_HPP

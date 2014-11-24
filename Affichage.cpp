@@ -36,7 +36,8 @@ bool Affichage::relancer()
 	return a==1;
 }
 /**
-Affiche la vue autour de la position i
+Affiche la vue autour de la position i (à une case de diamètre)
+(le tableau est créé et détruit à chaque affichage)
 */
 void Affichage::vue(int i)
 {
@@ -81,10 +82,10 @@ char Affichage::affichTerr(int i)
 			return '-';
 
 		case 5:
-			return '*';
+			return '#';
 
 		case 6:
-			return '#';
+			return '*';
 
 		default:
 			return '@';
@@ -131,24 +132,6 @@ void Affichage::affichOcc(int o)
 	 	etoiles();
 	 	break;
 
-	 	case 3:
-	 	etoiles();
-	 	std::cout <<"Il y a un prédateur ici.\n" << std::endl;
-	 	etoiles();
-	 	break;
-
-	 	case 4:
-	 	etoiles();
-	 	std::cout << "Il y a un prédateur et des brindilles.\n" << std::endl;
-	 	etoiles();
-	 	break;
-
-	 	case 5:
-	 	etoiles();
-	 	std::cout << "Il y a un prédateur et de la nourriture.\n" << std::endl;
-	 	etoiles();
-	 	break;
-
 	 	default:
 	 	etoiles();
 	 	std::cout << "Erreur d'occupation.\n" << std::endl;
@@ -165,7 +148,7 @@ void Affichage::legende()
 {
 	std::cout << " \nC : ton canard    . : un peu d'herbe  ! : un arbre" << std::endl;
 	std::cout << "~ : de l'eau      # : un rocher       - : du sable" << std::endl;
-	std::cout << "@ : inaccessible  * : un nidher       P : un prédateur\n"	<< std::endl;
+	std::cout << "@ : inaccessible  * : un nid          P : un prédateur\n"	<< std::endl;
 }
 
 
@@ -178,7 +161,7 @@ void Affichage::gameOver()
 void Affichage::victoireEvolution()
 {
     etoiles();
-	std::cout << "* Bravo, ton canard a réussi à évoluer correctement, tu as gagné ! *" << std::endl;
+	std::cout << "* Bravo, ton canard a réussi à évoluer et à survivre, tu as gagné ! *" << std::endl;
 	etoiles();
 }
 

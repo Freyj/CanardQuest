@@ -1,4 +1,5 @@
 #include "EtatAuSol.hpp"
+#include "Canard.hpp"
 #include <iostream>
 
 EtatAuSol::EtatAuSol(Canard* can): Etat(), canard_(can)

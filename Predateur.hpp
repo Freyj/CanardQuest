@@ -15,7 +15,7 @@ class Predateur: public Creature
 		virtual ~Predateur();
 		//void deplacement(int a) override;
 		std::string presentation() override;
-		virtual void tuer(Canard) = 0;
+		virtual void tuer(Canard can) = 0;
 };
 
 

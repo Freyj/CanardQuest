@@ -44,6 +44,23 @@ void Carte::creerCarte()
 	remplirCarte();
 }
 
+void Carte::creerCarteAlea()
+{
+	/*
+	On crée l'aléatoire (cf cplusplus.com/reference/random)
+	(de 1 à 5 pour tous les types de terrains, sauf le nid, et l'hors carte)
+	*/
+	std::default_random_engine generator;
+	std::uniform_int_distribution<int> distribution(1,5);
+
+	for (int i = 0; i < 256 ; ++i)
+	{
+		this->tabl_[i].type = distribution(generator);
+	}
+	//on remplit l'occupation des cases
+	remplirCarte();
+}
+
 void Carte::setTab(int a, int b)
 {
 	if ((0 <= a) && (a < 256))
@@ -69,7 +86,6 @@ int Carte::getTab(int i)
 //  -1  X  +1
 // +15 +16 +17
 // ou vue est un pointeur vers un tableau de 9 cases créées avant
-TODO : Gérer les bords de la carte
 */
 int* Carte::getVue(int* vue, int i)
 {
@@ -82,7 +98,7 @@ int* Carte::getVue(int* vue, int i)
 	vue[6] = getTab(i+15);
 	vue[7] = getTab(i+16);
 	vue[8] = getTab(i+17);
-
+	//gestion des bords de la carte
 	if (i%16 == 0)
 	{
 		vue[0] = 0;
@@ -154,6 +170,7 @@ int Carte::getType(int i)
 	return this->tabl_[i].type;
 }
 
+
 void Carte::setType(int i, int a)
 {
 	this->tabl_[i].type = a;
@@ -168,7 +185,7 @@ void Carte::remplirCarte()
 	std::uniform_int_distribution<int> distribution(0,2);
 
 	/*
-	D'abord on remplit la carte	sans prédateur [ de 0  à 2]
+	D'abord on remplit la carte de nourriture et de brindilles (et de rien) [de 0  à 2]
 	*/
 
 	for (int i = 0 ; i < 256 ; ++i)

@@ -3,10 +3,24 @@
 
 Canard::Canard(std::string nom):Creature(nom, 101),faim(5)
 {
+    this->compVol = new CompetenceVolDisable();
+    this->compCan = new CompetenceCancanDisable();
+    this->compNage = new CompetenceNageDisable();
+    this->etatAuSol_ = new EtatAuSol(this);
+    this->etatEnVol_ = new EtatEnVol(this);
+    this->etatSrEau_ = new EtatSurEau(this);
+    this->etat_ = etatAuSol_;
 }
 
 Canard::~Canard()
-{
+{    
+    delete compNage;
+    delete compCan;
+    delete compVol;
+    delete etatAuSol_;
+    delete etatEnVol_;
+    delete etatSrEau_;
+    delete etat_;
 }
 
 

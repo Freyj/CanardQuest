@@ -9,11 +9,10 @@ InputHandler::InputHandler(Canard* can, Carte* cart)
 	this->carte_ = cart;
 	arret_ = false;
 }
-
 InputHandler::~InputHandler()
 {
 }
-
+//(╯°□°）╯︵ ┻━┻
 void InputHandler::choix()
 {
 	char rec;
@@ -82,12 +81,12 @@ void InputHandler::choix()
 }
 
 /**
-Fonction proposant une liste d'action au joueur puis de saisir l'action qu'il souhaite effectuer.
+Fonction proposant une liste d'actions au joueur puis de saisir l'action qu'il souhaite effectuer.
 */
 void InputHandler::userInputVol(char rec)
 {
 	switch (rec)
-	{//ajouter le fait d'aler dnas l'eau ou non
+	{//ajouter le fait d'aller dnas l'eau ou non
 		case 'h':
 		deplacementVol(this->canard_->getPos(), 0);
 		break;
@@ -590,7 +589,7 @@ void InputHandler::nid()
 {
 	if (this->carte_->getOccupation(this->canard_->getPos())==2)
 	{
-		this->carte_->setType(this->canard_->getPos(), 5);
+		this->carte_->setType(this->canard_->getPos(), 6);
 		this->carte_->setOccupation(this->canard_->getPos(), 0);
 		std::cout << "Tu fais ton nid avec des brindilles." << std::endl;
 		//evolution
