@@ -19,11 +19,11 @@ std::string Renard::presentation()
 }
 
 
-void Renard::tuer(Canard can)
+void Renard::tuer(Canard* can)
 {
-	if (this->getPos() == can.getPos())
+	if (this->getPos() == can->getPos())
 	{
-		can.setEtatCourant(can.getEtatMort());
+		can->setEtatCourant(can->getEtatMort());
 		std::cout << "Un renard t'a attrapé, tu es son nouveau goûter." << std::endl;
 	}
 }

@@ -31,7 +31,6 @@ void EtatAuSol::choix()
 
 bool EtatAuSol::autorisation(int x)
 {
-    std::cout<< x << std::endl;
     if(x==2 || x==5)
     {
         return false;

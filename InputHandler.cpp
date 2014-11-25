@@ -122,6 +122,7 @@ void InputHandler::manger()
 	}
 	else
 	{
+        std::cout << "\n---------------------------------------------------\n" << std::endl;
 		std::cout << "Il n'y a rien à manger ici.\n" << std::endl;
 	}
 }
@@ -136,11 +137,13 @@ void InputHandler::nid()
 	{
 		this->carte_->setType(this->canard_->getPos(), 6);
 		this->carte_->setOccupation(this->canard_->getPos(), 0);
+        std::cout << "\n---------------------------------------------------\n" << std::endl;
 		std::cout << "Tu fais ton nid avec des brindilles." << std::endl;
 		//evolution
 	}
 	else
 	{
+        std::cout << "\n---------------------------------------------------\n" << std::endl;
 		std::cout << "Il n'y a pas de quoi faire un nid ici." << std::endl;
 	}
 }
@@ -177,6 +180,7 @@ void InputHandler::deplacementHau(int place)
 {
 	if (place < 16)
 	{
+        std::cout << "\n---------------------------------------------------\n" << std::endl;
 		std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
 	}
 	else
@@ -184,10 +188,12 @@ void InputHandler::deplacementHau(int place)
 		if (canard_->autorisation(carte_->getType(place-16)))
 		{
 			this->canard_->setPos(place-16);
+            std::cout << "\n---------------------------------------------------\n" << std::endl;
 			std::cout << "Tu avances." << std::endl;
 		}
 		else
 		{
+            std::cout << "\n---------------------------------------------------\n" << std::endl;
 			std::cout << "Tu ne peux pas aller dans cette direction.";
 		}
 	}
@@ -197,6 +203,7 @@ void InputHandler::deplacementDro(int place)
 {
 	if ((place == 255) || (place%16 == 15))
 	{
+        std::cout << "\n---------------------------------------------------\n" << std::endl;
 		std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
 	}
 	else
@@ -204,10 +211,12 @@ void InputHandler::deplacementDro(int place)
 		if (canard_->autorisation(carte_->getType(place+1)))
 		{
 			this->canard_->setPos(place+1);
+            std::cout << "\n---------------------------------------------------\n" << std::endl;
 			std::cout << "Tu vas à droite." << std::endl;
 		}
 		else
 		{
+            std::cout << "\n---------------------------------------------------\n" << std::endl;
 			std::cout << "Tu ne peux pas aller dans cette direction.";
 		}
 	}
@@ -217,6 +226,7 @@ void InputHandler::deplacementGau(int place)
 {
 	if((place <1) || (place%16 == 0))
 	{
+        std::cout << "\n---------------------------------------------------\n" << std::endl;
 		std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
 	}
 	else
@@ -224,10 +234,12 @@ void InputHandler::deplacementGau(int place)
 		if (canard_->autorisation(carte_->getType(place-1)))
 		{
 			this->canard_->setPos(place-1);
+            std::cout << "\n---------------------------------------------------\n" << std::endl;
 			std::cout << "Tu vas à gauche." << std::endl;
 		}
 		else
 		{
+            std::cout << "\n---------------------------------------------------\n" << std::endl;
 			std::cout << "Tu ne peux pas aller dans cette direction.";
 		}
 	}
@@ -237,6 +249,7 @@ void InputHandler::deplacementBas(int place)
 {
 	if (place > 239)
 	{
+        std::cout << "\n---------------------------------------------------\n" << std::endl;
 		std::cout << "Déplacement hors carte interdit. Vilain canard ! " << std::endl;
 	}
 	else
@@ -244,10 +257,12 @@ void InputHandler::deplacementBas(int place)
 		if (canard_->autorisation(carte_->getType(place+16)))
 		{
 			this->canard_->setPos(place+16);
+            std::cout << "\n---------------------------------------------------\n" << std::endl;
 			std::cout << "Tu vas en bas." << std::endl;
 		}
 		else
 		{
+            std::cout << "\n---------------------------------------------------\n" << std::endl;
 			std::cout << "Tu ne peux pas aller dans cette direction.";
 		}
 	}

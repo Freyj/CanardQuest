@@ -34,7 +34,7 @@ bool Affichage::relancer()
 	etoiles();
 	std::cout << "Voulez-vous relancer une partie ?\nTapez 1 pour recommencer, toute autre caractere arrêtera le programme." << std::endl;
 	std::cin >> a;
-	std::cout << "je passe là" << std::endl;
+	etoiles();
 	return a==1;
 }
 /**

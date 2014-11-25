@@ -47,7 +47,6 @@ void Canard::setFaim(int n)
 
 void Canard::statut()
 {
-    std::cout << "\n---------------------------------------------------\n" << std::endl;
     if (getFaim()>1)
     {
     	std::cout << "Tu as encore " << getFaim() << " tours avant de mourir de faim.\n" << std::endl;
@@ -55,13 +54,6 @@ void Canard::statut()
     else
     {
     	std::cout << "C'est ton dernier tour avant de mourir de faim !\n" << std::endl;
-    }
-    std::cout << "\n---------------------------------------------------\n" << std::endl;
-    if(this->voler())
-    {
-        std::cout << "Mais ! Tu as des ailes ! Tu pouvais voler depuis tout ce temps ?" << std::endl;
-        std::cout << "Et tes pattes ! Elles sont palmés, tu sais donc nager !" << std::endl;
-        std::cout << "Pourquoi ne pas l'avoir dit plus tot ?" << std::endl;
     }
 }
 
