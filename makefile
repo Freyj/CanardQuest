@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -Wextra -O3 -std=c++11 
 LDFLAGS=
-SOURCES=Game.cpp Carte.cpp InputHandler.cpp Affichage.cpp Competences.cpp EtatAuSol.cpp EtatEnVol.cpp EtatSurEau.cpp Creature.cpp  Predateur.cpp  Aigle.cpp Canard.cpp Colvert.cpp
+SOURCES=Facade.cpp Game.cpp Carte.cpp InputHandler.cpp Affichage.cpp Competences.cpp EtatAuSol.cpp EtatEnVol.cpp EtatSurEau.cpp Creature.cpp  Predateur.cpp  Aigle.cpp Canard.cpp Colvert.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=canard
 
