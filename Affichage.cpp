@@ -172,3 +172,8 @@ void Affichage::etoiles()
 {
 	std::cout << "\n***************************************************\n" << std::endl;
 }
+
+void Affichage::setCarte(Carte *c)
+{
+	this->carte_ = c;
+}

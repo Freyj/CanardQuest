@@ -95,7 +95,9 @@ void Facade::initialiser()
 {
     commandes->setArret(false);
     cart = NULL;
-   cart = new Carte();
+    delete cart;
+    cart = new Carte();
+    aff.setCarte(cart);
     joueur.setFaim(5);
     joueur.setCompCan(new CompetenceCancanDisable());
     joueur.setCompNage(new CompetenceNageDisable());

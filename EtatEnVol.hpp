@@ -17,7 +17,7 @@ class EtatEnVol : public Etat
         void atterrissageEau(); //change l'état en vol à etat sur l'eau
 
         void choix();
-        bool autorisation(int x);
+        bool autorisation(int);
 
         virtual void aff(){std::cout<<"en Vol"<<std::endl;}
 

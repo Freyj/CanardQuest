@@ -28,7 +28,7 @@ void EtatEnVol::choix()
     std::cout << "a : pour atterrir\n";
 }
 
-bool EtatEnVol::autorisation(int x)
+bool EtatEnVol::autorisation(int )
 {
     return true;
 }
