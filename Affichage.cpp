@@ -1,10 +1,7 @@
 #include "Affichage.hpp"
 #include <iostream>
-#include "Carte.hpp"
 
-/**
-Constructeur qui donne la carte à l'affichage
-*/
+
 Affichage::Affichage(Carte *c)
 {
 	this->carte_ = c;
@@ -12,22 +9,17 @@ Affichage::Affichage(Carte *c)
 
 Affichage::~Affichage()
 {
-    carte_ = NULL;
 	delete carte_;
+    carte_ = NULL;
 }
-/**
-Permet de simplifier l'affichage initial en une fonction
-*/
+
 void Affichage::debut()
 {
    etoiles();
 	std::cout << "Bienvenue sur CanardQuest. Un jeu d'un suspense insoutenable !" << std::endl;
 	std::cout << "\nQuel sera le nom de votre canard ?" << std::endl;
 }
-/**
-Fonction permettant de savoir si le joueur décide de relancer une
-partie. Renvoie vrai si il tape 1, faux dans tous les autres cas.
-*/
+
 bool Affichage::relancer()
 {
 	int a;
@@ -37,10 +29,7 @@ bool Affichage::relancer()
 	etoiles();
 	return a==1;
 }
-/**
-Affiche la vue autour de la position i (à une case de diamètre)
-(le tableau est créé et détruit à chaque affichage)
-*/
+
 void Affichage::vue(int i)
 {
     etoiles();
@@ -55,15 +44,7 @@ void Affichage::vue(int i)
 	affichOcc(i);
 
 }
-/** renvoie le char à afficher en fonction du type de terrain
-hors map @ 0
-eau ~  1
-arbre ! 2
-herbe . 3
-sable - 4
-rocher # 5
-nid * 6
-*/
+
 char Affichage::affichTerr(int i)
 {
 	switch(i)
@@ -94,9 +75,7 @@ char Affichage::affichTerr(int i)
 
 	}
 }
-/**
-Fonction permettant l'affichage d'une ligne décrivant la case à la position a
-*/
+
 void Affichage::affichOcc(int o)
 {
 	 int occ = this->carte_->getOccupation(o);
@@ -143,9 +122,7 @@ void Affichage::affichOcc(int o)
 
 
 }
-/**
-Fonction permettant l'affichage d'une explication des symboles
-*/
+
 void Affichage::legende()
 {
 	std::cout << " \nC : ton canard    . : un peu d'herbe  ! : un arbre" << std::endl;

@@ -62,27 +62,18 @@ std::string Canard::presentation()
     return "Juste un mot, PRESENTATION .";
 }
 
-/**
-Méthode qui fait cancaner le canard
-*/
 bool Canard::cancaner()
 {
     return compCan->cancaner();
 }
 
-/**
-Méthode qui va chercher dans le comportement du Canard
-pour déterminer la nage
-*/
+
 bool Canard::nager()
 {
 	return compNage->nager();
 }
 
-/**
-Méthode qui va chercher dans le comportement du Canard
-pour déterminer le vol
-*/
+
 bool Canard::voler()
 {
 	return compVol->voler();
@@ -159,8 +150,6 @@ bool Canard::estVivant()
 	return (etatCourant != this->getEtatVivant() || faim == 0)? false:true;
 }
 
-
-//ACTIONS DES ETATS
 void Canard::choix()
 {
     etat_->choix();

@@ -13,7 +13,9 @@ private:
 public:
 	Aigle();
 	~Aigle();
+	/** Fonction de présentation de l'aigle pour tests. Renvoie un string */
 	std::string presentation() override;
+	/** procédure permettant à l'aigle de se déplacer et de tuer le canard si il arrive dessus */
 	void tuer(Canard* can);
 
 };
