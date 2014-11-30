@@ -25,8 +25,7 @@ void Facade::debut()
     std::cin >> nomCanard;
     //on l'accueille poliment quand même
     joueur->setNom(nomCanard);
-    aff.etoiles();
-    std::cout << "Bienvenue, " << joueur->getNom() << ".\n" << std::endl;
+    aff.bievenue(joueur->getNom());
     std::cout << joueur->presentation() << std::endl;
 }
 
@@ -51,17 +50,13 @@ void Facade::evolutions(int tour)
         //joueur.evolutionNage();
         joueur->setCompVol(new CompetenceVolEnable());
         joueur->setCompNage(new CompetenceNageEnable());
-        std::cout << "Mais ! Tu as des ailes ! Tu pouvais voler depuis tout ce temps ?" << std::endl;
-        std::cout << "Et tes pattes ! Elles sont palmés, tu sais donc nager !" << std::endl;
-        std::cout << "Pourquoi ne pas l'avoir dit plus tot ?" << std::endl;
+        aff.evolNageVol();
     }
     else if(tour == 25)
     {
         //joueur.evolutionCancan();
         joueur->setCompCan(new CompetenceCancanEnable());
-        std::cout << "Cancanne un peu pour voir ? Ah, c'est très bien, si tu le fais régulièrement" << std::endl;
-        std::cout <<"peut etre qu'un autre canard te rejoindras et que tu finiras ta vie heureux."<< std::endl;
-
+        aff.evolCancan();
     }
 }
 void Facade::fin(int tour)
@@ -73,10 +68,10 @@ void Facade::fin(int tour)
     }
     else if(joueur->estVivant())
     {
-        std::cout << "\n---------------------------------------------------\n" << std::endl;
-        std::cout << "Tu en es a " << tour << " tour de jeu." << std::endl;
+        aff.etoiles();
+        aff.tour(tour);
         joueur->statut();    //on affiche le statut du joueur
-        std::cout << "\n---------------------------------------------------\n" << std::endl;
+
     }
     else
     {
@@ -102,7 +97,6 @@ void Facade::initialiser()
     cart = NULL;
     cart = new Carte();
     aff.setCarte(cart);
-   // /* à tester
     delete joueur;
     joueur = NULL;
     joueur = new Colvert("");

@@ -154,3 +154,28 @@ void Affichage::setCarte(Carte *c)
 {
 	this->carte_ = c;
 }
+
+void Affichage::tour(int t)
+{
+	std::cout << "Tu en es a " << t << " tour de jeu." << std::endl;
+}
+
+void Affichage::bienvenue(std::string nom)
+{
+	std::cout << "Bienvenue, " << nom << std::endl;
+}
+
+void Affichage::evolNageVol()
+{
+	std::cout << "Mais ! Tu as des ailes ! Tu pouvais voler depuis tout ce temps ?" << std::endl;
+    std::cout << "Et tes pattes ! Elles sont palmées, tu peux donc nager !" << std::endl;
+    std::cout << "Pourquoi ne pas l'avoir dit plus tôt ?" << std::endl;
+}
+
+void Affichage::evolCancan()
+{
+    std::cout << "Cancane un peu pour voir ? Ah, tu as un très joli chant" << std::endl;
+    //texte pour le moment pas adapté vu qu'on ne peut jamais croiser d'autre canard.
+    /*c'est très bien, si tu le fais régulièrement" << std::endl;
+    std::cout <<"peut etre qu'un autre canard te rejoindra et que tu ne seras plus seul."<< std::endl; */
+}
