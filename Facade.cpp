@@ -23,8 +23,8 @@ void Facade::debut()
     aff.debut();
     //on récupère son nom
     std::cin >> nomCanard;
-    //on l'accueille poliment quand même
     joueur->setNom(nomCanard);
+    //on l'accueille poliment quand même
     aff.bienvenue(joueur->getNom());
     std::cout << joueur->presentation() << std::endl;
 }

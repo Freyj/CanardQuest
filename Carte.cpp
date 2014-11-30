@@ -188,7 +188,7 @@ void Carte::remplirCarte()
 	D'abord on remplit la carte de nourriture et de brindilles (et de rien) [de 0  à 2]
 	*/
 
-	std::random_device rd;//nouvelle methode pour l'aléatoire, merci Charles-Eric! [Meilleure car elle prend le temps passé sur le système]
+	std::random_device rd;//nouvelle methode pour l'aléatoire, merci Charles-Eric! [Meilleure car elle prend le temps passé sur le système depuis une certaine date]
 	std::mt19937 rng(rd());
 
 	for (int i = 0 ; i < 256 ; ++i)
