@@ -199,4 +199,26 @@ void Carte::remplirCarte()
 void Carte::triParType()
 {
 //je parcours le tableau, dès que je rencontre un type particulier, je l'insère dans son tableau (liste ou vecteur)
+    for(int i(0); i<256; ++i)
+    {
+        if(tabl_[i].type == 1)
+        {
+            caseEau.push_back(i);
+        }
+        else if(tabl_[i].type == 3 || tabl_[i].type == 4)
+        {
+            caseSol.push_back(i);
+        }
+    }
+}
+
+
+std::vector<int> Carte::getCaseEau()
+{
+    return caseEau;
+}
+
+std::vector<int> Carte::getCaseSol()
+{
+    return caseSol;
 }

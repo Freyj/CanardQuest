@@ -46,8 +46,19 @@ void Facade::tourCanard()
 void Facade::tourPredateurs()
 {
     //va tuer le canard si le prédateur est sur la meme case que lui
-    //aigle.tuer(&joueur);
-    //bestiaire->predEau_[2]->presentation();
+    for(int unsigned i(0); i<bestiaire->getPredEau().size(); ++i)
+    {
+        std::cout<<bestiaire->getPredEau().at(i)->presentation()<<bestiaire->getPredEau().at(i)->getPos()<<std::endl;
+    }
+    for(int unsigned j(0); j<bestiaire->getPredSol().size(); ++j)
+    {
+        std::cout<<bestiaire->getPredSol().at(j)->presentation()<<std::endl;
+    }
+    for(int unsigned k(0); k<bestiaire->getPredVol().size(); ++k)
+    {
+        bestiaire->getPredVol().at(k)->tuer(&joueur);
+        std::cout<<bestiaire->getPredVol().at(k)->presentation()<<bestiaire->getPredVol().at(k)->getPos()<<std::endl;
+    }
 }
 
 void Facade::evolutions(int tour)
@@ -122,6 +133,6 @@ void Facade::initBestiaire(int type)
     {
         bestiaire = new BestiaireBasique(fP_);
     }//rajouter un if à chaque nouvelle difficulté
-    bestiaire->listerPredateurs(4, 4);//remplacer par rapport à la carte (pour les aquatiques quoi)
-
+    bestiaire->listerPredateurs(4, 4);
+    bestiaire->initPlace(cart);
 }

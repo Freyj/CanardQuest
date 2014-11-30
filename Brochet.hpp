@@ -11,6 +11,7 @@ class Brochet : public PredateurEau
     public:
         Brochet(int a);
         ~Brochet();
+		std::string presentation() override;
         void tuer(Canard* can);
         //void deplacement(int a);
 };

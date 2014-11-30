@@ -2,6 +2,7 @@
 #define CARTE_HPP
 
 #include <string>
+#include <vector>
 /**
 Classe qui gère la carte du jeu représentée par un tableau
 d'entiers pour le moment (un entier représente un type de terrain)
@@ -31,6 +32,8 @@ class Carte
 		};
 		/** Pointeur vers un tableau de Terrain représentant la carte */
 		Case* tabl_;
+		std::vector<int> caseEau;
+		std::vector<int> caseSol;
 	public:
 		Carte();
 		~Carte();
@@ -60,5 +63,7 @@ class Carte
 		void remplirCarte();
 		/** Méthode qui met dans leur tableaux respectifs les types de chaques états */
 		void triParType();
+		std::vector<int> getCaseEau();
+		std::vector<int> getCaseSol();
 };
 #endif

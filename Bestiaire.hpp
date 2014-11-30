@@ -4,6 +4,7 @@
 #include <vector>
 #include "Predateur.hpp"
 #include "FactoryPredator.hpp"
+#include "Carte.hpp"
 
 class Bestiaire
 {
@@ -15,6 +16,10 @@ class Bestiaire
         Bestiaire();
         virtual ~Bestiaire();
         virtual void listerPredateurs(int, int /*, int ce serais bien de l'avoir lui quand meme, donc trouver comment faire*/) = 0;
+        std::vector<PredateurSol*> getPredSol();
+        std::vector<PredateurEau*> getPredEau();
+        std::vector<PredateurVol*> getPredVol();
+        virtual void initPlace(Carte* carte)=0;
 };
 
 class BestiaireBasique : public Bestiaire
@@ -26,6 +31,7 @@ class BestiaireBasique : public Bestiaire
         BestiaireBasique(FactoryPredator* fp);
         virtual ~BestiaireBasique();
         void listerPredateurs(int t, int e);
+        void initPlace(Carte* carte);
 
 };
 
