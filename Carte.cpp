@@ -178,19 +178,22 @@ void Carte::setType(int i, int a)
 
 void Carte::remplirCarte()
 {
-	/*
+	/*Ancienne méthode
 	On crée l'aléatoire (cf cplusplus.com/reference/random)
-	*/
+	
 	std::default_random_engine generator;
 	std::uniform_int_distribution<int> distribution(0,2);
 
-	/*
+	
 	D'abord on remplit la carte de nourriture et de brindilles (et de rien) [de 0  à 2]
 	*/
 
+	std::random_device rd;//nouvelle methode pour l'aléatoire, merci Charles-Eric! [Meilleure car elle prend le temps passé sur le système]
+	std::mt19937 rng(rd());
+
 	for (int i = 0 ; i < 256 ; ++i)
 	{
-        this->tabl_[i].occupation = distribution(generator);
+        this->tabl_[i].occupation = rng()%3;
 	}
 
 }

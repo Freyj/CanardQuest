@@ -25,7 +25,7 @@ void Facade::debut()
     std::cin >> nomCanard;
     //on l'accueille poliment quand même
     joueur->setNom(nomCanard);
-    aff.bievenue(joueur->getNom());
+    aff.bienvenue(joueur->getNom());
     std::cout << joueur->presentation() << std::endl;
 }
 
@@ -93,12 +93,14 @@ bool Facade::recommencer()
 void Facade::initialiser()
 {
     commandes->setArret(false);
+    cart = nullptr;
+    joueur = nullptr;
     delete cart;
-    cart = NULL;
+    delete joueur;
     cart = new Carte();
     aff.setCarte(cart);
-    delete joueur;
-    joueur = NULL;
     joueur = new Colvert("");
+    commandes->setCanard(joueur);
+    commandes->setCarte(cart);
     aigle.setPos(110);
 }

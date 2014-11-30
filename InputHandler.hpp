@@ -22,6 +22,8 @@ class InputHandler
 		Canard* getCanard();
 		/** Setter pour pouvoir changer le canard (pas utile pour le moment, à supprimer ?) */
 		void setCanard(Canard* can);
+		/** Setter pour changer la carte [quand on relance le jeu par exemple ]*/
+		void setCarte(Carte* car);
 		/** Getter pour l'arrêt du jeu qui renvoie un booléen (vrai si on s'arrête) */
 		bool getArret();
 		/** Setter pour l'arrêt */

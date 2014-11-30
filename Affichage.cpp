@@ -22,12 +22,12 @@ void Affichage::debut()
 
 bool Affichage::relancer()
 {
-	int a;
+	char a;
 	etoiles();
 	std::cout << "Voulez-vous relancer une partie ?\nTapez 1 pour recommencer, toute autre caractere arrêtera le programme." << std::endl;
 	std::cin >> a;
 	etoiles();
-	return a==1;
+	return a=='1';
 }
 
 void Affichage::vue(int i)
@@ -147,7 +147,7 @@ void Affichage::victoire()
 
 void Affichage::etoiles()
 {
-	std::cout << "\n***************************************************\n" << std::endl;
+	std::cout << "\n***************************************************" << std::endl;
 }
 
 void Affichage::setCarte(Carte *c)

@@ -257,3 +257,7 @@ void InputHandler::deplacementBas(int place)
 		}
 	}
 }
+void InputHandler::setCarte(Carte* car)
+{
+	this->carte_ = car;
+}
