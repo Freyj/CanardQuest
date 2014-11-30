@@ -11,7 +11,7 @@ int main(void)
 	bool reprendre = true;
 	int cpt;
 	//std::string nomCanard ="";
-	Facade facade();
+	Facade facade;
 	while (reprendre)
 	{
         //début du jeu, on initialise la variable de relance à faux et le compteur de tour à 0
