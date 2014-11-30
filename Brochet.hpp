@@ -1,21 +1,18 @@
-#ifndef AIGLE_HPP
-#define AIGLE_HPP
+#ifndef BROCHET_HPP
+#define BROCHET_HPP
 
 #include "Creature.hpp"
 #include <string>
 #include "Predateur.hpp"
 #include "Canard.hpp"
 
-class Aigle:public PredateurVol
+class Brochet : public PredateurEau
 {
     public:
-        Aigle();
-        ~Aigle();
-        std::string presentation() override;
+        Brochet(int a);
+        ~Brochet();
         void tuer(Canard* can);
         //void deplacement(int a);
 };
 
-
-
-#endif
+#endif // BROCHET_HPP

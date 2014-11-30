@@ -6,13 +6,14 @@
 #include "Predateur.hpp"
 #include "Canard.hpp"
 
-class Renard:public Predateur
+class Renard:public PredateurSol
 {
 	public:
 		Renard(int a);
 		~Renard();
 		std::string presentation() override;
 		void tuer(Canard* can);
+		//void deplacement(int a);
 };
 
 #endif

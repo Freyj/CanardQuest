@@ -3,20 +3,21 @@
 #include <iostream>
 #include <random>
 
-Aigle::Aigle() : Predateur("aigle", 110)//position décidée arbitrairement
+Aigle::Aigle() : PredateurVol("aigle", 110)/*placement totalement hasardeux !*/
 {
-	
 }
 
 Aigle::~Aigle()
 {
-
 }
 
 std::string Aigle::presentation()
 {
-	return("Je suis un aigle !");
+	return("Je suis un aigle ! Le prédateur ultime !");
 }
+
+//créer une mathode adjacent pour que l'aigle puisse attaquer le canard si il est sur la case à coter.
+//c'est quand meme le prédateur ultime quoi ...
 
 void Aigle::tuer(Canard* can)
 {

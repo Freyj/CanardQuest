@@ -3,9 +3,8 @@
 #include <iostream>
 #include <random>
 
-Renard::Renard(int a) : Predateur("renard", a)
+Renard::Renard(int a) : PredateurSol("renard", a)
 {
-
 }
 
 Renard::~Renard()

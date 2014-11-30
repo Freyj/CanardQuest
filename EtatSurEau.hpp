@@ -9,6 +9,7 @@ class EtatSurEau : public Etat
     private:
         Canard* canard_;
     public:
+        EtatSurEau();
         EtatSurEau(Canard* can);
         virtual ~EtatSurEau();
         Canard* getCanard_() { return canard_; }

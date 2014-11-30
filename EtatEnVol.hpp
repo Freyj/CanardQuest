@@ -9,6 +9,7 @@ class EtatEnVol : public Etat
     private:
         Canard* canard_;
     public:
+        EtatEnVol();
         EtatEnVol(Canard* can);
         virtual ~EtatEnVol();
         Canard* getCanard() { return canard_; }
@@ -17,7 +18,7 @@ class EtatEnVol : public Etat
         void atterrissageEau(); //change l'état en vol à etat sur l'eau
 
         void choix();
-        bool autorisation(int);
+        bool autorisation(int x);
 
         virtual void aff(){std::cout<<"en Vol"<<std::endl;}
 

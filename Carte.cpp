@@ -7,11 +7,13 @@ Carte::Carte()
 {
 	this->tabl_ = new Case[256];
 	creerCarte();
+	triParType();
 }
 
 Carte::~Carte()
 {
 	delete[] tabl_;
+	//delete les tableaux créer dans triParType
 }
 
 void Carte::creerCarte()
@@ -33,7 +35,8 @@ void Carte::creerCarte()
 		{
 			f >> a;
 			this->setTab(cpt, (a-48));
-			//à la création de la carte, il n'y a rien dessus mais on initialise l'occupation tout de même
+			//à la création de la carte, il n'y a rien dessus mais
+			//on initialise l'occupation tout de même
 			this->setOccupation(cpt, 0);
 			++cpt;
 		}
@@ -45,17 +48,16 @@ void Carte::creerCarte()
 
 void Carte::creerCarteAlea()
 {
-	/* 	On crée l'aléatoire (cf cplusplus.com/reference/random)
-	(de 1 à 5 pour tous les types de terrains, sauf le nid, et l'hors carte) [Ci-dessous ancienne méthode)]
+	/*
+	On crée l'aléatoire (cf cplusplus.com/reference/random)
+	(de 1 à 5 pour tous les types de terrains, sauf le nid, et l'hors carte)
+	*/
 	std::default_random_engine generator;
 	std::uniform_int_distribution<int> distribution(1,5);
-	*/
-	std::random_device rd;//nouvelle methode pour l'aléatoire, merci Charles-Eric! [Meilleure car elle prend le temps passé sur le système]
-	std::mt19937 rng(rd());
 
 	for (int i = 0; i < 256 ; ++i)
 	{
-		this->tabl_[i].type = (rng()%6)+1;
+		this->tabl_[i].type = distribution(generator);
 	}
 	//on remplit l'occupation des cases
 	remplirCarte();
@@ -178,22 +180,23 @@ void Carte::setType(int i, int a)
 
 void Carte::remplirCarte()
 {
-	/*Ancienne méthode
+	/*
 	On crée l'aléatoire (cf cplusplus.com/reference/random)
-	
+	*/
 	std::default_random_engine generator;
 	std::uniform_int_distribution<int> distribution(0,2);
 
-	
+	/*
 	D'abord on remplit la carte de nourriture et de brindilles (et de rien) [de 0  à 2]
 	*/
 
-	std::random_device rd;//nouvelle methode pour l'aléatoire, merci Charles-Eric! [Meilleure car elle prend le temps passé sur le système depuis une certaine date]
-	std::mt19937 rng(rd());
-
 	for (int i = 0 ; i < 256 ; ++i)
 	{
-        this->tabl_[i].occupation = rng()%3;
+        this->tabl_[i].occupation = distribution(generator);
 	}
+}
 
+void Carte::triParType()
+{
+//je parcours le tableau, dès que je rencontre un type particulier, je l'insère dans son tableau (liste ou vecteur)
 }

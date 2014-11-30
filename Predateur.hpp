@@ -4,24 +4,44 @@
 #include "Creature.hpp"
 #include "Canard.hpp"
 #include <string>
+#include "EtatAuSol.hpp"
+#include "EtatEnVol.hpp"
+#include "EtatSurEau.hpp"
 
-/** La classe abstraite Predateur sera la classe mère de tous les prédateurs du jeu, elle est hérite de Creature, et a principalement une fonction utile, tuer().*/
-
-class Predateur: public Creature
+class PredateurSol: public Creature
 {
-	private:
-
+    private :
+        EtatAuSol* etatPred_;
 	public:
-		/** Constructeur de prédateur qui prend un string pour le nom de la créature et initialise sa position à 0 de base. */
-		Predateur(std::string nom);
-		/** Constructeur de prédateur qui prend un string pour le nom de la créature et un int pour initialiser sa position. */
-		Predateur(std::string nom, int p);
-		virtual ~Predateur();
-		/** Fonction renvoyant un string de présentation pour permettre des tests */
+		PredateurSol(std::string nom, int p);
+		virtual ~PredateurSol();
 		std::string presentation() override;
-		/** Procédure permettant au prédateur de tuer le canard, variable suivant les prédateurs */
 		virtual void tuer(Canard* can) = 0;
+		//virtual void deplacement(int a) =0;
 };
 
+class PredateurVol: public Creature
+{
+    private :
+        EtatEnVol* etatPred_;
+	public:
+		PredateurVol(std::string nom, int p);
+		virtual ~PredateurVol();
+		std::string presentation() override;
+		virtual void tuer(Canard* can) = 0;
+		//virtual void deplacement(int a) =0;
+};
+
+class PredateurEau: public Creature
+{
+    private :
+        EtatSurEau* etatPred_;
+	public:
+		PredateurEau(std::string nom, int p);
+		virtual ~PredateurEau();
+		std::string presentation() override;
+		virtual void tuer(Canard* can) = 0;
+		//virtual void deplacement(int a) =0;
+};
 
 #endif

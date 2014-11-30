@@ -1,5 +1,9 @@
 #include "Creature.hpp"
 
+
+Creature::Creature(std::string nom, int pos): nom_(nom), pos_(pos), etatVivant(1), etatMort(0), etatCourant(etatVivant){}
+
+Creature::~Creature(){}
 /**
 Renvoie un string avec le nom de la créature.
 */
@@ -15,7 +19,7 @@ void Creature::setNom(std::string nom)
 {
 	this->nom_ = nom;
 }
-/** 
+/**
 Renvoie un entier représentant la position de la créature
 */
 int Creature::getPos()

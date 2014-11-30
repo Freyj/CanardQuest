@@ -9,6 +9,7 @@ class EtatAuSol : public Etat
     private:
         Canard* canard_;
     public:
+        EtatAuSol();
         EtatAuSol(Canard* can);
         virtual ~EtatAuSol();
         Canard* getCanard_() { return canard_; }

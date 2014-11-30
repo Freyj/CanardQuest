@@ -1,7 +1,10 @@
 #include "Affichage.hpp"
 #include <iostream>
+#include "Carte.hpp"
 
-
+/**
+Constructeur qui donne la carte à l'affichage
+*/
 Affichage::Affichage(Carte *c)
 {
 	this->carte_ = c;
@@ -12,24 +15,32 @@ Affichage::~Affichage()
 	delete carte_;
     carte_ = NULL;
 }
-
+/**
+Permet de simplifier l'affichage initial en une fonction
+*/
 void Affichage::debut()
 {
    etoiles();
 	std::cout << "Bienvenue sur CanardQuest. Un jeu d'un suspense insoutenable !" << std::endl;
 	std::cout << "\nQuel sera le nom de votre canard ?" << std::endl;
 }
-
+/**
+Fonction permettant de savoir si le joueur décide de relancer une
+partie. Renvoie vrai si il tape 1, faux dans tous les autres cas.
+*/
 bool Affichage::relancer()
 {
-	char a;
+	int a;
 	etoiles();
 	std::cout << "Voulez-vous relancer une partie ?\nTapez 1 pour recommencer, toute autre caractere arrêtera le programme." << std::endl;
 	std::cin >> a;
 	etoiles();
-	return a=='1';
+	return a==1;
 }
-
+/**
+Affiche la vue autour de la position i (à une case de diamètre)
+(le tableau est créé et détruit à chaque affichage)
+*/
 void Affichage::vue(int i)
 {
     etoiles();
@@ -44,7 +55,15 @@ void Affichage::vue(int i)
 	affichOcc(i);
 
 }
-
+/** renvoie le char à afficher en fonction du type de terrain
+hors map @ 0
+eau ~  1
+arbre ! 2
+herbe . 3
+sable - 4
+rocher # 5
+nid * 6
+*/
 char Affichage::affichTerr(int i)
 {
 	switch(i)
@@ -75,7 +94,9 @@ char Affichage::affichTerr(int i)
 
 	}
 }
-
+/**
+Fonction permettant l'affichage d'une ligne décrivant la case à la position a
+*/
 void Affichage::affichOcc(int o)
 {
 	 int occ = this->carte_->getOccupation(o);
@@ -122,7 +143,9 @@ void Affichage::affichOcc(int o)
 
 
 }
-
+/**
+Fonction permettant l'affichage d'une explication des symboles
+*/
 void Affichage::legende()
 {
 	std::cout << " \nC : ton canard    . : un peu d'herbe  ! : un arbre" << std::endl;
@@ -147,35 +170,5 @@ void Affichage::victoire()
 
 void Affichage::etoiles()
 {
-	std::cout << "\n***************************************************" << std::endl;
-}
-
-void Affichage::setCarte(Carte *c)
-{
-	this->carte_ = c;
-}
-
-void Affichage::tour(int t)
-{
-	std::cout << "Tu en es a " << t << " tour de jeu." << std::endl;
-}
-
-void Affichage::bienvenue(std::string nom)
-{
-	std::cout << "Bienvenue, " << nom << std::endl;
-}
-
-void Affichage::evolNageVol()
-{
-	std::cout << "Mais ! Tu as des ailes ! Tu pouvais voler depuis tout ce temps ?" << std::endl;
-    std::cout << "Et tes pattes ! Elles sont palmées, tu peux donc nager !" << std::endl;
-    std::cout << "Pourquoi ne pas l'avoir dit plus tôt ?" << std::endl;
-}
-
-void Affichage::evolCancan()
-{
-    std::cout << "Cancane un peu pour voir ? Ah, tu as un très joli chant" << std::endl;
-    //texte pour le moment pas adapté vu qu'on ne peut jamais croiser d'autre canard.
-    /*c'est très bien, si tu le fais régulièrement" << std::endl;
-    std::cout <<"peut etre qu'un autre canard te rejoindra et que tu ne seras plus seul."<< std::endl; */
+	std::cout << "\n***************************************************\n" << std::endl;
 }
