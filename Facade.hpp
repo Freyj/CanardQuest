@@ -14,7 +14,7 @@ class Facade
 {
     private:
         Carte* cart = new Carte();
-        Colvert joueur;
+        Colvert* joueur;
         Aigle aigle;
         Affichage aff;
         InputHandler* commandes;
