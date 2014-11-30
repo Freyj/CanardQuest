@@ -43,22 +43,26 @@ void Facade::tourPredateurs()
 }
 
 void Facade::evolutions(int tour)
-{
-    if(tour == 10)
-    {
-        //joueur.evolutionVol();
-        //joueur.evolutionNage();
-        joueur->setCompVol(new CompetenceVolEnable());
-        joueur->setCompNage(new CompetenceNageEnable());
-        aff.evolNageVol();
-    }
-    else if(tour == 25)
-    {
-        //joueur.evolutionCancan();
-        joueur->setCompCan(new CompetenceCancanEnable());
-        aff.evolCancan();
+{   
+    //si le canard n'est pas vivant à ce tour-ci, on le fait pas évoluer, logique
+    if ((joueur->estVivant()))
+    {    if(tour == 10)
+        {
+            //joueur.evolutionVol();
+            //joueur.evolutionNage();
+            joueur->setCompVol(new CompetenceVolEnable());
+            joueur->setCompNage(new CompetenceNageEnable());
+            aff.evolNageVol();
+        }
+        else if(tour == 25)
+        {
+            //joueur.evolutionCancan();
+            joueur->setCompCan(new CompetenceCancanEnable());
+            aff.evolCancan();
+        }
     }
 }
+
 void Facade::fin(int tour)
 {
     if(joueur->estVivant() && tour == 50)
