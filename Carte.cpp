@@ -33,8 +33,7 @@ void Carte::creerCarte()
 		{
 			f >> a;
 			this->setTab(cpt, (a-48));
-			//à la création de la carte, il n'y a rien dessus mais
-			//on initialise l'occupation tout de même
+			//à la création de la carte, il n'y a rien dessus mais on initialise l'occupation tout de même
 			this->setOccupation(cpt, 0);
 			++cpt;
 		}
@@ -46,16 +45,17 @@ void Carte::creerCarte()
 
 void Carte::creerCarteAlea()
 {
-	/*
-	On crée l'aléatoire (cf cplusplus.com/reference/random)
-	(de 1 à 5 pour tous les types de terrains, sauf le nid, et l'hors carte)
-	*/
+	/* 	On crée l'aléatoire (cf cplusplus.com/reference/random)
+	(de 1 à 5 pour tous les types de terrains, sauf le nid, et l'hors carte) [Ci-dessous ancienne méthode)]
 	std::default_random_engine generator;
 	std::uniform_int_distribution<int> distribution(1,5);
+	*/
+	std::random_device rd;//nouvelle methode pour l'aléatoire, merci Charles-Eric! [Meilleure car elle prend le temps passé sur le système]
+	std::mt19937 rng(rd());
 
 	for (int i = 0; i < 256 ; ++i)
 	{
-		this->tabl_[i].type = distribution(generator);
+		this->tabl_[i].type = (rng()%6)+1;
 	}
 	//on remplit l'occupation des cases
 	remplirCarte();

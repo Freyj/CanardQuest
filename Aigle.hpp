@@ -6,6 +6,8 @@
 #include "Predateur.hpp"
 #include "Canard.hpp"
 
+/** La classe Aigle est une classe fille de Prédateur */
+
 class Aigle:public Predateur
 {
 private:

@@ -1,7 +1,7 @@
 #include "InputHandler.hpp"
 #include <iostream>
 
-//(╯°□°）╯︵ ┻━┻
+//(°□°）︵ ┻━┻
 
 InputHandler::InputHandler(Canard* can, Carte* cart)
 {
@@ -16,7 +16,7 @@ InputHandler::~InputHandler()
     delete canard_;
     delete carte_;
 }
-//(╯°□°）╯︵ ┻━┻
+//(°□°）︵ ┻━┻
 void InputHandler::choix()
 {
 	char rec;
@@ -34,9 +34,6 @@ void InputHandler::choix()
     userInput(rec);
 }
 
-/**
-Fonction proposant une liste d'actions au joueur puis de saisir l'action qu'il souhaite effectuer.
-*/
 void InputHandler::userInput(char rec)
 {
 	switch (rec)
@@ -81,6 +78,7 @@ void InputHandler::userInput(char rec)
 		this->canard_->cancaner();
         break;
 
+        //si le joueur se trompe de touche ou autres, il perd un tour.
 		default:
         std::cout << "\n---------------------------------------------------\n" << std::endl;
         std::cout << "Cette touche n'est assignée à aucune action. Tu as perdu un tour." << std::endl;
@@ -108,10 +106,6 @@ void InputHandler::setArret(bool ar)
 	this->arret_ = ar;
 }
 
-/**
-Fonction vérifiant que de la nourriture est sur la case, si c'est le cas alors le canard mange et l'on modifie l'occupation de la case.
-Sinon un message préviens le joueur que l'action est impossible.
-*/
 void InputHandler::manger()
 {
 
@@ -127,10 +121,6 @@ void InputHandler::manger()
 	}
 }
 
-/**
-Fonction vérifiant que des brindilles sont sur la case, si c'est le cas alors le canard faid un nid et l'on modifie l'occupation de la case.
-Sinon un message préviens le joueur que l'action est impossible.
-*/
 void InputHandler::nid()
 {
 	if (this->carte_->getOccupation(this->canard_->getPos())==2)

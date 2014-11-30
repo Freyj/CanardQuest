@@ -1,6 +1,6 @@
 #include "Facade.hpp"
 
-Facade::Facade(std::string nomCanard) : joueur(nomCanard), aigle(), aff(cart)
+Facade::Facade() : joueur(""), aigle(), aff(cart)
 {
     commandes = new InputHandler(&joueur, cart);
 }
@@ -13,8 +13,9 @@ Facade::~Facade()
     delete commandes;
 }
 
-void Facade::debut(std::string nomCanard)
+void Facade::debut()
 {
+    std::string nomCanard ="";
     //on blablate pour alpaguer le joueur
     aff.debut();
     //on récupère son nom
@@ -35,7 +36,7 @@ void Facade::tourCanard()
 
 void Facade::tourPredateurs()
 {
-    //va tuer le canard si le prédateur est sur la meme case que lui
+    //les prédateurs agissent (et tentent de tuer le canard)
     aigle.tuer(&joueur);
 }
 
@@ -94,10 +95,14 @@ bool Facade::recommencer()
 void Facade::initialiser()
 {
     commandes->setArret(false);
-    cart = NULL;
     delete cart;
+    cart = NULL;
     cart = new Carte();
     aff.setCarte(cart);
+    /* à tester
+    delete joueur;
+    joueur = NULL;
+    joueur = new Colvert(""); */
     joueur.setFaim(5);
     joueur.setCompCan(new CompetenceCancanDisable());
     joueur.setCompNage(new CompetenceNageDisable());

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <random>
 
-Aigle::Aigle() : Predateur("aigle", 110)//placement totalement hasardeux !
+Aigle::Aigle() : Predateur("aigle", 110)//position décidée arbitrairement
 {
 	
 }
