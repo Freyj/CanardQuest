@@ -1,89 +1,81 @@
 #include "Facade.hpp"
 
-Facade::Facade(std::string nomCanard, int difficulte) : joueur(nomCanard), aff(cart)
+Facade::Facade() : aigle(), aff(cart)
 {
-    commandes = new InputHandler(&joueur, cart);
-    if(difficulte == 0)
-    {
-        fP_ = new PredateursBasique();
-    }
-    initBestiaire(difficulte);
+    joueur = new Colvert("");
+    commandes = new InputHandler(joueur, cart);    
 }
 
 Facade::~Facade()
 {
-    delete cart;
-    delete commandes;
-    delete bestiaire;
-    delete fP_;
     cart = NULL;
     commandes = NULL;
-    fP_ =NULL;
-    bestiaire =NULL;
+    joueur = NULL;
+    delete cart;
+    delete commandes;
+    delete joueur;
 }
 
-void Facade::debut(std::string nomCanard)
+void Facade::debut()
 {
+    std::string nomCanard ="";
     //on blablate pour alpaguer le joueur
     aff.debut();
     //on récupère son nom
     std::cin >> nomCanard;
-    joueur.setNom(nomCanard);
+    joueur->setNom(nomCanard);
     //on l'accueille poliment quand même
-    aff.etoiles();
-    std::cout << "Bienvenue, " << joueur.getNom() << ".\n" << std::endl;
-    std::cout << joueur.presentation() << std::endl;
+    aff.bienvenue(joueur->getNom());
+    std::cout << joueur->presentation() << std::endl;
 }
 
 void Facade::tourCanard()
 {
-    aff.vue(joueur.getPos());               //on affiche la position du canard
+    aff.vue(joueur->getPos());               //on affiche la position du canard
     commandes->choix();                     //on demande au joueurs d'entrer ses instructions
-    std::cout<<"ahahah"<<std::endl;
-    joueur.setFaim(joueur.getFaim()-1);     //à la fin de son tour, le canard consomme un point de faim
+    joueur->setFaim(joueur->getFaim()-1);     //à la fin de son tour, le canard consomme un point de faim
 }
 
 void Facade::tourPredateurs()
 {
-    //va tuer le canard si le prédateur est sur la meme case que lui
-    //aigle.tuer(&joueur);
-    //bestiaire->predEau_[2]->presentation();
+    //les prédateurs agissent (et tentent de tuer le canard)
+    aigle.tuer(joueur);
 }
 
 void Facade::evolutions(int tour)
-{
-    if(tour == 10)
-    {
-        //joueur.evolutionVol();
-        //joueur.evolutionNage();
-        joueur.setCompVol(new CompetenceVolEnable());
-        joueur.setCompNage(new CompetenceNageEnable());
-        std::cout << "Mais ! Tu as des ailes ! Tu pouvais voler depuis tout ce temps ?" << std::endl;
-        std::cout << "Et tes pattes ! Elles sont palmés, tu sais donc nager !" << std::endl;
-        std::cout << "Pourquoi ne pas l'avoir dit plus tot ?" << std::endl;
-    }
-    else if(tour == 25)
-    {
-        //joueur.evolutionCancan();
-        joueur.setCompCan(new CompetenceCancanEnable());
-        std::cout << "Cancanne un peu pour voir ? Ah, c'est très bien, si tu le fais régulièrement" << std::endl;
-        std::cout <<"peut etre qu'un autre canard te rejoindras et que tu finiras ta vie heureux."<< std::endl;
-
+{   
+    //si le canard n'est pas vivant à ce tour-ci, on le fait pas évoluer, logique
+    if ((joueur->estVivant()))
+    {    if(tour == 10)
+        {
+            //joueur.evolutionVol();
+            //joueur.evolutionNage();
+            joueur->setCompVol(new CompetenceVolEnable());
+            joueur->setCompNage(new CompetenceNageEnable());
+            aff.evolNageVol();
+        }
+        else if(tour == 25)
+        {
+            //joueur.evolutionCancan();
+            joueur->setCompCan(new CompetenceCancanEnable());
+            aff.evolCancan();
+        }
     }
 }
+
 void Facade::fin(int tour)
 {
-    if(joueur.estVivant() && tour == 50)
+    if(joueur->estVivant() && tour == 50)
     {
         aff.victoire();
         commandes->setArret(true);
     }
-    else if(joueur.estVivant())
+    else if(joueur->estVivant())
     {
-        std::cout << "\n---------------------------------------------------\n" << std::endl;
-        std::cout << "Tu en es a " << tour << " tour de jeu." << std::endl;
-        joueur.statut();    //on affiche le statut du joueur
-        std::cout << "\n---------------------------------------------------\n" << std::endl;
+        aff.etoiles();
+        aff.tour(tour);
+        joueur->statut();    //on affiche le statut du joueur
+
     }
     else
     {
@@ -105,23 +97,14 @@ bool Facade::recommencer()
 void Facade::initialiser()
 {
     commandes->setArret(false);
+    cart = nullptr;
+    joueur = nullptr;
+    delete cart;
+    delete joueur;
     cart = new Carte();
-    joueur.setFaim(5);
-    joueur.setCompCan(new CompetenceCancanDisable());
-    joueur.setCompNage(new CompetenceNageDisable());
-    joueur.setCompVol(new CompetenceVolDisable());
-    joueur.setEtat(joueur.getEtatAuSol());
-    joueur.setEtatCourant(joueur.getEtatVivant());
-    joueur.setPos(101);
-    //aigle.setPos(110);
-}
-
-void Facade::initBestiaire(int type)
-{
-    if(type == 0)
-    {
-        bestiaire = new BestiaireBasique(fP_);
-    }//rajouter un if à chaque nouvelle difficulté
-    bestiaire->listerPredateurs(4, 4);//remplacer par rapport à la carte (pour les aquatiques quoi)
-
+    aff.setCarte(cart);
+    joueur = new Colvert("");
+    commandes->setCanard(joueur);
+    commandes->setCarte(cart);
+    aigle.setPos(110);
 }

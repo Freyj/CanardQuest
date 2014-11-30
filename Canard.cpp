@@ -14,18 +14,19 @@ Canard::Canard(std::string nom):Creature(nom, 101),faim(5)//milieu de la carte =
 
 Canard::~Canard()
 {
-    delete etatSrEau_;
-    delete etatEnVol_;
-    delete etatAuSol_;
-    delete compNage;
-    delete compCan;
-    delete compVol;
     compNage = NULL;
     compCan = NULL;
     compVol = NULL;
     etatAuSol_ = NULL;
     etatEnVol_ = NULL;
     etatSrEau_ = NULL;
+    delete compNage;
+    delete compCan;
+    delete compVol;
+    delete etatAuSol_;
+    delete etatEnVol_;
+    delete etatSrEau_;
+    delete etat_;
 }
 
 
@@ -61,27 +62,18 @@ std::string Canard::presentation()
     return "Juste un mot, PRESENTATION .";
 }
 
-/**
-Méthode qui fait cancaner le canard
-*/
 bool Canard::cancaner()
 {
     return compCan->cancaner();
 }
 
-/**
-Méthode qui va chercher dans le comportement du Canard
-pour déterminer la nage
-*/
+
 bool Canard::nager()
 {
 	return compNage->nager();
 }
 
-/**
-Méthode qui va chercher dans le comportement du Canard
-pour déterminer le vol
-*/
+
 bool Canard::voler()
 {
 	return compVol->voler();
@@ -142,6 +134,8 @@ Etat* Canard::getEtat()
 
 void Canard::setEtat(Etat* e)
 {
+    etat_ = NULL;
+    delete etat_;
     etat_ = e;
 }
 
@@ -156,8 +150,6 @@ bool Canard::estVivant()
 	return (etatCourant != this->getEtatVivant() || faim == 0)? false:true;
 }
 
-
-//ACTIONS DES ETATS
 void Canard::choix()
 {
     etat_->choix();
@@ -196,7 +188,7 @@ void Canard::vol_Eau()
 
 void Canard::eau_Vol()
 {
-    etat_->decollageEau();
+        etat_->decollageEau();
 }
 
 void Canard::eau_Sol()

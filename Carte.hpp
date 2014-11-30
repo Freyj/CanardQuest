@@ -3,25 +3,12 @@
 
 #include <string>
 /**
-Classe qui gère la carte du jeu représentée par un tableau
-d'entiers pour le moment (un entier représente un type de terrain)
-(deux tableaux d'entiers ? un pour les terrains, un pour l'occupation
-avec genre 0 rien, 1 : nourriture , 2 : brindilles, 3 : prédateur
-4 : predateur et brindilles, 5 predateur et nourriture
-jamais brindilles et nourriture.)
-structure définie juste pour ça, qui ne sert QUE dans cette classe
-Types de terrain :
-eau ~  1
-arbre ! 2
-herbe . 3
-sable - 4
-rocher # 5
-nid * 6
-*/
+Classe qui gère la carte du jeu représentée par un tableau de Cases, une structure contenant deux entiers : un pour le type des terrains, un pour l'occupation avec genre 0 rien, 1 : nourriture , 2 : brindilles,structure définie pour ça, qui ne sert QUE dans cette classe.
+Types de terrain : eau ~  1 arbre ! 2  herbe . 3 sable - 4 rocher # 5 nid * 6 */
 class Carte
 {
 	private:
-		/** Structure de deux entiers permettant de définir une case comme un type de terrain et une occupation (possibilité d'ajouterd'autres infos plus tard) */
+		/** Structure de deux entiers permettant de définir une case comme un type de terrain et une occupation (possibilité d'ajouter d'autres infos plus tard) */
 		struct Case
 		{
 		/** représente le type de terrain */
@@ -52,13 +39,13 @@ class Carte
 		void setOccupation(int a, int b);
 		/** Méthode renvoyant un entier représentant l'occupation d'une case */
 		int getOccupation(int a);
-		/** Méthode renvoyant vrai s'il y a un obstacle sur la case a. trois type d'obstacle possible en fonction de l'etat du canard*/
+		/** Méthode renvoyant vrai s'il y a un obstacle sur la case a pour un canard au sol */
 		bool getObstacleSol(int a);
+		/** Méthode renvoyant toujours faux car il n'y a pas d'obstacle quand le canard vole */
 		bool getObstacleVol();
+		/** Méthode renvoyant vrai s'il y a un obstacle sur la case a pour un canard dans l'eau */
 		bool getObstacleEau(int a);
 		/** Méthode qui remplit la carte de nourriture et de brindilles */
 		void remplirCarte();
-		/** Méthode qui met dans leur tableaux respectifs les types de chaques états */
-		void triParType();
 };
 #endif

@@ -1,9 +1,6 @@
 #include "EtatSurEau.hpp"
 #include <iostream>
 
-
-EtatSurEau::EtatSurEau():Etat(){}
-
 EtatSurEau::EtatSurEau(Canard* can): Etat(), canard_(can)
 {
 
@@ -11,6 +8,7 @@ EtatSurEau::EtatSurEau(Canard* can): Etat(), canard_(can)
 
 EtatSurEau::~EtatSurEau()
 {
+    delete canard_;
 }
 
 void EtatSurEau::offWater()
@@ -32,9 +30,14 @@ void EtatSurEau::choix()
 
 bool EtatSurEau::autorisation(int x)
 {
-    if(x==5 || x==2)
+    if(x==5)
     {
         return false;
+    }
+    else if (x==3 || x==4 || x==6)
+    {
+        offWater();
+        return true;
     }
     else
     {

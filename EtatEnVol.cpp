@@ -1,8 +1,6 @@
 #include "EtatEnVol.hpp"
 #include <iostream>
 
-EtatEnVol::EtatEnVol():Etat(){}
-
 EtatEnVol::EtatEnVol(Canard* can) : Etat(), canard_(can)
 {
 
@@ -10,6 +8,7 @@ EtatEnVol::EtatEnVol(Canard* can) : Etat(), canard_(can)
 
 EtatEnVol::~EtatEnVol()
 {
+    delete canard_;
 }
 
 void EtatEnVol::atterrissageSol()
@@ -29,7 +28,7 @@ void EtatEnVol::choix()
     std::cout << "a : pour atterrir\n";
 }
 
-bool EtatEnVol::autorisation(int x)
+bool EtatEnVol::autorisation(int )
 {
     return true;
 }

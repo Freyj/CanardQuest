@@ -16,7 +16,7 @@ class Etat
         virtual void atterrissageSol(){std::cout << "Action impossible." << std::endl;}
         virtual void atterrissageEau(){std::cout << "Action impossible." << std::endl;}
         virtual void choix(){}
-        virtual bool autorisation(int x){return true;}
+        virtual bool autorisation(int){return true;}
         virtual void aff(){std::cout<<"par défaut"<<std::endl;}
 };
 

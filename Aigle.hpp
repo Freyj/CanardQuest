@@ -6,14 +6,20 @@
 #include "Predateur.hpp"
 #include "Canard.hpp"
 
-class Aigle:public PredateurVol
+/** La classe Aigle est une classe fille de Prédateur */
+
+class Aigle:public Predateur
 {
-    public:
-        Aigle();
-        ~Aigle();
-        std::string presentation() override;
-        void tuer(Canard* can);
-        //void deplacement(int a);
+private:
+
+public:
+	Aigle();
+	~Aigle();
+	/** Fonction de présentation de l'aigle pour tests. Renvoie un string */
+	std::string presentation() override;
+	/** procédure permettant à l'aigle de se déplacer et de tuer le canard si il arrive dessus */
+	void tuer(Canard* can);
+
 };
 
 
