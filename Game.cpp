@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include "Facade.hpp"
 
-/** Main contenant la boucle de jeu et tout. */
+/** Main contenant la boucle de jeu et tout. v1.0*/
 
 int main(void)
 {
