@@ -32,22 +32,40 @@ class Carte
 		};
 		/** Pointeur vers un tableau de Terrain représentant la carte */
 		Case* tabl_;
+		/** Vecteur des cases aquatiques */
 		std::vector<int> caseEau;
+		/** Vecteur des cases terrestres */
 		std::vector<int> caseSol;
 	public:
+		/** \brief Constructeur.
+			Initialise le tableau de 256 pointeurs vers des Cases, et utiliser creerCarte() et triParType() pour générer l'ensemble.
+		*/
 		Carte();
+		/** Destructeur */
 		~Carte();
-		/** Méthode qui va créer la carte à partir d'un fichier*/
+		/** \brief Création de carte par fichier.
+		Méthode qui va créer la carte à partir d'un fichier*/
 		void creerCarte();
-		/** Méthode qui crée une carte aléatoire [possibilité d'être coincé, car pas de contrôles d'aléatoire]*/
+		/** \brief Création de carte aléatoire.
+			Méthode qui crée une carte aléatoire [possibilité d'être coincé, car pas de contrôles d'aléatoire]*/
 		void creerCarteAlea();
-		/** Méthode renvoyant la case demandée*/
+		/** \brief Getter du type de la case.
+		    Méthode renvoyant la case demandée
+			\param i un entier pour la case demandée
+			\return un entier pour le type
+		*/
 		int getType(int i);
-		/** Méthode changeant le type d'une case i en a.*/
+		/** \brief Setter du type de la case.
+			Méthode changeant le type d'une case i en a.
+			\param i : la case en position
+			\param a : le type a changé
+		*/
 		void setType(int i, int a);
-		/**	Méthode permettant de mettre un entier donné (b)sur la case voulue(a) */
-		void setTab(int a, int b);
-		/** Méthode renvoyant l'entier d'une casede la carte */
+		/** \brief Setter du type de la case. [double avec setTab]
+			Méthode changeant le type d'une case i en a.
+			\param i : la case en position
+			\param a : le type a changé
+		*/
 		int getTab(int i);
 		/**	Fonction qui renvoit les cases que le canard voit (+1/-1) */
 		int* getVue(int* vue, int i);

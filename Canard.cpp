@@ -61,7 +61,7 @@ std::string Canard::presentation()
     return "Juste un mot, PRESENTATION .";
 }
 
-/**
+/*
 Méthode qui fait cancaner le canard
 */
 bool Canard::cancaner()
@@ -69,7 +69,7 @@ bool Canard::cancaner()
     return compCan->cancaner();
 }
 
-/**
+/*
 Méthode qui va chercher dans le comportement du Canard
 pour déterminer la nage
 */
@@ -78,7 +78,7 @@ bool Canard::nager()
 	return compNage->nager();
 }
 
-/**
+/*
 Méthode qui va chercher dans le comportement du Canard
 pour déterminer le vol
 */

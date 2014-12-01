@@ -13,7 +13,7 @@ Carte::Carte()
 Carte::~Carte()
 {
 	delete[] tabl_;
-	//delete les tableaux créer dans triParType
+	//delete les tableaux créés dans triParType
 }
 
 void Carte::creerCarte()
@@ -34,7 +34,7 @@ void Carte::creerCarte()
 		while(!f.eof() && (cpt <256))
 		{
 			f >> a;
-			this->setTab(cpt, (a-48));
+			this->setType(cpt, (a-48));
 			//à la création de la carte, il n'y a rien dessus mais
 			//on initialise l'occupation tout de même
 			this->setOccupation(cpt, 0);
@@ -63,15 +63,6 @@ void Carte::creerCarteAlea()
 	remplirCarte();
 }
 
-void Carte::setTab(int a, int b)
-{
-	if ((0 <= a) && (a < 256))
-	{
-		this->tabl_[a].type = b;
-	}
-
-
-}
 //avec une petite vérification, si le chiffre n'est pas compris
 //dans les bonnes valeurs, -1
 int Carte::getTab(int i)
