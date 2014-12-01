@@ -14,7 +14,7 @@ Renard::~Renard()
 
 std::string Renard::presentation()
 {
-	return ("Je suis un renard !");
+	return ("Je suis un renard ! Si je t'attrape, je t'inviterais pour diner.");
 }
 
 
@@ -22,7 +22,8 @@ void Renard::tuer(Canard* can)
 {
 	if (this->getPos() == can->getPos())
 	{
-		can->setEtatCourant(can->getEtatMort());
-		std::cout << "Un renard t'a attrapé, tu es son nouveau goûter." << std::endl;
+		//can->setEtatCourant(can->getEtatMort());
+		//std::cout << "Un renard t'a attrapé, tu es son nouveau goûter." << std::endl;
+		std::cout << presentation() << std::endl;
 	}
 }

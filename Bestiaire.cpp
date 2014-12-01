@@ -10,18 +10,18 @@ Bestiaire::~Bestiaire()
 {
     for(int unsigned i(0); i<predEau_.size(); ++i)
     {
-        delete predEau_[i];  //On libère la i-ème case mémoire allouée
-        predEau_[i] = NULL;  //On met le pointeur à 0 pour éviter les soucis
+        delete predEau_[i];  //On libÃ¨re la i-Ã¨me case mÃ©moire allouÃ©e
+        predEau_[i] = NULL;  //On met le pointeur Ã  0 pour Ã©viter les soucis
     }
     for(int unsigned i(0); i<predSol_.size(); ++i)
     {
-        delete predSol_[i];  //On libère la i-ème case mémoire allouée
-        predSol_[i] = NULL;  //On met le pointeur à 0 pour éviter les soucis
+        delete predSol_[i];  //On libÃ¨re la i-Ã¨me case mÃ©moire allouÃ©e
+        predSol_[i] = NULL;  //On met le pointeur Ã  0 pour Ã©viter les soucis
     }
     for(int unsigned i(0); i<predVol_.size(); ++i)
     {
-        delete predVol_[i];  //On libère la i-ème case mémoire allouée
-        predVol_[i] = NULL;  //On met le pointeur à 0 pour éviter les soucis
+        delete predVol_[i];  //On libÃ¨re la i-Ã¨me case mÃ©moire allouÃ©e
+        predVol_[i] = NULL;  //On met le pointeur Ã  0 pour Ã©viter les soucis
     }
 }
 
@@ -44,15 +44,15 @@ void BestiaireBasique::initPlace(Carte* carte)
 {
     for(int unsigned i(0); i<predEau_.size(); ++i)
     {
-		std::default_random_engine n;
-		std::uniform_int_distribution<int> distribution(0,carte->getCaseEau().size()-1);
-        predEau_.at(i)->setPos(carte->getCaseEau().at(distribution(n)));
+        std::random_device rd;
+        std::mt19937 rng(rd());
+        predEau_.at(i)->setPos(carte->getCaseEau().at(rng()%(carte->getCaseEau().size())));
     }
     for(int unsigned j(0); j<predSol_.size(); ++j)
     {
-		std::default_random_engine n;
-		std::uniform_int_distribution<int> distribution(0,carte->getCaseEau().size()-1);
-        predSol_.at(j)->setPos(carte->getCaseEau().at(distribution(n)));
+        std::random_device rd2;
+        std::mt19937 rng2(rd2());
+        predSol_.at(j)->setPos(carte->getCaseSol().at(rng2()%(carte->getCaseSol().size())));
     }
     for(int unsigned k(0); k<predVol_.size(); ++k)
     {
@@ -79,6 +79,6 @@ void BestiaireBasique::listerPredateurs(int s, int e)
     {
         predEau_.push_back(fP_->creerAqua());
     }
-    //un seul aérien (aigle)
+    //un seul aï¿½rien (aigle)
     predVol_.push_back(fP_->creerCeleste());
 }

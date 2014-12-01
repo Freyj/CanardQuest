@@ -17,7 +17,8 @@ void Brochet::tuer(Canard* can)
 {
 	if (this->getPos() == can->getPos())
 	{
-		can->setEtatCourant(can->getEtatMort());
-		std::cout << "Un renard t'a attrapé, tu es son nouveau goûter." << std::endl;
+		//can->setEtatCourant(can->getEtatMort());
+		//std::cout << "Un brochet sévit dans ces eaux, tu le sais déjà ? oups." << std::endl;
+		std::cout << presentation() << std::endl;
 	}
 }
