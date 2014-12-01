@@ -14,7 +14,7 @@ Colvert::~Colvert()
 {
 }
 
-/**
+/*
 Fonction renvoyant un string représentant l'objet, pour tests.
 */
 std::string Colvert::presentation()

@@ -61,27 +61,67 @@ class Carte
 			\param a : le type a changé
 		*/
 		void setType(int i, int a);
-		/** \brief Setter du type de la case. [double avec setTab]
-			Méthode changeant le type d'une case i en a.
-			\param i : la case en position
-			\param a : le type a changé
+
+		/** \brief Getter du type de la case. 
+			Méthode donnant le type d'une case i.
+			\param i : la case
 		*/
 		int getTab(int i);
-		/**	Fonction qui renvoit les cases que le canard voit (+1/-1) */
+
+		/**	\brief Vue du canard.
+			Fonction qui renvoit les cases que le canard voit (+1/-1) 
+			\param vue : un pointeur vers un tableau d'entiers
+			\param i : la position du canard
+			\return : un pointeur vers un tableau d'entiers pour l'affichage
+		*/
 		int* getVue(int* vue, int i);
-		/** Méthode permettant de changer l'occupation d'une case */
+
+		/** \brief Setter du type de la case.
+			Méthode permettant de changer l'occupation d'une case
+			\param a : la case en position
+			\param b : l'occupation à mettre.
+		*/
 		void setOccupation(int a, int b);
-		/** Méthode renvoyant un entier représentant l'occupation d'une case */
+
+		/** \brief Getter de l'occupation de la case. 
+			Méthode donnant le t'occupation d'une case a.
+			\param a : la case
+		*/
 		int getOccupation(int a);
-		/** Méthode renvoyant vrai s'il y a un obstacle sur la case a. trois type d'obstacle possible en fonction de l'etat du canard*/
+
+		/** \brief Renvoie l'obstacle terrestre.
+			Méthode renvoyant vrai s'il y a un obstacle sur la case a. trois type d'obstacle possible en fonction de l'etat du canard
+			\param a un int la case
+			\return un booléen (vrai si obstacle)
+		*/
 		bool getObstacleSol(int a);
+		/** \brief Renvoie l'obstacle aérien.
+			Méthode renvoyant faux, y a pas d'obstacle en vol
+			\return un booléen  faux
+		*/
 		bool getObstacleVol();
+		/** \brief Renvoie l'obstacle aquatique.
+			Méthode renvoyant vrai s'il y a un obstacle sur la case a. trois type d'obstacle possible en fonction de l'etat du canard
+			\param a un int la case
+			\return un booléen (vrai si obstacle)
+		*/
 		bool getObstacleEau(int a);
-		/** Méthode qui remplit la carte de nourriture et de brindilles */
+		/** \brief Remplit la carte.
+			Méthode qui remplit la carte de nourriture et de brindilles 
+		*/
 		void remplirCarte();
-		/** Méthode qui met dans leur tableaux respectifs les types de chaques états */
+		/** \brief tri des types
+		Méthode qui met dans leur tableaux respectifs les types de chaques états */
 		void triParType();
+		/** \brief renvoie les cases eau.
+			Renvoie un vecteur de cases aquatiques	
+			\return un vecteur d'int 
+		*/
 		std::vector<int> getCaseEau();
+		/** \brief renvoie les cases terrestres.
+			Renvoie un vecteur de cases terrestres	
+			\return un vecteur d'int 
+		*/
 		std::vector<int> getCaseSol();
 };
 #endif

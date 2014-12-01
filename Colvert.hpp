@@ -3,13 +3,17 @@
 
 #include "Canard.hpp"
 
-//le colvert est la version 2.0
+/** La classe Colvert est une implémentation concrète de Canard. */
 class Colvert: public Canard
 {
 	public:
+		/**Constructeur*/
 		Colvert(std::string nom);
+		/**Destructeur*/
 		~Colvert();
-
+		/** \brief Fonction de test.
+			\return renvoie un string
+		*/
 		std::string presentation();
 
 };
