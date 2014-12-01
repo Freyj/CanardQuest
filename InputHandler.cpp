@@ -1,4 +1,5 @@
 #include "InputHandler.hpp"
+#include "Carte.hpp"
 #include <iostream>
 
 //(╯°□°）╯︵ ┻━┻
@@ -275,4 +276,9 @@ void InputHandler::deplacementBas(int place)
 			std::cout << "Tu ne peux pas aller dans cette direction.";
 		}
 	}
+}
+
+void InputHandler::setCarte(Carte* car)
+{
+	this->carte_ = car;
 }

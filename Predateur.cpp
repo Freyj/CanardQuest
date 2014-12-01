@@ -43,7 +43,7 @@ Fonction renvoyant un string représentant l'objet, pour tests.
 */
 std::string PredateurVol::presentation()
 {
-	return "Je suis un prédateur Aérien, je tue mes cibles Depuis les airs. Crôa.";
+	return "Je suis un prédateur aérien, je tue mes cibles depuis les airs. Crôa.";
 }
 
 /**
@@ -65,5 +65,5 @@ Fonction renvoyant un string représentant l'objet, pour tests.
 */
 std::string PredateurEau::presentation()
 {
-	return "Je suis un prédateur aquatique, je manges mes repas Lorsqu'elles s'aventurent sur l'eau. Bloup.";
+	return "Je suis un prédateur aquatique, je mange mes repas lorsqu'ils s'aventurent sur l'eau. Bloup.";
 }

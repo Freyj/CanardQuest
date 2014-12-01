@@ -28,14 +28,11 @@ void Aigle::tuer(Canard* can)
 	}
 	else
 	{
-		/*
-		On crée l'aléatoire (cf cplusplus.com/reference/random)
-		*/
-		std::default_random_engine generator;
-		std::uniform_int_distribution<int> distribution(0,255);
+		std::random_device rd;//nouvelle methode pour l'aléatoire, merci Charles-Eric! [Meilleure car elle prend le temps passé sur le système depuis une certaine date]
+		
 		/*
 		choisi une nouvelle position où faire apparaitre l'aigle (comme il vole, on considère qu'il peut arriver n'importe où)
 		*/
-		this->setPos(distribution(generator));
+		this->setPos(rd()%256);
 	}
 }
