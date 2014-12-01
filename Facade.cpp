@@ -51,18 +51,22 @@ void Facade::tourPredateurs()
 {
     //les prédateurs agissent (et tentent de tuer le canard)
     //les tests de présentation fonctionnent
+    //en l'occurence ils ne peuvent pas bouger à l'exception de l'aigle
+    //à chaque tour on vérifie l'a position des prédateurs.
     for(int unsigned i(0); i<bestiaire->getPredEau().size(); ++i)
     {
-      //  aff.presentation(bestiaire->getPredEau().at(i)->presentation()); //<<bestiaire->getPredEau().at(i)->getPos()<<std::endl;
+        bestiaire->getPredEau().at(i)->tuer(joueur);
+        std::cout<<bestiaire->getPredEau().at(i)->getPos()<<std::endl;
     }
     for(int unsigned j(0); j<bestiaire->getPredSol().size(); ++j)
     {
-        // aff.presentation(bestiaire->getPredSol().at(j)->presentation());
+        bestiaire->getPredSol().at(j)->tuer(joueur);
+        std::cout<<bestiaire->getPredSol().at(j)->getPos()<<std::endl;
     }
     for(int unsigned k(0); k<bestiaire->getPredVol().size(); ++k)
     {
         bestiaire->getPredVol().at(k)->tuer(joueur);
-       // aff.presentation(bestiaire->getPredVol().at(k)->presentation()); //<<bestiaire->getPredVol().at(k)->getPos()<<std::endl;
+        std::cout<<bestiaire->getPredVol().at(k)->getPos()<<std::endl;
     }
 }
 

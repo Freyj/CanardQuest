@@ -186,20 +186,47 @@ void InputHandler::deplacementHau(int place)
 	}
 	else
 	{
+		bool transitionEauSol(false);
+		bool transitionSolEau(false);
+		if((carte_->getType(place) == 3 && carte_->getType(place-16) == 1) || (carte_->getType(place) == 4 && carte_->getType(place-16) == 1) || (carte_->getType(place) == 6 && carte_->getType(place-16) == 1))
+        {//nécessaire pour vérifier si le canard sait nager
+        	transitionSolEau = true;
+        }
+        else if ((carte_->getType(place) == 1 && carte_->getType(place-16) == 3) || (carte_->getType(place) == 1 && carte_->getType(place-16) == 4) || (carte_->getType(place) == 1 && carte_->getType(place-16) == 6))
+        {
+        	transitionEauSol = true;
+        }
+
 		if (canard_->autorisation(carte_->getType(place-16)))
 		{
-		    if((carte_->getType(place) == 3 && carte_->getType(place-16) == 1) || (carte_->getType(place) == 4 && carte_->getType(place-16) == 1) || (carte_->getType(place) == 6 && carte_->getType(place-16) == 1))
-            {//nécessaire nécessaire pour vérifier si le canard sait nager
-                canard_->sol_Eau();
-            }
-            else if ((carte_->getType(place) == 1 && carte_->getType(place-16) == 3) || (carte_->getType(place) == 1 && carte_->getType(place-16) == 4) || (carte_->getType(place) == 1 && carte_->getType(place-16) == 6))
-            {
-                canard_->eau_Sol();
-            }
-            //par conséquent va afficher action impossible puis tu avances à chaque mouvement de l'état vol --'
-                this->canard_->setPos(place-16);
+			if(transitionSolEau)
+			{
+				if(canard_->nager())
+				{
+					canard_->sol_Eau();
+	            	//par conséquent va afficher action impossible puis on avances à chaque mouvement de l'état vol --'
+	                this->canard_->setPos(place-16);
+	                std::cout << "\n---------------------------------------------------\n" << std::endl;
+	                std::cout << "Tu avances." << std::endl;
+            	}
+			}
+			else if(transitionEauSol)
+			{
+				if(canard_->nager())
+				{
+            		canard_->eau_Sol();
+	            	//par conséquent va afficher action impossible puis on avances à chaque mouvement de l'état vol --'
+	                this->canard_->setPos(place-16);
+	                std::cout << "\n---------------------------------------------------\n" << std::endl;
+	                std::cout << "Tu avances." << std::endl;
+            	}
+			}
+			else
+			{
+            	this->canard_->setPos(place-16);
                 std::cout << "\n---------------------------------------------------\n" << std::endl;
                 std::cout << "Tu avances." << std::endl;
+			}
 		}
 		else
 		{
@@ -218,11 +245,46 @@ void InputHandler::deplacementDro(int place)
 	}
 	else
 	{
+		bool transitionEauSol(false);
+		bool transitionSolEau(false);
+		if((carte_->getType(place) == 3 && carte_->getType(place+1) == 1) || (carte_->getType(place) == 4 && carte_->getType(place+1) == 1) || (carte_->getType(place) == 6 && carte_->getType(place+1) == 1))
+        {//nécessaire pour vérifier si le canard sait nager
+        	transitionSolEau = true;
+        }
+        else if ((carte_->getType(place) == 1 && carte_->getType(place+1) == 3) || (carte_->getType(place) == 1 && carte_->getType(place+1) == 4) || (carte_->getType(place) == 1 && carte_->getType(place+1) == 6))
+        {
+        	transitionEauSol = true;
+        }
 		if (canard_->autorisation(carte_->getType(place+1)))
 		{
-			this->canard_->setPos(place+1);
-            std::cout << "\n---------------------------------------------------\n" << std::endl;
-			std::cout << "Tu vas à droite." << std::endl;
+			if(transitionSolEau)
+			{
+				if(canard_->nager())
+				{
+					canard_->sol_Eau();
+	            	//par conséquent va afficher action impossible puis on avances à chaque mouvement de l'état vol --'
+	                this->canard_->setPos(place+1);
+	                std::cout << "\n---------------------------------------------------\n" << std::endl;
+	                std::cout << "Tu avances." << std::endl;
+            	}
+			}
+			else if(transitionEauSol)
+			{
+				if(canard_->nager())
+				{
+            		canard_->eau_Sol();
+	            	//par conséquent va afficher action impossible puis on avances à chaque mouvement de l'état vol --'
+	                this->canard_->setPos(place+1);
+	                std::cout << "\n---------------------------------------------------\n" << std::endl;
+	                std::cout << "Tu avances." << std::endl;
+            	}
+			}
+			else
+			{
+            	this->canard_->setPos(place+1);
+                std::cout << "\n---------------------------------------------------\n" << std::endl;
+                std::cout << "Tu avances." << std::endl;
+			}
 		}
 		else
 		{
@@ -241,11 +303,46 @@ void InputHandler::deplacementGau(int place)
 	}
 	else
 	{
+		bool transitionEauSol(false);
+		bool transitionSolEau(false);
+		if((carte_->getType(place) == 3 && carte_->getType(place-1) == 1) || (carte_->getType(place) == 4 && carte_->getType(place-1) == 1) || (carte_->getType(place) == 6 && carte_->getType(place-1) == 1))
+        {//nécessaire pour vérifier si le canard sait nager
+        	transitionSolEau = true;
+        }
+        else if ((carte_->getType(place) == 1 && carte_->getType(place-1) == 3) || (carte_->getType(place) == 1 && carte_->getType(place-1) == 4) || (carte_->getType(place) == 1 && carte_->getType(place-1) == 6))
+        {
+        	transitionEauSol = true;
+        }
 		if (canard_->autorisation(carte_->getType(place-1)))
 		{
-			this->canard_->setPos(place-1);
-            std::cout << "\n---------------------------------------------------\n" << std::endl;
-			std::cout << "Tu vas à gauche." << std::endl;
+			if(transitionSolEau)
+			{
+				if(canard_->nager())
+				{
+					canard_->sol_Eau();
+	            	//par conséquent va afficher action impossible puis on avances à chaque mouvement de l'état vol --'
+	                this->canard_->setPos(place-1);
+	                std::cout << "\n---------------------------------------------------\n" << std::endl;
+	                std::cout << "Tu avances." << std::endl;
+            	}
+			}
+			else if(transitionEauSol)
+			{
+				if(canard_->nager())
+				{
+            		canard_->eau_Sol();
+	            	//par conséquent va afficher action impossible puis on avances à chaque mouvement de l'état vol --'
+	                this->canard_->setPos(place-1);
+	                std::cout << "\n---------------------------------------------------\n" << std::endl;
+	                std::cout << "Tu avances." << std::endl;
+            	}
+			}
+			else
+			{
+            	this->canard_->setPos(place-1);
+                std::cout << "\n---------------------------------------------------\n" << std::endl;
+                std::cout << "Tu avances." << std::endl;
+			}
 		}
 		else
 		{
@@ -264,11 +361,46 @@ void InputHandler::deplacementBas(int place)
 	}
 	else
 	{
+		bool transitionEauSol(false);
+		bool transitionSolEau(false);
+		if((carte_->getType(place) == 3 && carte_->getType(place+16) == 1) || (carte_->getType(place) == 4 && carte_->getType(place+16) == 1) || (carte_->getType(place) == 6 && carte_->getType(place+16) == 1))
+        {//nécessaire pour vérifier si le canard sait nager
+        	transitionSolEau = true;
+        }
+        else if ((carte_->getType(place) == 1 && carte_->getType(place+16) == 3) || (carte_->getType(place) == 1 && carte_->getType(place+16) == 4) || (carte_->getType(place) == 1 && carte_->getType(place+16) == 6))
+        {
+        	transitionEauSol = true;
+        }
 		if (canard_->autorisation(carte_->getType(place+16)))
 		{
-			this->canard_->setPos(place+16);
-            std::cout << "\n---------------------------------------------------\n" << std::endl;
-			std::cout << "Tu vas en bas." << std::endl;
+			if(transitionSolEau)
+			{
+				if(canard_->nager())
+				{
+					canard_->sol_Eau();
+	            	//par conséquent va afficher action impossible puis on avances à chaque mouvement de l'état vol --'
+	                this->canard_->setPos(place+16);
+	                std::cout << "\n---------------------------------------------------\n" << std::endl;
+	                std::cout << "Tu avances." << std::endl;
+            	}
+			}
+			else if(transitionEauSol)
+			{
+				if(canard_->nager())
+				{
+            		canard_->eau_Sol();
+	            	//par conséquent va afficher action impossible puis on avances à chaque mouvement de l'état vol --'
+	                this->canard_->setPos(place+16);
+	                std::cout << "\n---------------------------------------------------\n" << std::endl;
+	                std::cout << "Tu avances." << std::endl;
+            	}
+			}
+			else
+			{
+            	this->canard_->setPos(place+16);
+                std::cout << "\n---------------------------------------------------\n" << std::endl;
+                std::cout << "Tu avances." << std::endl;
+			}
 		}
 		else
 		{

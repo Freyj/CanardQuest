@@ -43,16 +43,16 @@ std::vector<PredateurVol*> Bestiaire::getPredVol()
 void BestiaireBasique::initPlace(Carte* carte)
 {
     for(int unsigned i(0); i<predEau_.size(); ++i)
-    {
-		std::default_random_engine n;
-		std::uniform_int_distribution<int> distribution(0,carte->getCaseEau().size()-1);
-        predEau_.at(i)->setPos(carte->getCaseEau().at(distribution(n)));
+    {   
+        std::random_device rd;
+        std::mt19937 rng(rd());
+        predEau_.at(i)->setPos(carte->getCaseEau().at(rng()%(carte->getCaseEau().size())));
     }
     for(int unsigned j(0); j<predSol_.size(); ++j)
     {
-		std::default_random_engine n;
-		std::uniform_int_distribution<int> distribution(0,carte->getCaseEau().size()-1);
-        predSol_.at(j)->setPos(carte->getCaseEau().at(distribution(n)));
+        std::random_device rd2;
+        std::mt19937 rng2(rd2());
+        predSol_.at(j)->setPos(carte->getCaseSol().at(rng2()%(carte->getCaseSol().size())));
     }
     for(int unsigned k(0); k<predVol_.size(); ++k)
     {
@@ -79,6 +79,5 @@ void BestiaireBasique::listerPredateurs(int s, int e)
     {
         predEau_.push_back(fP_->creerAqua());
     }
-    //un seul aérien (aigle)
     predVol_.push_back(fP_->creerCeleste());
 }
