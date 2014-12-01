@@ -65,7 +65,7 @@ public:
     */
 	CompetenceVol* getCompVol();
 	/** \brief Setter de CompetenceVol
-    	\param un pointeur vers la competenceVol du canard
+    	\param c un pointeur vers la competenceVol du canard
     */
 	void setCompVol(CompetenceVol* c);
 
@@ -74,7 +74,7 @@ public:
     */
 	CompetenceCancan* getCompCan();
 	/** \brief Setter de CompetenceCancan
-    	\param un pointeur vers la CompetenceCancan du canard
+    	\param c un pointeur vers la CompetenceCancan du canard
     */
 	void setCompCan(CompetenceCancan* c);
 
@@ -83,7 +83,7 @@ public:
     */
 	CompetenceNage* getCompNage();
 	/** \brief Setter de CompetenceNage
-    	\param un pointeur vers la CompetenceNage du canard
+    	\param c un pointeur vers la CompetenceNage du canard
     */
 	void setCompNage(CompetenceNage* c);
 
@@ -103,6 +103,9 @@ public:
     	\return un pointeur vers un Etat
     */
 	Etat* getEtat();
+    /** \brief Setter de l'état actuel
+        \param e un pointeur vers un Etat
+    */
     void setEtat(Etat* e);
 
     //ACTIONS

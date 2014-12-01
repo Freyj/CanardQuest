@@ -25,7 +25,7 @@ class EtatAuSol : public Etat
         Canard* getCanard_() { return canard_; }
         /**\brief Setter du canard.
             Affecte  le canard
-            \param un pointeur vers Canard
+            \param val un pointeur vers Canard
         */
         void setCanard_(Canard* val) { canard_ = val; }
         /** \brief Sol->Eau.
@@ -39,7 +39,7 @@ class EtatAuSol : public Etat
         /**Pour modifier l'affichage des actions possibles en mettant voler */
         void choix();
         /**Vérifie que le déplacement est possible en fonction des obstacles
-            \param int position
+            \param x int de position
             \return un booléen vrai si on peut passer
         */
         bool autorisation(int x);

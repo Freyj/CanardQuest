@@ -12,11 +12,17 @@
 class Renard:public PredateurSol
 {
 	public:
+		/**Constructeur*
+		\param a un int pour la position*/
 		Renard(int a);
+		/**Destructeur*/
 		~Renard();
+		/** \brief Fonction de test
+		\return un string*/
 		std::string presentation() override;
+		/** fonction qui permettra au renard de tuer le canard
+		\param can un pointeur vers canard*/
 		void tuer(Canard* can);
-		//void deplacement(int a);
 };
 
 #endif

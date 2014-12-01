@@ -3,8 +3,9 @@
 
 #include <iostream>
 
-/**La classe abstraite Etat permet l'implémentation du pattern State, elle détermine l'état du canard (au sol, en l'air, dans l'eau). */
+
 class Canard;
+/**La classe abstraite Etat permet l'implémentation du pattern State, elle détermine l'état du canard (au sol, en l'air, dans l'eau). */
 class Etat
 {
     public:
@@ -27,7 +28,6 @@ class Etat
         /**Pour modifier l'affichage des actions possibles en fonction des états */
         virtual void choix(){}
         /**Vérifie que le déplacement est possible en fonction des obstacles
-            \param int position
             \return un booléen vrai si on peut passer
         */
         virtual bool autorisation(int){return true;}

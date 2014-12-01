@@ -24,11 +24,20 @@ class Bestiaire
             Désalloue la mémoire occupée par les vecteurs de pointeurs
         */        
         virtual ~Bestiaire();
-        /** */
+        /** initiamise les vecteurs de prédateurs */
         virtual void listerPredateurs(int, int /*, int ce serais bien de l'avoir lui quand meme, si on veut avoir plusieurs prédateurs célestes*/) = 0;
+        /** Renvoie les predateurs terrestres 
+        \return un vector<PredateurSol>*/
         std::vector<PredateurSol*> getPredSol();
+        /** Renvoie les predateurs aquatiques 
+        \return un vector<PredateurEau>*/
         std::vector<PredateurEau*> getPredEau();
+        /** Renvoie les predateurs aériens 
+        \return un vector<PredateurVol>*/
         std::vector<PredateurVol*> getPredVol();
+        /** \brief ajoute les prédateurs.
+        Initialise les positions des prédateurs
+        \param carte un pointeur vers la carte */
         virtual void initPlace(Carte* carte)=0;
 };
 

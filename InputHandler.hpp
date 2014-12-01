@@ -6,11 +6,18 @@
 class InputHandler
 	{
 		private:
+			/**Pointeur vers Canard*/
 			Canard* canard_;
+			/**Pointeur vers la carte*/
 			Carte* carte_;
+			/**Booléen pour l'arrêt du jeu*/
 			bool arret_;
 		public:
+			/**Constructeur
+			\param can un pointeur vers Canard
+			\param cart un pointeur vers Carte*/
 			InputHandler(Canard* can, Carte* cart);
+			/**Destructeur*/
 			~InputHandler();
 			//getters & setters
 			/** Getter renvoyant le pointeur vers le canard actuel */
