@@ -32,14 +32,22 @@ class EtatEnVol : public Etat
             modifie l'état dans l'eau en vol au sol
         */
         void atterrissageSol();
-        void atterrissageEau(); //change l'état en vol à etat sur l'eau
+        /** \brief Air->Sol.
+            modifie l'état dans l'eau en état en vol
+        */
+        void atterrissageEau();
 
+        /**Pour modifier l'affichage des actions possibles en mettant atterrir */
         void choix();
-        bool autorisation(int  );
-
+        /**Vérifie que le déplacement est possible en fonction des obstacles
+            \param int position
+            \return un booléen vrai si on peut passer
+        */
+        bool autorisation(int x);
+        /**\brief Fonction de test.
+            Affiche l'état
+        */
         virtual void aff(){std::cout<<"en Vol"<<std::endl;}
-
-    protected:
 };
 
 #endif // ETATENVOL_HPP
