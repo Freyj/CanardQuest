@@ -79,5 +79,6 @@ void BestiaireBasique::listerPredateurs(int s, int e)
     {
         predEau_.push_back(fP_->creerAqua());
     }
+    //un seul aérien (aigle)
     predVol_.push_back(fP_->creerCeleste());
 }

@@ -1,3 +1,8 @@
+/*! \mainpage Présentation
+    
+    CanardQuest est un jeu où vous êtes un canard tentant de survivre dans un monde hostile avec des prédateurs. Vous devez trouver de la nourriture pour survivre. Votre canard finit par évoluer et apprend à voler ainsi qu'à nager [oui, il ne sait pas nager à la naissance, c'est très réaliste, sources de wikipedia pour la vie d'un canard !]
+*/
+
 #include <iostream>
 #include <cstdlib>
 #include "Facade.hpp"
@@ -11,7 +16,7 @@ int main(void)
     int cpt;
     char diff;
     //std::string nomCanard ="";
-    //choix de la difficulté
+    //choix de la difficulté (pour le moment sans intérêt)
     do 
     {       
         std::cout<<"Vous avez le choix entre un niveau de difficulté  basique ou basique.\nPrenez votre temps surtout pour choisir, tapez 0 "<<std::endl;
